@@ -13,20 +13,6 @@
                 Aspect="AspectFit"
                 SemanticProperties.Description="dot net bot in a hovercraft number nine" />
 
-            <Image WidthRequest="30">
-                <Image.Source>
-                    <FontImageSource Color="Black"
-                        FontFamily="FARegular"
-                        Glyph="&#xf2fe;"
-                        Size="50"/>
-                </Image.Source>
-            </Image>
-            <Label
-                FontFamily="FARegular"
-                Text=" &#xf007; &#xf2fe; " 
-                FontAttributes="None" />
-            <Label
-                Text="" />
             <Label
                 Text="Hello, World!"
                 Style="{StaticResource Headline}"
