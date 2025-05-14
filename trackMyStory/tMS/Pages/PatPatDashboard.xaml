@@ -11,6 +11,39 @@
             Series="{Binding Series}"
             HeightRequest="500">
         </lvc:CartesianChart>
+
+        <HorizontalStackLayout>
+            <Button Text="PatPat" Clicked="PatPatClicked">
+            <Button.ImageSource >
+                <FontImageSource Glyph="" FontFamily="FARegular">
+                    
+                </FontImageSource>
+            </Button.ImageSource>
+        </Button>
+        <Button Text="Gute Nudel Stern" Clicked="StarClicked" >
+            <Button.ImageSource >
+                <FontImageSource Glyph="" FontFamily="FARegular">
+
+                </FontImageSource>
+            </Button.ImageSource>
+        </Button>
+        <Button Text="Tasks" Clicked="DoneClicked" >
+            <Button.ImageSource >
+                <FontImageSource Glyph="" FontFamily="FARegular">
+
+                </FontImageSource>
+            </Button.ImageSource>
+        </Button>
+        <Button Text="Step by Step" Clicked="StepsClicked" >
+            <Button.ImageSource >
+                <FontImageSource Glyph="" FontFamily="FASolid">
+
+                </FontImageSource>
+            </Button.ImageSource>
+        </Button>
+        </HorizontalStackLayout>
+        
+        
     </VerticalStackLayout>
 
 </ContentPage>
