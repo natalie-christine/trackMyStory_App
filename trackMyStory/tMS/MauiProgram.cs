@@ -18,6 +18,9 @@ namespace tMS
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("FABrands.otf", "FABrands");
+                    fonts.AddFont("FARegular.otf", "FARegular");
+                    fonts.AddFont("FASolid.otf", "FASolid");
                 });
 
 #if DEBUG
