@@ -23,4 +23,9 @@
         ContentTemplate="{DataTemplate pages:SupabaseView}"
         Route="Login" 
         />
+    <ShellContent
+    Title="Einstellungen"
+    ContentTemplate="{DataTemplate pages:Settings}"
+    Route="Settings" 
+    />
 </Shell>

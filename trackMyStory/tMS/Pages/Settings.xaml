@@ -5,7 +5,7 @@
              Title="Settings">
     <VerticalStackLayout>
 
-        <Border x:Name="SliderContainer" BackgroundColor="White" StrokeShape="RoundRectangle 10,10,10,10">
+        <Border x:Name="SliderContainer"  StrokeShape="RoundRectangle 10,10,10,10">
             <VerticalStackLayout Spacing="15" VerticalOptions="Center">
                 <Label FontAttributes="Bold" FontSize="Large" HorizontalTextAlignment="Center" Text="Color Maker" TextColor="{DynamicResource DynamicPrimaryText}" />
                 <Label Text="Red Value:" TextColor="{DynamicResource DynamicPrimaryText}" />
@@ -16,7 +16,15 @@
                 <Slider x:Name="sldBlue" ValueChanged="Slider_ValueChanged" />
             </VerticalStackLayout>
         </Border>
+        <HorizontalStackLayout Spacing="10">
+            <Button Text="Random Color" Clicked="btnRandom_Clicked" FontSize="Medium" TextColor="{DynamicResource DynamicPrimaryText}">
+                <Button.ImageSource >
+                    <FontImageSource Glyph="" FontFamily="FARegular" >
 
+                    </FontImageSource>
+                </Button.ImageSource>
+            </Button>
+        </HorizontalStackLayout>
 
 
     </VerticalStackLayout>
