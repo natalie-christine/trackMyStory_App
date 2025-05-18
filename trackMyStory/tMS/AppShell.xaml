@@ -18,5 +18,9 @@
         ContentTemplate="{DataTemplate pages:PatPatDashboard}"
         Route="PatPatDashboard" 
         />
-
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate pages:SupabaseView}"
+        Route="Login" 
+        />
 </Shell>
