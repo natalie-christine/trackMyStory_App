@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="tMS.Pages.SupabaseView"
+             Title="SupabaseView"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+            <toolkit:IsNotNullConverter x:Key="IsNotNullConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout Padding="20" BackgroundColor="LightGray">
+        <Label Text="Supabase Tests" FontSize="Header" FontAttributes="Bold" Padding="0,0,0,20" />
+        <Border IsVisible="{Binding IsLoggedIn, Converter={StaticResource InvertedBoolConverter }}" BackgroundColor="White" StrokeShape="RoundRectangle 10,10,10,10">
+            <VerticalStackLayout>
+                <Label Text="Login" FontSize="Title" FontAttributes="Bold" Padding="0,0,0,10" />
+                <Entry x:Name="entryUsername" Placeholder="Username" Text="{Binding LoginUsername}" ReturnCommand="{Binding LoginCommand}" />
+                <Entry x:Name="entryPassword" Placeholder="Password" Text="{Binding LoginPassword}" ReturnCommand="{Binding LoginCommand}" IsPassword="True" />
+                <Button Text="Login" Command="{Binding LoginCommand}" />
+                <Label IsVisible="{Binding ErrorMessage, Converter={StaticResource IsNotNullConverter}}" Text="{Binding ErrorMessage}" FontSize="Small" TextColor="DarkRed" FontAttributes="Bold" Padding="0,10,0,0" />
+            </VerticalStackLayout>
+        </Border>
+        <Border IsVisible="{Binding IsLoggedIn}" BackgroundColor="White" StrokeShape="RoundRectangle 10,10,10,10">
+            <VerticalStackLayout>
+                <Grid ColumnDefinitions=".08*, .9*, .1*" RowDefinitions="*,*,*">
+                    <Label Grid.ColumnSpan="2" Text="Profile" FontSize="Title" FontAttributes="Bold" Padding="0,0,0,10" />
+                    <Image Grid.Row="1" Grid.RowSpan="2" WidthRequest="60" HorizontalOptions="Start">
+                        <Image.Source>
+                            <toolkit:GravatarImageSource
+                                CacheValidity="1"
+                                CachingEnabled="True"
+                                Email="{Binding User.Email}"
+                                Image="Identicon" />
+                        </Image.Source>
+                    </Image>
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding User.Email}" Padding="0,0,0,10" />
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding User.Id}" Padding="0,0,0,10" />
+                    <Button Grid.Column="2" Grid.RowSpan="3" HorizontalOptions="End" VerticalOptions="Start" Text="Logout" Command="{Binding LogoutCommand}" />                    
+                </Grid>
+            </VerticalStackLayout>
+        </Border>
+        <Border IsVisible="{Binding IsLoggedIn}" BackgroundColor="White" StrokeShape="RoundRectangle 10,10,10,10">
+            <Grid ColumnDefinitions=".5*, .5*" RowDefinitions="*,*,*">
+                <Label Text="Todos" FontSize="Title" FontAttributes="Bold" Padding="0,0,0,20" />
+                <Button Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start" Text="↻" Command="{Binding LoadTodosCommand}" />
+                <!--<ListView Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Todos}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid RowDefinitions="20,*" ColumnDefinitions="50,*" Padding="20">
+                                    <CheckBox IsChecked="{Binding Done}" />
+                                    <Label Grid.Column="1" Text="{Binding Name}" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Notes}" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>-->
+                <CollectionView Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Todos}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid RowDefinitions="20,*" ColumnDefinitions="50,*">
+                                <CheckBox IsChecked="{Binding Done}" />
+                                <Label Grid.Column="1" Text="{Binding Name}" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Notes}" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <VerticalStackLayout Grid.Row="2" Grid.ColumnSpan="2" Padding="0,30,0,0" HorizontalOptions="FillAndExpand">
+                    <Label Text="Add Todo" FontSize="Subtitle" />
+                    <Entry Placeholder="Name" Text="{Binding NewTodo.Name}" />
+                    <Entry Placeholder="Description" Text="{Binding NewTodo.Notes}" />
+                </VerticalStackLayout >
+                <Button Grid.Row="2" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start" Text="Save" Command="{Binding SaveNewTodoCommand }" />
+            </Grid>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>
