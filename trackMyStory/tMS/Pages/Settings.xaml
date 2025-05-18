@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tMS.Pages.Settings"
+             Title="Settings">
+    <VerticalStackLayout>
+
+        <Border x:Name="SliderContainer" BackgroundColor="White" StrokeShape="RoundRectangle 10,10,10,10">
+            <VerticalStackLayout Spacing="15" VerticalOptions="Center">
+                <Label FontAttributes="Bold" FontSize="Large" HorizontalTextAlignment="Center" Text="Color Maker" TextColor="{DynamicResource DynamicPrimaryText}" />
+                <Label Text="Red Value:" TextColor="{DynamicResource DynamicPrimaryText}" />
+                <Slider x:Name="sldRed" ValueChanged="Slider_ValueChanged" />
+                <Label Text="Green Value:" TextColor="{DynamicResource DynamicPrimaryText}" />
+                <Slider x:Name="sldGreen" ValueChanged="Slider_ValueChanged" />
+                <Label Text="Blue Value:" TextColor="{DynamicResource DynamicPrimaryText}" />
+                <Slider x:Name="sldBlue" ValueChanged="Slider_ValueChanged" />
+            </VerticalStackLayout>
+        </Border>
+
+
+
+    </VerticalStackLayout>
+</ContentPage>
