@@ -35,24 +35,24 @@ public class ColorHelper
             }
         }
 
-        //Color RotateColor(Color c, float r)
-        //{
-        //    c.ToHsl(out var h, out var s, out var l);
-        //    h += r;
-        //    h %= 1.0f;
-        //    return Color.FromHsla(h, s, l);
-        //}
+        Color RotateColor(Color c, float r)
+        {
+            c.ToHsl(out var h, out var s, out var l);
+            h += r;
+            h %= 1.0f;
+            return Color.FromHsla(h, s, l);
+        }
 
         if (color != null)
         {
             SetColors("DynamicPrimary", color);
+            SetColors("DynamicTertiary", RotateColor(color, 0.25f));
         }
         if (color2 != null)
         {
             SetColors("DynamicSecondary", color2);
+            SetColors("DynamicQuartary", RotateColor(color2, 0.25f));
         }
-        //SetColors("DynamicTertiary", RotateColor(color, 0.25f));
-        //SetColors("DynamicQuartary", RotateColor(color, 0.75f));
     }
 
     public static Color GetColor1()
