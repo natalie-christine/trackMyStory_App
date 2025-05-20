@@ -24,7 +24,7 @@
                     <Label FontAttributes="Bold" FontSize="Large"  HorizontalTextAlignment="Center" Text="Farbauswahl 2" TextColor="{DynamicResource DynamicSecondaryText}" />
                     <Label Text="Rot:" TextColor="{DynamicResource DynamicSecondaryText}" />
                     <Slider class="Secondary" x:Name="sldRed2" ValueChanged="Slider_ValueChanged" />
-                    <Label Text="Grün" TextColor="{DynamicResource DynamicSecondaryText}" />
+                    <Label Text="Grün:" TextColor="{DynamicResource DynamicSecondaryText}" />
                     <Slider class="Secondary" x:Name="sldGreen2" ValueChanged="Slider_ValueChanged" />
                     <Label Text="Blau:" TextColor="{DynamicResource DynamicSecondaryText}" />
                     <Slider  class="Secondary" x:Name="sldBlue2" ValueChanged="Slider_ValueChanged" />
