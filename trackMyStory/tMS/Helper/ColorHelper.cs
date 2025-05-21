@@ -64,4 +64,19 @@ public class ColorHelper
     {
         return Color.Parse(Application.Current.Resources["DynamicSecondary"].ToString());
     }
+
+    public static void ToggleDarkMode()
+    {
+        if (Application.Current != null)
+        {
+            if (Application.Current.RequestedTheme == AppTheme.Light)
+            {
+                Application.Current.UserAppTheme = AppTheme.Dark;
+            }
+            else
+            {
+                Application.Current.UserAppTheme = AppTheme.Light;
+            }
+        }
+    }
 }
