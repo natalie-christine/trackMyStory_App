@@ -6,7 +6,15 @@
     xmlns:local="clr-namespace:tMS"
     xmlns:pages="clr-namespace:tMS.Pages"
     Shell.FlyoutBehavior="Flyout"
+    Shell.FlyoutItemIsVisible="False"
     Title="tMS">
+
+    <FlyoutItem FlyoutItemIsVisible="False">
+        <ShellContent
+            ContentTemplate="{DataTemplate pages:Login}"
+            Route="Login" 
+        />
+    </FlyoutItem>
 
     <ShellContent
         Title="Home"
@@ -19,13 +27,12 @@
         Route="PatPatDashboard" 
         />
     <ShellContent
-        Title="Login"
-        ContentTemplate="{DataTemplate pages:SupabaseView}"
-        Route="Login" 
-        />
-    <ShellContent
-    Title="Einstellungen"
-    ContentTemplate="{DataTemplate pages:Settings}"
-    Route="Settings" 
+        Title="Einstellungen"
+        ContentTemplate="{DataTemplate pages:Settings}"
+        Route="Settings" 
     />
+
+    <Shell.FlyoutFooter>
+        <Button Text="Logout" Command="{Binding LogoutCommand}" />
+    </Shell.FlyoutFooter>
 </Shell>
