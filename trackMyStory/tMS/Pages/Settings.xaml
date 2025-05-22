@@ -31,20 +31,40 @@
                 </VerticalStackLayout>
             </Border>
 
-            <Button  Margin="20" Text="Random Color" Clicked="btnRandom_Clicked" FontSize="Medium" TextColor="{DynamicResource DynamicPrimaryText}" Grid.Row="1" Grid.Column="0" >
+
+
+            <HorizontalStackLayout Grid.Row="1"  >
+            <Button  Margin="20" Text="Random Color" Clicked="btnRandom_Clicked" FontSize="Medium" TextColor="{DynamicResource DynamicPrimaryText}"  Grid.Column="0"  >
                 <Button.ImageSource >
                     <FontImageSource Glyph="" FontFamily="FARegular" Color="{DynamicResource DynamicPrimaryText}" >
 
                     </FontImageSource>
                 </Button.ImageSource>
             </Button>
-            <Button  Margin="20" class="Secondary" Text="Random Color" Clicked="btnRandom2_Clicked" FontSize="Medium" Grid.Row="1" Grid.Column="1">
+                <Button  Margin="20" Text="Speichern" Clicked="btnSaveColor1Clicked" FontSize="Medium"  Grid.Column="1" BackgroundColor="{DynamicResource DynamicPrimaryDark}">
+                    <Button.ImageSource >
+                        <FontImageSource Glyph="" FontFamily="FARegular" Color="{DynamicResource DynamicPrimaryText}" >
+
+                        </FontImageSource>
+                    </Button.ImageSource>
+                </Button>
+            </HorizontalStackLayout>
+                
+                <HorizontalStackLayout Grid.Row="1" Grid.Column="2" >
+            <Button  Margin="20" class="Secondary" Text="Random Color" Clicked="btnRandom2_Clicked" FontSize="Medium" Grid.Column="2">
                 <Button.ImageSource >
                     <FontImageSource Glyph="" FontFamily="FARegular" Color="{DynamicResource DynamicSecondaryText}">
 
                     </FontImageSource>
                 </Button.ImageSource>
             </Button>
+                <Button  Margin="20"  class="Secondary" Text="Speichern" Clicked="btnSaveColor2Clicked" FontSize="Medium"  Grid.Column="3" BackgroundColor="{DynamicResource DynamicSecondaryDark}">
+                <Button.ImageSource >
+                        <FontImageSource Glyph="" FontFamily="FARegular" Color="{DynamicResource DynamicSecondaryText}">
+                        </FontImageSource>
+                </Button.ImageSource>
+            </Button>
+            </HorizontalStackLayout>
         </Grid>
     </VerticalStackLayout>
 

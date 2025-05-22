@@ -62,4 +62,14 @@ public partial class Settings : ContentPage
 
         isRandom = false;
     }
+
+    private void btnSaveColor2Clicked(object sender, EventArgs e)
+    {
+
+    }
+
+    private void btnSaveColor1Clicked(object sender, EventArgs e)
+    {
+
+    }
 }

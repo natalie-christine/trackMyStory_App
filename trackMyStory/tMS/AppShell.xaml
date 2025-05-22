@@ -32,7 +32,7 @@
         Route="Settings" 
     />
 
-    <Shell.FlyoutFooter>
-        <Button Text="Logout" Command="{Binding LogoutCommand}" />
+    <Shell.FlyoutFooter >
+                  <Button Text="Logout" Command="{Binding LogoutCommand}" Margin="10" />  
     </Shell.FlyoutFooter>
 </Shell>

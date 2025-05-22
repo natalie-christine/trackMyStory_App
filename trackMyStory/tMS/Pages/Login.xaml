@@ -12,16 +12,17 @@
 
     <VerticalStackLayout>
         <Label 
-            Text="trackMyStory"
+            Text="trackMyStory.com"
             FontSize="40"
             VerticalOptions="Center" 
             HorizontalOptions="Center"
-            Padding="30"/>
+            Padding="30"
+            TextColor="{AppThemeBinding Dark=white, Light=black}"/>
 
         <Border StrokeShape="RoundRectangle 10,10,10,10" WidthRequest="400" Padding="20">
-            <VerticalStackLayout>
+            <VerticalStackLayout Spacing="18">
                 <Label Text="Login" FontSize="Title" FontAttributes="Bold" Padding="0,0,0,10" />
-                <Entry x:Name="entryUsername" Placeholder="Username" Text="{Binding LoginUsername}" ReturnCommand="{Binding LoginCommand}" />
+                <Entry  x:Name="entryUsername" Placeholder="Username" Text="{Binding LoginUsername}" ReturnCommand="{Binding LoginCommand}"  />
                 <Entry x:Name="entryPassword" Placeholder="Password" Text="{Binding LoginPassword}" ReturnCommand="{Binding LoginCommand}" IsPassword="True" />
                 <Button Text="Login" Command="{Binding LoginCommand}" />
                 <Label IsVisible="{Binding ErrorMessage, Converter={StaticResource IsNotNullConverter}}" Text="{Binding ErrorMessage}" FontSize="Small" TextColor="DarkRed" FontAttributes="Bold" Padding="0,10,0,0" />

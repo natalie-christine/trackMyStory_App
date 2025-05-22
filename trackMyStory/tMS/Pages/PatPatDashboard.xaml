@@ -5,45 +5,51 @@
              x:Class="tMS.Pages.PatPatDashboard"
              Title="PatPatDashboard">
 
-    <VerticalStackLayout>
-        <lvc:CartesianChart
+    <Grid >
+        <lvc:CartesianChart Grid.Row="0" Margin="0,0,150,0"
             XAxes="{Binding XAxes}"
             Series="{Binding Series}"
             HeightRequest="500">
         </lvc:CartesianChart>
-
-        <HorizontalStackLayout>
-            <Button Text="PatPat" Clicked="PatPatClicked">
+        <VerticalStackLayout Spacing="20"  Grid.Row="1" HorizontalOptions="End" Margin="0,0,30,0">
+            <Button Text="PatPat" Clicked="PatPatClicked" WidthRequest="200" VerticalOptions="Start">
+                <Button.ImageSource>
+                    <FontImageSource Glyph="" FontFamily="FARegular" />
+                </Button.ImageSource>
+            </Button>
+            <Button Text="Gute Nudel" Clicked="StarClicked" WidthRequest="200">
             <Button.ImageSource >
-                <FontImageSource Glyph="" FontFamily="FARegular">
-                    
-                </FontImageSource>
+                    <FontImageSource Glyph="" FontFamily="FARegular">
+                    </FontImageSource>
             </Button.ImageSource>
         </Button>
-        <Button Text="Gute Nudel Stern" Clicked="StarClicked" >
+            <Button Text="Tasks" Clicked="DoneClicked" WidthRequest="200" >
             <Button.ImageSource >
-                <FontImageSource Glyph="" FontFamily="FARegular">
-
-                </FontImageSource>
+                    <FontImageSource Glyph="" FontFamily="FARegular">
+                    </FontImageSource>
             </Button.ImageSource>
         </Button>
-        <Button Text="Tasks" Clicked="DoneClicked" >
+            <Button Text="Step by Step" Clicked="StepsClicked" WidthRequest="200" >
             <Button.ImageSource >
-                <FontImageSource Glyph="" FontFamily="FARegular">
-
-                </FontImageSource>
+                    <FontImageSource Glyph="" FontFamily="FASolid">
+                    </FontImageSource>
             </Button.ImageSource>
         </Button>
-        <Button Text="Step by Step" Clicked="StepsClicked" >
-            <Button.ImageSource >
-                <FontImageSource Glyph="" FontFamily="FASolid">
-
-                </FontImageSource>
-            </Button.ImageSource>
-        </Button>
-        </HorizontalStackLayout>
-        
-        
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+        <VerticalStackLayout Margin="30" Spacing="20" Grid.Row="1" Grid.Column="1" HorizontalOptions="End" VerticalOptions="End">
+            <Button class="Secondary" Text="Einstellungen"  WidthRequest="200" >
+                <Button.ImageSource >
+                    <FontImageSource Glyph="" FontFamily="FASolid">
+                    </FontImageSource>
+                </Button.ImageSource>
+            </Button>
+            <Button class="Secondary" Text="NullPlan"  WidthRequest="200" >
+                <Button.ImageSource >
+                    <FontImageSource Glyph="" FontFamily="FASolid">
+                    </FontImageSource>
+                </Button.ImageSource>
+            </Button>
+        </VerticalStackLayout>
+    </Grid>
 
 </ContentPage>
