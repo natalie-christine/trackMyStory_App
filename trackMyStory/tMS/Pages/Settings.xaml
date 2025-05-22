@@ -4,9 +4,7 @@
              x:Class="tMS.Pages.Settings"
              Title="Einstellungen">
     <VerticalStackLayout>
-
         <Grid ColumnDefinitions=" *,*" RowDefinitions="*,*" Margin="20" >
-
             <Border Padding="10,0,10,10" Margin="20" x:Name="SliderContainer"  StrokeShape="RoundRectangle 10,10,10,10"  >
                 <VerticalStackLayout VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Padding="0,0,20,0" >
                     <Label FontAttributes="Bold" FontSize="Large" HorizontalTextAlignment="Center" Text="Farbauswahl 1" TextColor="{DynamicResource DynamicPrimaryText}" />
@@ -17,8 +15,32 @@
                     <Label Text="Blau:" TextColor="{DynamicResource DynamicPrimaryText}" />
                     <Slider x:Name="sldBlue" ValueChanged="Slider_ValueChanged" />
                 </VerticalStackLayout>
-
             </Border >
+            <Grid ColumnDefinitions="*,*,*"  Grid.Row="1" >
+                <Button  Margin="20" Text="Random Color" Clicked="btnRandom_Clicked" FontSize="Medium" TextColor="{DynamicResource DynamicPrimaryText}"  Grid.Column="0"  >
+                    <Button.ImageSource >
+                        <FontImageSource Glyph="" FontFamily="FARegular" Color="{DynamicResource DynamicPrimaryText}" >
+
+                        </FontImageSource>
+                    </Button.ImageSource>
+                </Button>
+                <Button  Margin="20" Text="Speichern" Clicked="btnSaveColor1Clicked" FontSize="Medium"  Grid.Column="1" BackgroundColor="{DynamicResource DynamicPrimaryDark}">
+                    <Button.ImageSource >
+                        <FontImageSource Glyph="" FontFamily="FARegular" Color="{DynamicResource DynamicPrimaryText}" >
+
+                        </FontImageSource>
+                    </Button.ImageSource>
+                </Button>
+                <Button  Margin="20" Text="Zurücksetzen" FontSize="Medium"  Grid.Column="3" BackgroundColor="{DynamicResource DynamicTertiary}">
+                    <Button.ImageSource >
+                        <FontImageSource Glyph="" FontFamily="FARegular" Color="{DynamicResource DynamicPrimaryText}" >
+
+                        </FontImageSource>
+                    </Button.ImageSource>
+                </Button>
+            </Grid>
+
+
             <Border Padding="10,0,10,10"  Margin="20" class="Secondary" x:Name="SliderContainer2"  StrokeShape="RoundRectangle 10,10,10,10" Grid.Row="0" Grid.Column="1">
                 <VerticalStackLayout  VerticalOptions="Center">
                     <Label FontAttributes="Bold" FontSize="Large"  HorizontalTextAlignment="Center" Text="Farbauswahl 2" TextColor="{DynamicResource DynamicSecondaryText}" />
@@ -30,43 +52,29 @@
                     <Slider  class="Secondary" x:Name="sldBlue2" ValueChanged="Slider_ValueChanged" />
                 </VerticalStackLayout>
             </Border>
-
-
-
-            <HorizontalStackLayout Grid.Row="1"  >
-            <Button  Margin="20" Text="Random Color" Clicked="btnRandom_Clicked" FontSize="Medium" TextColor="{DynamicResource DynamicPrimaryText}"  Grid.Column="0"  >
-                <Button.ImageSource >
-                    <FontImageSource Glyph="" FontFamily="FARegular" Color="{DynamicResource DynamicPrimaryText}" >
-
-                    </FontImageSource>
-                </Button.ImageSource>
-            </Button>
-                <Button  Margin="20" Text="Speichern" Clicked="btnSaveColor1Clicked" FontSize="Medium"  Grid.Column="1" BackgroundColor="{DynamicResource DynamicPrimaryDark}">
-                    <Button.ImageSource >
-                        <FontImageSource Glyph="" FontFamily="FARegular" Color="{DynamicResource DynamicPrimaryText}" >
-
-                        </FontImageSource>
-                    </Button.ImageSource>
-                </Button>
-            </HorizontalStackLayout>
-                
-                <HorizontalStackLayout Grid.Row="1" Grid.Column="2" >
-            <Button  Margin="20" class="Secondary" Text="Random Color" Clicked="btnRandom2_Clicked" FontSize="Medium" Grid.Column="2">
+            <Grid ColumnDefinitions="*,*,*"  Grid.Row="1" Grid.Column="1" >
+                <Button  Margin="20" class="Secondary" Text="Random Color" Clicked="btnRandom2_Clicked" FontSize="Medium" Grid.Column="0">
                 <Button.ImageSource >
                     <FontImageSource Glyph="" FontFamily="FARegular" Color="{DynamicResource DynamicSecondaryText}">
 
                     </FontImageSource>
                 </Button.ImageSource>
             </Button>
-                <Button  Margin="20"  class="Secondary" Text="Speichern" Clicked="btnSaveColor2Clicked" FontSize="Medium"  Grid.Column="3" BackgroundColor="{DynamicResource DynamicSecondaryDark}">
+            <Button  Margin="20"  class="Secondary" Text="Speichern" Clicked="btnSaveColor2Clicked" FontSize="Medium"  Grid.Column="1" BackgroundColor="{DynamicResource DynamicSecondaryDark}">
                 <Button.ImageSource >
-                        <FontImageSource Glyph="" FontFamily="FARegular" Color="{DynamicResource DynamicSecondaryText}">
-                        </FontImageSource>
+                    <FontImageSource Glyph="" FontFamily="FARegular" Color="{DynamicResource DynamicSecondaryText}">
+                    </FontImageSource>
                 </Button.ImageSource>
             </Button>
-            </HorizontalStackLayout>
-        </Grid>
-    </VerticalStackLayout>
+                <Button  Margin="20" Text="Zurücksetzen"  FontSize="Medium"  Grid.Column="2" BackgroundColor="{DynamicResource DynamicQuartary}">
+                    <Button.ImageSource >
+                        <FontImageSource Glyph="" FontFamily="FARegular" Color="{DynamicResource DynamicPrimaryText}" >
 
+                        </FontImageSource>
+                    </Button.ImageSource>
+                </Button>
+            </Grid>
+         </Grid>
+    </VerticalStackLayout>
 </ContentPage>
 
