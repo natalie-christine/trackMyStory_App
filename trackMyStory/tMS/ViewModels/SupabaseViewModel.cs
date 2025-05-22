@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.Diagnostics;
 using tMS.Models;
 
 namespace tMS.ViewModels
@@ -20,11 +21,9 @@ namespace tMS.ViewModels
         private string? errorMessage = null;
         [ObservableProperty]
         private Supabase.Gotrue.User? user = null;
-        [ObservableProperty]
-        private List<Todo>? todos = null;
 
         [ObservableProperty]
-        private Todo? newTodo = new Todo();
+        private UserConfig? userConfig = new UserConfig();
 
         public SupabaseViewModel(Supabase.Client _client)
         {
@@ -37,9 +36,24 @@ namespace tMS.ViewModels
             session = await client.Auth.RetrieveSessionAsync();
             if (session != null)
             {
-                LoadTodos();
+                await LoadUserConfig();
             }
             UpdateStatus();
+        }
+
+        private void UpdateStatus()
+        {
+            if (session != null)
+            {
+                IsLoggedIn = true;
+                User = session.User;
+            }
+            else
+            {
+                IsLoggedIn = false;
+                User = null;
+                UserConfig = new UserConfig();
+            }
         }
 
         [RelayCommand]
@@ -49,7 +63,7 @@ namespace tMS.ViewModels
             try
             {
                 session = await client.Auth.SignIn(LoginUsername, LoginPassword);
-                LoadTodos();
+                await LoadUserConfig();
             }
             catch (Supabase.Gotrue.Exceptions.GotrueException ex)
             {
@@ -69,41 +83,32 @@ namespace tMS.ViewModels
         }
 
         [RelayCommand]
-        async Task LoadTodos()
+        async Task LoadUserConfig()
         {
-            Todos = null;
-            var results = await client.From<Todo>().Get();
+            UserConfig = new UserConfig();
+            var results = await client.From<UserConfig>().Get();
             // await client.From<Todo>().Where(x => x.UserId == session!.User!.Id).Get();
-            Todos = results.Models;
+            if (results.Model != null) {
+                UserConfig = results.Model;
+            }
         }
 
         [RelayCommand]
-        async Task SaveNewTodo()
+        async Task SaveUserConfig()
         {
-            if (NewTodo != null)
+            if (UserConfig != null)
             {
-                NewTodo.Done = false;
-                NewTodo.UserId = session.User.Id;
-                await client.From<Todo>().Insert(NewTodo);
-                NewTodo = new Todo();
-
-                LoadTodos();
+                UserConfig.UserId = session.User.Id;
+                try
+                {
+                    await client.From<UserConfig>().Upsert(UserConfig);
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e);
+                }
+                
             }
-        }
-
-        private void UpdateStatus()
-        {
-            if (session != null)
-            {
-                IsLoggedIn = true;
-                User = session.User;
-            }
-            else
-            {
-                IsLoggedIn = false;
-                User = null;
-            }
-            Todos = null;
         }
     }
 }

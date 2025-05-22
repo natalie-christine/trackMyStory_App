@@ -1,14 +1,19 @@
 using tMS.Helper;
+using tMS.ViewModels;
 
 namespace tMS.Pages;
 
 public partial class Settings : ContentPage
 {
+    private SupabaseViewModel supabaseViewModel;
 
     bool isRandom = false;
     public Settings()
 	{
 		InitializeComponent();
+
+        supabaseViewModel = ServiceHelper.GetService<SupabaseViewModel>();
+        BindingContext = supabaseViewModel;
 
         Color color = ColorHelper.GetColor1();
         Color color2 = ColorHelper.GetColor2();
@@ -63,13 +68,31 @@ public partial class Settings : ContentPage
         isRandom = false;
     }
 
-    private void btnSaveColor2Clicked(object sender, EventArgs e)
-    {
-
-    }
-
     private void btnSaveColor1Clicked(object sender, EventArgs e)
     {
+        supabaseViewModel.UserConfig.ColorPrimary = ColorHelper.GetColor1().ToArgbHex();
+        supabaseViewModel.SaveUserConfigCommand.Execute(null);
+    }
 
+    private void btnSaveColor2Clicked(object sender, EventArgs e)
+    {
+        supabaseViewModel.UserConfig.ColorSecondary = ColorHelper.GetColor2().ToArgbHex();
+        supabaseViewModel.SaveUserConfigCommand.Execute(null);
+    }
+
+    private void btnBackColor1Clicked(object sender, EventArgs e)
+    {
+        if (supabaseViewModel.UserConfig.ColorPrimary != null)
+        {
+            ColorHelper.SetColor(Color.FromArgb(supabaseViewModel.UserConfig.ColorPrimary), null);
+        }
+    }
+
+    private void btnBackColor2Clicked(object sender, EventArgs e)
+    {
+        if (supabaseViewModel.UserConfig.ColorSecondary != null)
+        {
+            ColorHelper.SetColor(null, Color.FromArgb(supabaseViewModel.UserConfig.ColorSecondary));
+        }
     }
 }

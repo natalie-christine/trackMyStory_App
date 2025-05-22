@@ -34,10 +34,21 @@ namespace tMS
                     await OnLoggedOut();
                 }
             }
+            if (e.PropertyName == "UserConfig")
+            {
+                if (supabaseViewModel.UserConfig != null)
+                {
+                    ColorHelper.SetColor(
+                        Color.FromArgb(supabaseViewModel.UserConfig.ColorPrimary ?? ColorHelper.CreateRandomColor().ToArgbHex()),
+                        Color.FromArgb(supabaseViewModel.UserConfig.ColorSecondary ?? ColorHelper.CreateRandomColor().ToArgbHex())
+                    );
+                }
+            }
         }
 
         private async Task OnLoggedIn()
         {
+            supabaseViewModel.LoadUserConfigCommand.Execute(null);
             FlyoutBehavior = FlyoutBehavior.Flyout;
             await GoToAsync("//MainPage");
         }

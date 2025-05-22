@@ -11,9 +11,9 @@ public class ColorHelper
     {
         Random random = new();
 
-        var red = random.NextDouble();
-        var green = random.NextDouble();
-        var blue = random.NextDouble();
+        var red = 0.2 + (random.NextDouble() * 0.6);
+        var green = 0.2 + (random.NextDouble() * 0.6);
+        var blue = 0.2 + (random.NextDouble() * 0.6);
 
         return Color.FromRgb(red, green, blue);
     }
