@@ -84,7 +84,9 @@ public partial class Settings : ContentPage
     {
         if (supabaseViewModel.UserConfig.ColorPrimary != null)
         {
-            ColorHelper.SetColor(Color.FromArgb(supabaseViewModel.UserConfig.ColorPrimary), null);
+            Color color = Color.FromArgb(supabaseViewModel.UserConfig.ColorPrimary);
+            ColorHelper.SetColor(color, null);
+            setSld1Color(color);
         }
     }
 
@@ -92,7 +94,9 @@ public partial class Settings : ContentPage
     {
         if (supabaseViewModel.UserConfig.ColorSecondary != null)
         {
-            ColorHelper.SetColor(null, Color.FromArgb(supabaseViewModel.UserConfig.ColorSecondary));
+            Color color = Color.FromArgb(supabaseViewModel.UserConfig.ColorSecondary);
+            ColorHelper.SetColor(null, color);
+            setSld2Color(color);
         }
     }
 }

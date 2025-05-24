@@ -24,6 +24,8 @@ namespace tMS.ViewModels
 
         [ObservableProperty]
         private UserConfig? userConfig = new UserConfig();
+        [ObservableProperty]
+        private bool isUserConfigSaving = false;
 
         public SupabaseViewModel(Supabase.Client _client)
         {
@@ -96,6 +98,7 @@ namespace tMS.ViewModels
         [RelayCommand]
         async Task SaveUserConfig()
         {
+            IsUserConfigSaving = true;
             if (UserConfig != null)
             {
                 UserConfig.UserId = session.User.Id;
@@ -109,6 +112,7 @@ namespace tMS.ViewModels
                 }
                 
             }
+            IsUserConfigSaving = false;
         }
     }
 }

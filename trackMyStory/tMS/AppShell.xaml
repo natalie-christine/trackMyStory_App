@@ -9,6 +9,12 @@
     Shell.FlyoutItemIsVisible="False"
     Title="tMS">
 
+    <Shell.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
+        </Style>
+    </Shell.Resources>
+
     <FlyoutItem FlyoutItemIsVisible="False">
         <ShellContent
             ContentTemplate="{DataTemplate pages:Login}"
