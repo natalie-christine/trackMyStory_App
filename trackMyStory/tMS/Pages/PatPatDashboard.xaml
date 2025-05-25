@@ -13,30 +13,11 @@
             Series="{Binding Series}"
             HeightRequest="500">
         </lvc:CartesianChart>
-        <VerticalStackLayout Spacing="20"  Grid.Row="1" HorizontalOptions="End" Margin="0,0,30,0">
-            <Button Text="PatPat" Clicked="PatPatClicked" WidthRequest="200" VerticalOptions="Start">
-                <Button.ImageSource>
-                    <FontImageSource Glyph="" FontFamily="FARegular" />
-                </Button.ImageSource>
-            </Button>
-            <Button Text="Gute Nudel" Clicked="StarClicked" WidthRequest="200">
-            <Button.ImageSource >
-                    <FontImageSource Glyph="" FontFamily="FARegular">
-                    </FontImageSource>
-            </Button.ImageSource>
-        </Button>
-            <Button Text="Tasks" Clicked="DoneClicked" WidthRequest="200" >
-            <Button.ImageSource >
-                    <FontImageSource Glyph="" FontFamily="FARegular">
-                    </FontImageSource>
-            </Button.ImageSource>
-        </Button>
-            <Button Text="Step by Step" Clicked="StepsClicked" WidthRequest="200" >
-            <Button.ImageSource >
-                    <FontImageSource Glyph="" FontFamily="FASolid">
-                    </FontImageSource>
-            </Button.ImageSource>
-        </Button>
+        <VerticalStackLayout Margin="30" Spacing="20" Grid.Row="1" HorizontalOptions="End">
+            <components:ResponsiveIconButton Glyph="" GlyphFontFamily="FARegular" Text="PatPat" Clicked="PatPatClicked" />
+            <components:ResponsiveIconButton Glyph="" GlyphFontFamily="FARegular" Text="Gute Nudel" Clicked="StarClicked" />
+            <components:ResponsiveIconButton Glyph="" GlyphFontFamily="FARegular" Text="Tasks" Clicked="DoneClicked" />
+            <components:ResponsiveIconButton Glyph="" GlyphFontFamily="FASolid" Text="Step by Step" Clicked="StepsClicked" />
         </VerticalStackLayout>
         <VerticalStackLayout Margin="30" Spacing="20" Grid.Row="1" Grid.Column="1" HorizontalOptions="End" VerticalOptions="End">
             <components:ResponsiveIconButton ButtonStyleClass="Secondary" Glyph="" GlyphFontFamily="FASolid" Text="Einstellungen" Clicked="EinstellungenClicked" />
