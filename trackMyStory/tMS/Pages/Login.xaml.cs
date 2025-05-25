@@ -7,10 +7,10 @@ public partial class Login : ContentPage
 {
     private SupabaseViewModel supabaseViewModel;
 
-    public Login()
+    public Login(SupabaseViewModel _supabaseViewModel)
 	{
         InitializeComponent();
-        supabaseViewModel = ServiceHelper.GetService<SupabaseViewModel>();
+        supabaseViewModel = _supabaseViewModel;
         BindingContext = supabaseViewModel;
     }
 }

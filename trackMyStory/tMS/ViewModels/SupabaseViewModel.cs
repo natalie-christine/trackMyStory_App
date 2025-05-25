@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Diagnostics;
+using tMS.Helper;
 using tMS.Models;
 
 namespace tMS.ViewModels
@@ -105,6 +106,7 @@ namespace tMS.ViewModels
                 try
                 {
                     await client.From<UserConfig>().Upsert(UserConfig);
+                    await ToastHelper.ShowToast("Einstellungen gespeichert!");
                 }
                 catch (Exception e)
                 {

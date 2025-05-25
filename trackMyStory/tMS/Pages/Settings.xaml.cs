@@ -8,11 +8,11 @@ public partial class Settings : ContentPage
     private SupabaseViewModel supabaseViewModel;
 
     bool isRandom = false;
-    public Settings()
+    public Settings(SupabaseViewModel _supabaseViewModel)
 	{
 		InitializeComponent();
 
-        supabaseViewModel = ServiceHelper.GetService<SupabaseViewModel>();
+        supabaseViewModel = _supabaseViewModel;
         BindingContext = supabaseViewModel;
 
         Color color = ColorHelper.GetColor1();
@@ -70,19 +70,19 @@ public partial class Settings : ContentPage
 
     private void btnSaveColor1Clicked(object sender, EventArgs e)
     {
-        supabaseViewModel.UserConfig.ColorPrimary = ColorHelper.GetColor1().ToArgbHex();
+        supabaseViewModel.UserConfig!.ColorPrimary = ColorHelper.GetColor1().ToArgbHex();
         supabaseViewModel.SaveUserConfigCommand.Execute(null);
     }
 
     private void btnSaveColor2Clicked(object sender, EventArgs e)
     {
-        supabaseViewModel.UserConfig.ColorSecondary = ColorHelper.GetColor2().ToArgbHex();
+        supabaseViewModel.UserConfig!.ColorSecondary = ColorHelper.GetColor2().ToArgbHex();
         supabaseViewModel.SaveUserConfigCommand.Execute(null);
     }
 
     private void btnBackColor1Clicked(object sender, EventArgs e)
     {
-        if (supabaseViewModel.UserConfig.ColorPrimary != null)
+        if (supabaseViewModel.UserConfig!.ColorPrimary != null)
         {
             Color color = Color.FromArgb(supabaseViewModel.UserConfig.ColorPrimary);
             ColorHelper.SetColor(color, null);
@@ -92,7 +92,7 @@ public partial class Settings : ContentPage
 
     private void btnBackColor2Clicked(object sender, EventArgs e)
     {
-        if (supabaseViewModel.UserConfig.ColorSecondary != null)
+        if (supabaseViewModel.UserConfig!.ColorSecondary != null)
         {
             Color color = Color.FromArgb(supabaseViewModel.UserConfig.ColorSecondary);
             ColorHelper.SetColor(null, color);

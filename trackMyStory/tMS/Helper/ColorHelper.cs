@@ -35,7 +35,7 @@ public class ColorHelper
             }
         }
 
-        Color RotateColor(Color c, float r)
+        static Color RotateColor(Color c, float r)
         {
             c.ToHsl(out var h, out var s, out var l);
             h += r;
@@ -57,26 +57,23 @@ public class ColorHelper
 
     public static Color GetColor1()
     {
-        return Color.Parse(Application.Current.Resources["DynamicPrimary"].ToString());
+        return Color.Parse(Application.Current!.Resources["DynamicPrimary"].ToString());
     }
 
     public static Color GetColor2()
     {
-        return Color.Parse(Application.Current.Resources["DynamicSecondary"].ToString());
+        return Color.Parse(Application.Current!.Resources["DynamicSecondary"].ToString());
     }
 
     public static void ToggleDarkMode()
     {
-        if (Application.Current != null)
+        if (Application.Current!.RequestedTheme == AppTheme.Light)
         {
-            if (Application.Current.RequestedTheme == AppTheme.Light)
-            {
-                Application.Current.UserAppTheme = AppTheme.Dark;
-            }
-            else
-            {
-                Application.Current.UserAppTheme = AppTheme.Light;
-            }
+            Application.Current.UserAppTheme = AppTheme.Dark;
+        }
+        else
+        {
+            Application.Current.UserAppTheme = AppTheme.Light;
         }
     }
 }

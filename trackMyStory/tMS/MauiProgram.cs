@@ -28,7 +28,10 @@ namespace tMS
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .UseMauiCommunityToolkit()
+                .UseMauiCommunityToolkit(options =>
+                {
+                    options.SetShouldEnableSnackbarOnWindows(true);
+                })
                 .UseSkiaSharp()
                 .UseLiveCharts()
                 .ConfigureFonts(fonts =>
@@ -43,7 +46,7 @@ namespace tMS
                     .AddSingleton(provider => new Supabase.Client(supabaseUrl, supabaseKey, supabaseOptions))
                     .AddSingleton(provider =>
                     {
-                        var vm = new SupabaseViewModel(provider.GetService<Supabase.Client>());
+                        SupabaseViewModel vm = new(provider.GetService<Supabase.Client>()!);
                         vm.Init();
                         return vm;
                     })
