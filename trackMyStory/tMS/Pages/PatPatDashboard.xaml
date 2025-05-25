@@ -7,13 +7,68 @@
              x:Class="tMS.Pages.PatPatDashboard"
              Title="PatPatDashboard">
 
-    <Grid >
-        <lvc:CartesianChart Grid.Row="0" Margin="0,0,150,0"
+    <Grid>
+        <ScrollView >
+            <VerticalStackLayout>
+                <VerticalStackLayout.Behaviors>
+                    <behaviors:ScreenSizeBehavior>
+                        <behaviors:ScreenSizeBehavior.SmallStyle>
+                            <Style  TargetType="VerticalStackLayout">
+                                <Setter Property="Margin" Value="0,0,20,0"></Setter>
+                            </Style>
+                        </behaviors:ScreenSizeBehavior.SmallStyle>
+                        <behaviors:ScreenSizeBehavior.LargeStyle>
+                            <Style  TargetType="VerticalStackLayout">
+                                <Setter Property="Margin" Value="0,0,250,0"></Setter>
+                            </Style>
+                        </behaviors:ScreenSizeBehavior.LargeStyle>
+                    </behaviors:ScreenSizeBehavior>
+                </VerticalStackLayout.Behaviors>
+                <lvc:CartesianChart Grid.Row="0" 
             XAxes="{Binding XAxes}"
             Series="{Binding Series}"
             HeightRequest="500">
-        </lvc:CartesianChart>
-        <VerticalStackLayout Margin="30" Spacing="20" Grid.Row="1" HorizontalOptions="End">
+                </lvc:CartesianChart>
+                
+                    <VerticalStackLayout x:Name="stuffFeed" Spacing="10" BackgroundColor="Transparent" Margin="0,0,0,30">
+                    <Label FontSize="Header" Margin="20,0,0,0">Feed</Label>
+                        
+                        
+                        <VerticalStackLayout >
+                          <Border  BackgroundColor="{DynamicResource DynamicTertiaryLight}" Margin="20,0,100,0">  
+                            <Grid ColumnDefinitions="100, auto" RowDefinitions="*,*">
+                                <Image WidthRequest="50" Grid.Column="0" Grid.Row="0" >
+                                    <Image.Source  >
+                                        <FontImageSource Glyph="" FontFamily="FASolid" Size="1000" ></FontImageSource>
+                                    </Image.Source>
+                                </Image>
+                                <Label Grid.Column="1" Grid.Row="0" Text="User"></Label>
+                                <Label  Grid.Column="1" Grid.Row="1" Text="Beschreibung"></Label>
+                            </Grid>
+                           </Border>   
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout>
+                        <Border  Margin="20,0,100,0" BackgroundColor="{DynamicResource DynamicQuartaryLight}" >
+                            <Grid ColumnDefinitions="100, auto" RowDefinitions="*,*">
+                                <Image WidthRequest="50" Grid.Column="0" Grid.Row="0" >
+                                    <Image.Source  >
+                                        <FontImageSource Glyph="" FontFamily="FASolid" Size="1000" ></FontImageSource>
+                                    </Image.Source>
+                                </Image>
+                                <Label Grid.Column="1" Grid.Row="0" Text="User"></Label>
+                                <Label  Grid.Column="1" Grid.Row="1" Text="Beschreibung"></Label>
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+
+
+                    </VerticalStackLayout>     
+                
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <VerticalStackLayout Margin="30" Spacing="20" Grid.Row="1" HorizontalOptions="End" Grid.Column="1">
             <components:ResponsiveIconButton Glyph="" GlyphFontFamily="FARegular" Text="PatPat" Clicked="PatPatClicked" />
             <components:ResponsiveIconButton Glyph="" GlyphFontFamily="FARegular" Text="Gute Nudel" Clicked="StarClicked" />
             <components:ResponsiveIconButton Glyph="" GlyphFontFamily="FARegular" Text="Tasks" Clicked="DoneClicked" />
@@ -24,5 +79,6 @@
             <components:ResponsiveIconButton ButtonStyleClass="Secondary" Glyph="" GlyphFontFamily="FASolid" Text="NullPlan" Clicked="NullPlanClicked" />
         </VerticalStackLayout>
     </Grid>
+
 
 </ContentPage>
