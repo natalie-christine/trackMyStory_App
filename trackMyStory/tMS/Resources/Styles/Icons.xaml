@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <x:String x:Key="GlyphSave">&#xf0c7;</x:String>
+    <x:String x:Key="GlyphSaveFF">FARegular</x:String>
+
+    <x:String x:Key="GlyphRandom">&#xf074;</x:String>
+    <x:String x:Key="GlyphRandomFF">FASolid</x:String>
+
+    <x:String x:Key="GlyphReset">&#xf2ea;</x:String>
+    <x:String x:Key="GlyphResetFF">FASolid</x:String>
+
+    <x:String x:Key="GlyphColor">&#xf53f;</x:String>
+    <x:String x:Key="GlyphColorFF">FASolid</x:String>
+
+    <x:String x:Key="GlyphLove">&#xf004;</x:String>
+    <x:String x:Key="GlyphLoveFF">FASolid</x:String>
+
+    <x:String x:Key="GlyphStar">&#xf005;</x:String>
+    <x:String x:Key="GlyphStarFF">FASolid</x:String>
+
+    <x:String x:Key="GlyphTask">&#xf044;</x:String>
+    <x:String x:Key="GlyphTaskFF">FASolid</x:String>
+
+    <x:String x:Key="GlyphTimeline">&#xe29c;</x:String>
+    <x:String x:Key="GlyphTimelineFF">FASolid</x:String>
+</ResourceDictionary>
