@@ -14,14 +14,14 @@
             HeightRequest="500">
         </lvc:CartesianChart>
         <VerticalStackLayout Margin="30" Spacing="20" Grid.Row="1" HorizontalOptions="End">
-            <components:ResponsiveIconButton Glyph="" GlyphFontFamily="FARegular" Text="PatPat" Clicked="PatPatClicked" />
-            <components:ResponsiveIconButton Glyph="" GlyphFontFamily="FARegular" Text="Gute Nudel" Clicked="StarClicked" />
-            <components:ResponsiveIconButton Glyph="" GlyphFontFamily="FARegular" Text="Tasks" Clicked="DoneClicked" />
-            <components:ResponsiveIconButton Glyph="" GlyphFontFamily="FASolid" Text="Step by Step" Clicked="StepsClicked" />
+            <components:ResponsiveIconButton Glyph="{StaticResource GlyphLove}" GlyphFontFamily="{StaticResource GlyphLoveFF}" Text="PatPat" Clicked="PatPatClicked" />
+            <components:ResponsiveIconButton Glyph="{StaticResource GlyphStar}" GlyphFontFamily="{StaticResource GlyphStarFF}" Text="Gute Nudel" Clicked="StarClicked" />
+            <components:ResponsiveIconButton Glyph="{StaticResource GlyphTask}" GlyphFontFamily="{StaticResource GlyphTaskFF}" Text="Tasks" Clicked="DoneClicked" />
+            <components:ResponsiveIconButton Glyph="{StaticResource GlyphTimeline}" GlyphFontFamily="{StaticResource GlyphTimelineFF}" Text="Step by Step" Clicked="StepsClicked" />
         </VerticalStackLayout>
         <VerticalStackLayout Margin="30" Spacing="20" Grid.Row="1" Grid.Column="1" HorizontalOptions="End" VerticalOptions="End">
-            <components:ResponsiveIconButton ButtonStyleClass="Secondary" Glyph="" GlyphFontFamily="FASolid" Text="Einstellungen" Clicked="EinstellungenClicked" />
-            <components:ResponsiveIconButton ButtonStyleClass="Secondary" Glyph="" GlyphFontFamily="FASolid" Text="NullPlan" Clicked="NullPlanClicked" />
+            <components:ResponsiveIconButton ButtonStyleClass="Secondary" Glyph="{StaticResource GlyphTimeline}" GlyphFontFamily="{StaticResource GlyphTimelineFF}" Text="Einstellungen" Clicked="EinstellungenClicked" />
+            <components:ResponsiveIconButton ButtonStyleClass="Secondary" Glyph="{StaticResource GlyphTimeline}" GlyphFontFamily="{StaticResource GlyphTimelineFF}" Text="NullPlan" Clicked="NullPlanClicked" />
         </VerticalStackLayout>
     </Grid>
 
