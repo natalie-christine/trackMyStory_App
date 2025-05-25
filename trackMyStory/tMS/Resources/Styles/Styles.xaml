@@ -209,6 +209,14 @@
         </Setter>
     </Style>
 
+    <Style Class="Primary" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource DynamicPrimaryText}" />
+    </Style>
+
+    <Style Class="Secondary" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource DynamicSecondaryText}" />
+    </Style>
+
     <Style TargetType="Span">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
     </Style>

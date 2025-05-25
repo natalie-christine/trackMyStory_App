@@ -17,12 +17,12 @@
             <VerticalStackLayout Spacing="20">
                 <Border Padding="10,0,10,10" x:Name="SliderContainer"  StrokeShape="RoundRectangle 10,10,10,10"  >
                     <VerticalStackLayout VerticalOptions="Center" Padding="10,0,20,0">
-                        <Label FontAttributes="Bold" FontSize="Large" HorizontalTextAlignment="Center" Text="Farbauswahl 1" TextColor="{DynamicResource DynamicPrimaryText}" />
-                        <Label Text="Rot:" TextColor="{DynamicResource DynamicPrimaryText}" />
+                        <Label StyleClass="Primary" FontAttributes="Bold" FontSize="Large" HorizontalTextAlignment="Center" Text="Farbauswahl 1" />
+                        <Label StyleClass="Primary" Text="Rot:" />
                         <Slider x:Name="sldRed" ValueChanged="Slider_ValueChanged" />
-                        <Label Text="Grün:" TextColor="{DynamicResource DynamicPrimaryText}" />
+                        <Label StyleClass="Primary" Text="Grün:" />
                         <Slider x:Name="sldGreen" ValueChanged="Slider_ValueChanged" />
-                        <Label Text="Blau:" TextColor="{DynamicResource DynamicPrimaryText}" />
+                        <Label StyleClass="Primary" Text="Blau:" />
                         <Slider x:Name="sldBlue" ValueChanged="Slider_ValueChanged" />
                     </VerticalStackLayout>
                 </Border >
@@ -54,12 +54,12 @@
             <VerticalStackLayout Spacing="20">
                 <Border Padding="10,0,10,10" class="Secondary" x:Name="SliderContainer2"  StrokeShape="RoundRectangle 10,10,10,10">
                     <VerticalStackLayout  VerticalOptions="Center" Padding="10,0,20,0">
-                        <Label FontAttributes="Bold" FontSize="Large"  HorizontalTextAlignment="Center" Text="Farbauswahl 2" TextColor="{DynamicResource DynamicSecondaryText}" />
-                        <Label Text="Rot:" TextColor="{DynamicResource DynamicSecondaryText}" />
+                        <Label StyleClass="Secondary" FontAttributes="Bold" FontSize="Large"  HorizontalTextAlignment="Center" Text="Farbauswahl 2" />
+                        <Label StyleClass="Secondary" Text="Rot:" />
                         <Slider class="Secondary" x:Name="sldRed2" ValueChanged="Slider_ValueChanged" />
-                        <Label Text="Grün:" TextColor="{DynamicResource DynamicSecondaryText}" />
+                        <Label StyleClass="Secondary" Text="Grün:" />
                         <Slider class="Secondary" x:Name="sldGreen2" ValueChanged="Slider_ValueChanged" />
-                        <Label Text="Blau:" TextColor="{DynamicResource DynamicSecondaryText}" />
+                        <Label StyleClass="Secondary" Text="Blau:" />
                         <Slider  class="Secondary" x:Name="sldBlue2" ValueChanged="Slider_ValueChanged" />
                     </VerticalStackLayout>
                 </Border>
