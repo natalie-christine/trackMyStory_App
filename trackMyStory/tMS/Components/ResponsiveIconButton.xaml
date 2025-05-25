@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:tMS.Behaviors"
+             x:Class="tMS.Components.ResponsiveIconButton">
+    <Grid>
+        <Button x:Name="button" Command="{Binding Command}" Clicked="Button_Clicked">
+            <Button.ImageSource >
+                <FontImageSource Glyph="{Binding Glyph}" FontFamily="{Binding GlyphFontFamily}">
+                </FontImageSource>
+            </Button.ImageSource>
+            <Button.Behaviors>
+                <behaviors:ScreenSizeBehavior Threshold="{Binding Threshold}">
+                    <behaviors:ScreenSizeBehavior.SmallStyle>
+                        <Style TargetType="Button">
+                            <Setter Property="Text" Value="" />
+                            <Setter Property="WidthRequest" Value="80" />
+                        </Style>
+                    </behaviors:ScreenSizeBehavior.SmallStyle>
+                    <behaviors:ScreenSizeBehavior.LargeStyle>
+                        <Style TargetType="Button">
+                            <Setter Property="Text" Value="{Binding Text}" />
+                            <Setter Property="WidthRequest" Value="200" />
+                        </Style>
+                    </behaviors:ScreenSizeBehavior.LargeStyle>
+                </behaviors:ScreenSizeBehavior>
+            </Button.Behaviors>
+        </Button>
+    </Grid>
+</ContentView>

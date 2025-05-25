@@ -1,4 +1,6 @@
 namespace tMS.Pages;
+
+using System.Diagnostics;
 using tMS.ViewModels;
 
 public partial class PatPatDashboard : ContentPage
@@ -29,4 +31,13 @@ public partial class PatPatDashboard : ContentPage
 
     }
 
+    private void EinstellungenClicked(object sender, EventArgs e)
+    {
+        Debug.WriteLine("EinstellungenClicked");
+    }
+
+    private void NullPlanClicked(object sender, EventArgs e)
+    {
+        Debug.WriteLine("NullPlanClicked");
+    }
 }

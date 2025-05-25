@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:behaviors="clr-namespace:tMS.Behaviors"
+             xmlns:components="clr-namespace:tMS.Components"
              xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
              x:Class="tMS.Pages.PatPatDashboard"
              Title="PatPatDashboard">
@@ -38,34 +39,8 @@
         </Button>
         </VerticalStackLayout>
         <VerticalStackLayout Margin="30" Spacing="20" Grid.Row="1" Grid.Column="1" HorizontalOptions="End" VerticalOptions="End">
-            <Button class="Secondary" Text="Einstellungen"  WidthRequest="200" >
-                <Button.ImageSource >
-                    <FontImageSource Glyph="" FontFamily="FASolid">
-                    </FontImageSource>
-                </Button.ImageSource>
-            </Button>
-            <Button class="Secondary" >
-                <Button.ImageSource >
-                    <FontImageSource Glyph="" FontFamily="FASolid">
-                    </FontImageSource>
-                </Button.ImageSource>
-                <Button.Behaviors>
-                    <behaviors:ScreenSizeBehavior>
-                        <behaviors:ScreenSizeBehavior.SmallStyle>
-                            <Style TargetType="Button">
-                                <Setter Property="Text" Value="" />
-                                <Setter Property="WidthRequest" Value="80" />
-                            </Style>
-                        </behaviors:ScreenSizeBehavior.SmallStyle>
-                        <behaviors:ScreenSizeBehavior.LargeStyle>
-                            <Style TargetType="Button">
-                                <Setter Property="Text" Value="Large Hoho" />
-                                <Setter Property="WidthRequest" Value="200" />
-                            </Style>
-                        </behaviors:ScreenSizeBehavior.LargeStyle>
-                    </behaviors:ScreenSizeBehavior>
-                </Button.Behaviors>
-            </Button>
+            <components:ResponsiveIconButton ButtonStyleClass="Secondary" Glyph="" GlyphFontFamily="FASolid" Text="Einstellungen" Clicked="EinstellungenClicked" />
+            <components:ResponsiveIconButton ButtonStyleClass="Secondary" Glyph="" GlyphFontFamily="FASolid" Text="NullPlan" Clicked="NullPlanClicked" />
         </VerticalStackLayout>
     </Grid>
 
