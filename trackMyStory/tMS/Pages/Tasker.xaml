@@ -7,11 +7,11 @@
 
     <ScrollView>
         <VerticalStackLayout Margin="20,0,0,20">
-            <Label Text="Produktivität" FontSize="Header" TextColor="{DynamicResource DynamicPrimaryText}"></Label>
+            <Label Text="Produktivität" FontSize="Header"></Label>
             <HorizontalStackLayout x:Name="ProductivityGrid">
                 <Border  HeightRequest="300" MinimumWidthRequest="600" HorizontalOptions="Center"></Border>
             </HorizontalStackLayout>
-            <Label Text="Kategorien" Margin="0,50,0,0" FontSize="Header" TextColor="{DynamicResource DynamicPrimaryText}" ></Label>
+            <Label Text="Kategorien" Margin="0,50,0,0" FontSize="Header"></Label>
             <CollectionView ItemsSource="{Binding Categories}">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout ItemSpacing="5" Orientation="Horizontal" />
@@ -19,11 +19,11 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="10" WidthRequest="250">
-                            <RoundRectangle BackgroundColor="White" CornerRadius="8" />
-                            <Border Shadow="{DynamicResource DynamicPrimaryLight}" BackgroundColor="White" />
-                            <VerticalStackLayout Padding="15" Spacing="10" BackgroundColor="{DynamicResource DynamicTertiaryLight}">
-                                <Label Text="{Binding PendingTasks, StringFormat='{0} Tasks'}" FontSize="Caption"  />
-                                <Label Text="{Binding CategoryName}" FontAttributes="Bold" />
+                            <RoundRectangle CornerRadius="8" BackgroundColor="{DynamicResource DynamicTertiaryLight}" />
+                            <Border StyleClass="shadow" />
+                            <VerticalStackLayout Padding="15" Spacing="10">
+                                <Label StyleClass="Tertiary" Text="{Binding PendingTasks, StringFormat='{0} Tasks'}" FontSize="Caption"  />
+                                <Label StyleClass="Tertiary" Text="{Binding CategoryName}" FontAttributes="Bold" />
                                 <ProgressBar Progress="{Binding Percentage}" ProgressColor="{Binding Color, Converter={converter:ColorConverter}}" />
                             </VerticalStackLayout>
                         </Grid>
