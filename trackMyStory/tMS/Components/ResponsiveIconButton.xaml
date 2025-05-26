@@ -5,10 +5,6 @@
              x:Class="tMS.Components.ResponsiveIconButton">
     <Grid>
         <Button x:Name="button" Command="{Binding Command}" Clicked="Button_Clicked">
-            <Button.ImageSource >
-                <FontImageSource Glyph="{Binding Glyph}" FontFamily="{Binding GlyphFontFamily}">
-                </FontImageSource>
-            </Button.ImageSource>
             <Button.Behaviors>
                 <behaviors:ScreenSizeBehavior Threshold="{Binding Threshold}">
                     <behaviors:ScreenSizeBehavior.SmallStyle>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:tMS.Components">
+
+    <!-- Button -->
+    <Style Class="Primary" TargetType="Button">
+        <Setter Property="TextColor" Value="{DynamicResource DynamicPrimaryText}" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource DynamicPrimary}" />
+    </Style>
+
+    <Style Class="Secondary" TargetType="Button">
+        <Setter Property="TextColor" Value="{DynamicResource DynamicSecondaryText}" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource DynamicSecondary}" />
+    </Style>
+
+    <Style Class="Tertiary" TargetType="Button">
+        <Setter Property="TextColor" Value="{DynamicResource DynamicTertiaryText}" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource DynamicTertiary}" />
+    </Style>
+
+    <Style Class="Quartary" TargetType="Button">
+        <Setter Property="TextColor" Value="{DynamicResource DynamicQuartaryText}" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource DynamicQuartary}" />
+    </Style>
+
+    <!-- Label -->
+    <Style Class="Primary" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource DynamicPrimaryText}" />
+    </Style>
+
+    <Style Class="Secondary" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource DynamicSecondaryText}" />
+    </Style>
+
+    <Style Class="Tertiary" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource DynamicTertiaryText}" />
+    </Style>
+
+    <Style Class="Quartary" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource DynamicQuartaryText}" />
+    </Style>
+
+</ResourceDictionary>

@@ -1,18 +1,12 @@
+using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace tMS.Components;
 
 public partial class ResponsiveIconButton : ContentView
 {
-    public static readonly BindableProperty GlyphProperty =
-        BindableProperty.Create(nameof(Glyph), typeof(string), typeof(ResponsiveIconButton), "");
-
-    public static readonly BindableProperty GlyphFontFamilyProperty =
-        BindableProperty.Create(nameof(GlyphFontFamily), typeof(string), typeof(ResponsiveIconButton), "");
-
     public static readonly BindableProperty TextProperty =
         BindableProperty.Create(nameof(Text), typeof(string), typeof(ResponsiveIconButton), "");
 
@@ -37,16 +31,10 @@ public partial class ResponsiveIconButton : ContentView
         set { button.StyleClass = value; }
     }
 
-    public string Glyph
+    public ImageSource ImageSource
     {
-        get { return (string)GetValue(GlyphProperty); }
-        set { SetValue(GlyphProperty, value); }
-    }
-
-    public string GlyphFontFamily
-    {
-        get { return (string)GetValue(GlyphFontFamilyProperty); }
-        set { SetValue(GlyphFontFamilyProperty, value); }
+        get => button.ImageSource;
+        set => button.ImageSource = value;
     }
 
     public string Text
