@@ -26,8 +26,8 @@
                         <Slider x:Name="sldBlue" ValueChanged="Slider_ValueChanged" />
                     </VerticalStackLayout>
                 </Border >
-                <layouts:ResponsiveLayout HorizontalThreshold="500">
-                    <Button Text="Random Color" Clicked="btnRandom_Clicked" FontSize="Medium" TextColor="{DynamicResource DynamicPrimaryText}"  Grid.Column="0"  >
+                <layouts:ResponsiveLayout HorizontalThreshold="600">
+                    <Button Text="Random" Clicked="btnRandom_Clicked" FontSize="Medium" TextColor="{DynamicResource DynamicPrimaryText}"  Grid.Column="0"  >
                         <Button.ImageSource >
                             <FontImageSource Glyph="{StaticResource GlyphColor}" FontFamily="{StaticResource GlyphColorFF}" Color="{DynamicResource DynamicPrimaryText}" />
                         </Button.ImageSource>
@@ -37,7 +37,7 @@
                             <FontImageSource Glyph="{StaticResource GlyphSave}" FontFamily="{StaticResource GlyphSaveFF}" Color="{DynamicResource DynamicPrimaryText}" />
                         </Button.ImageSource>
                     </Button>
-                    <Button Text="Zurücksetzen" Clicked="btnBackColor1Clicked" FontSize="Medium" BackgroundColor="{DynamicResource DynamicTertiary}">
+                    <Button Text="Zurück" Clicked="btnBackColor1Clicked" FontSize="Medium" BackgroundColor="{DynamicResource DynamicTertiary}">
                         <Button.ImageSource >
                             <FontImageSource Glyph="{StaticResource GlyphReset}" FontFamily="{StaticResource GlyphResetFF}" Color="{DynamicResource DynamicPrimaryText}" />
                         </Button.ImageSource>
@@ -58,7 +58,7 @@
                     </VerticalStackLayout>
                 </Border>
                 <layouts:ResponsiveLayout HorizontalThreshold="500">
-                    <Button class="Secondary" Text="Random Color" Clicked="btnRandom2_Clicked" FontSize="Medium">
+                    <Button class="Secondary" Text="Random" Clicked="btnRandom2_Clicked" FontSize="Medium">
                         <Button.ImageSource >
                             <FontImageSource Glyph="{StaticResource GlyphColor}" FontFamily="{StaticResource GlyphColorFF}" Color="{DynamicResource DynamicSecondaryText}" />
                         </Button.ImageSource>
@@ -69,7 +69,7 @@
                             <FontImageSource Glyph="{StaticResource GlyphSave}" FontFamily="{StaticResource GlyphSaveFF}" Color="{DynamicResource DynamicSecondaryText}" />
                         </Button.ImageSource>
                     </Button>
-                    <Button Text="Zurücksetzen" Clicked="btnBackColor2Clicked" FontSize="Medium" TextColor="{DynamicResource DynamicSecondaryText}" BackgroundColor="{DynamicResource DynamicQuartary}">
+                    <Button Text="Zurück" Clicked="btnBackColor2Clicked" FontSize="Medium" TextColor="{DynamicResource DynamicSecondaryText}" BackgroundColor="{DynamicResource DynamicQuartary}">
                         <Button.ImageSource >
                             <FontImageSource Glyph="{StaticResource GlyphReset}" FontFamily="{StaticResource GlyphResetFF}" Color="{DynamicResource DynamicSecondaryText}" />
                         </Button.ImageSource>

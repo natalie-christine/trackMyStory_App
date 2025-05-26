@@ -32,12 +32,17 @@
         ContentTemplate="{DataTemplate pages:PatPatDashboard}"
         Route="PatPatDashboard" 
         />
+    
+    <ShellContent
+    Title="Tasks - Dashboard"
+    ContentTemplate="{DataTemplate pages:Tasker}"
+    Route="Tasker" 
+/>
     <ShellContent
         Title="Einstellungen"
         ContentTemplate="{DataTemplate pages:Settings}"
         Route="Settings" 
     />
-
     <Shell.FlyoutFooter >
                   <Button Text="Logout" Command="{Binding LogoutCommand}" Margin="10" />  
     </Shell.FlyoutFooter>
