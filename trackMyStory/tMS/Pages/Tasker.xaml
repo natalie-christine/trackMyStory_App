@@ -16,26 +16,53 @@
             <HorizontalStackLayout x:Name="ProductivityGrid">
                 <Border  HeightRequest="300" MinimumWidthRequest="600" HorizontalOptions="Center"></Border>
             </HorizontalStackLayout>
-            <Label Text="Kategorien" Margin="0,50,0,0" FontSize="Header"></Label>
+            <FlexLayout  Margin="0,50,0,0" >
+                <Label Text="Kategorien" FontSize="Header"></Label>
+            <Button  WidthRequest="80" BackgroundColor="Transparent">
+                <Button.ImageSource >
+                    <FontImageSource Glyph="{StaticResource GlyphAdd}" FontFamily="{StaticResource GlyphAddFF}" Color="{AppThemeBinding Dark=white, Light=black}" />
+                </Button.ImageSource>
+            </Button> 
+            </FlexLayout>
+           
+
+            <FlexLayout Margin="20,20,20,20">
             <HorizontalStackLayout>
                 <CollectionView ItemsSource="{Binding Categories}">
                     <CollectionView.ItemsLayout>
-                        <LinearItemsLayout ItemSpacing="5" Orientation="Horizontal" />
+                        <LinearItemsLayout ItemSpacing="5" Orientation="Vertical" />
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Button Text="{Binding Name}" FontAttributes="Bold"
+                            <HorizontalStackLayout>
+                               <Button Text="{Binding Name}" FontAttributes="Bold"
                                     BackgroundColor="{Binding Color, Converter={converter:ColorConverter}}"
                                     TextColor="{Binding Color, Converter={converter:ToTextColorConverter}}"/>
+                                <Button>
+                                    <Button.ImageSource>
+                                        <FontImageSource Glyph="{StaticResource GlyphAdd}" FontFamily="{StaticResource GlyphAddFF}" Color="{DynamicResource DynamicPrimaryText}" />
+                                    </Button.ImageSource>
+                                </Button>
+                            </HorizontalStackLayout>
+                            
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-                <Button StyleClass="Primary">
-                    <Button.ImageSource >
-                        <FontImageSource Glyph="{StaticResource GlyphAdd}" FontFamily="{StaticResource GlyphAddFF}" Color="{DynamicResource DynamicPrimaryText}" />
-                    </Button.ImageSource>
-                </Button>
+                
             </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="5" Margin="50,0,0,0">
+                <VerticalStackLayout>
+                 <Label Text="Task"></Label>
+                <Label Text="Task"></Label>
+                <Label Text="Task"></Label>
+                <Label Text="Task"></Label>
+                <Label Text="Task"></Label>
+                <Label Text="Task"></Label> 
+                </VerticalStackLayout>
+
+                
+            </HorizontalStackLayout>
+            </FlexLayout>
 
         </VerticalStackLayout>
     </ScrollView>
