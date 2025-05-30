@@ -4,10 +4,16 @@ namespace tMS.Pages;
 
 public partial class Tasker : ContentPage
 {
-	public Tasker()
+    private SupabaseViewModel supabaseViewModel;
+
+    public Tasker(SupabaseViewModel _supabaseViewModel)
 	{
 		InitializeComponent();
-		BindingContext = new TaskerViewModel();
+
+        supabaseViewModel = _supabaseViewModel;
+        BindingContext = supabaseViewModel;
+
+        supabaseViewModel.LoadCategoriesCommand.Execute(this);
     }
 
 	

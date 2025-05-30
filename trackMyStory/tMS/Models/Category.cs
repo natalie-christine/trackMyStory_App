@@ -1,15 +1,14 @@
-﻿using PropertyChanged;
+﻿using Supabase.Postgrest.Attributes;
+using Supabase.Postgrest.Models;
 
 namespace tMS.Models
 {
-    [AddINotifyPropertyChangedInterface]
-    public class Category
+    [Table("Categories")]
+    public class Category : BaseModel
     {
-        public int Id { get; set; }
-        public string CategoryName { get; set; }
-        public string Color { get; set; }
-        public int PendingTasks { get; set; }
-        public float Percentage { get; set; }
-        public bool IsSelected { get; set; }
+        [PrimaryKey("id")] public int Id { get; set; }
+        [Column("user_id")] public string UserId { get; set; }
+        [Column("name")] public string Name { get; set; }
+        [Column("color")] public string Color { get; set; }
     }
 }

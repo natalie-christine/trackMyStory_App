@@ -2,8 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:converter="clr-namespace:tMS.Converter"
+             xmlns:viewmodels="clr-namespace:tMS.ViewModels"
              x:Class="tMS.Pages.Tasker"
              Title="So many Tasks . . . .">
+
+    <ContentPage.Resources>
+        <converter:ColorConverter x:Key="ColorConverter" />
+    </ContentPage.Resources>
 
     <ScrollView>
         <VerticalStackLayout Margin="20,0,0,20">
@@ -12,31 +17,27 @@
                 <Border  HeightRequest="300" MinimumWidthRequest="600" HorizontalOptions="Center"></Border>
             </HorizontalStackLayout>
             <Label Text="Kategorien" Margin="0,50,0,0" FontSize="Header"></Label>
-            <CollectionView ItemsSource="{Binding Categories}">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout ItemSpacing="5" Orientation="Horizontal" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Padding="10" WidthRequest="250">
-                            <RoundRectangle CornerRadius="8" BackgroundColor="{DynamicResource DynamicTertiaryLight}" />
-                            <Border StyleClass="shadow" />
-                            <VerticalStackLayout Padding="15" Spacing="10">
-                                <Label StyleClass="Tertiary" Text="{Binding PendingTasks, StringFormat='{0} Tasks'}" FontSize="Caption"  />
-                                <Label StyleClass="Tertiary" Text="{Binding CategoryName}" FontAttributes="Bold" />
-                                <ProgressBar Progress="{Binding Percentage}" ProgressColor="{Binding Color, Converter={converter:ColorConverter}}" />
-                            </VerticalStackLayout>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-
+            <HorizontalStackLayout>
+                <CollectionView ItemsSource="{Binding Categories}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="5" Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Button Text="{Binding Name}" FontAttributes="Bold"
+                                    BackgroundColor="{Binding Color, Converter={converter:ColorConverter}}"
+                                    TextColor="{Binding Color, Converter={converter:ToTextColorConverter}}"/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Button StyleClass="Primary">
+                    <Button.ImageSource >
+                        <FontImageSource Glyph="{StaticResource GlyphAdd}" FontFamily="{StaticResource GlyphAddFF}" Color="{DynamicResource DynamicPrimaryText}" />
+                    </Button.ImageSource>
+                </Button>
+            </HorizontalStackLayout>
 
         </VerticalStackLayout>
     </ScrollView>
-
-
-
-
 
 </ContentPage>

@@ -59,5 +59,11 @@
     <FontImageSource x:Key="GlyphTimelineISSecondary" Glyph="{StaticResource GlyphTimeline}" FontFamily="{StaticResource GlyphTimelineFF}" Color="{DynamicResource DynamicSecondaryText}" />
     <FontImageSource x:Key="GlyphTimelineISTertiary" Glyph="{StaticResource GlyphTimeline}" FontFamily="{StaticResource GlyphTimelineFF}" Color="{DynamicResource DynamicTertiaryText}" />
     <FontImageSource x:Key="GlyphTimelineISQuartary" Glyph="{StaticResource GlyphTimeline}" FontFamily="{StaticResource GlyphTimelineFF}" Color="{DynamicResource DynamicQuartaryText}" />
+
+    <x:String x:Key="GlyphAdd">&#x2b;</x:String>
+    <x:String x:Key="GlyphAddFF">FASolid</x:String>
+    <FontImageSource x:Key="GlyphAddISPrimary" Glyph="{StaticResource GlyphTimeline}" FontFamily="{StaticResource GlyphTimelineFF}" Color="{DynamicResource DynamicPrimaryText}" />
+    <FontImageSource x:Key="GlyphAddISSecondary" Glyph="{StaticResource GlyphTimeline}" FontFamily="{StaticResource GlyphTimelineFF}" Color="{DynamicResource DynamicSecondaryText}" />
+    <FontImageSource x:Key="GlyphAddISTertiary" Glyph="{StaticResource GlyphTimeline}" FontFamily="{StaticResource GlyphTimelineFF}" Color="{DynamicResource DynamicTertiaryText}" />
+    <FontImageSource x:Key="GlyphAddISQuartary" Glyph="{StaticResource GlyphTimeline}" FontFamily="{StaticResource GlyphTimelineFF}" Color="{DynamicResource DynamicQuartaryText}" />
 </ResourceDictionary>
-    

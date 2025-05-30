@@ -30,27 +30,6 @@ namespace tMS.ViewModels
 
         private void FillData()
         {
-            Categories = new ObservableCollection<Category>
-            {
-                new Category
-                {
-                    Id = 1,
-                    CategoryName = ".NET Maui Course",
-                    Color = "#CF14DF"
-                },
-                new Category
-                {
-                    Id = 2,
-                    CategoryName = "Tutorials",
-                    Color = "#DF6F14"
-                },
-                new Category
-                {
-                    Id = 3,
-                    CategoryName = "Shopping",
-                    Color = "#14DF80"
-                },
-            };
             Tasks = new ObservableCollection<MyTask>
             {
                 new MyTask
@@ -94,9 +73,6 @@ namespace tMS.ViewModels
                 var tasks = from t in Tasks where t.CategoryId == c.Id select t;
                 var completed = from t in tasks where t.Completed == true select t;
                 var notCompleted = from t in tasks where t.Completed == false select t;
-
-                c.PendingTasks = notCompleted.Count();
-                c.Percentage = (float)completed.Count() / (float)tasks.Count();
             }
             foreach (var t in Tasks)
             {

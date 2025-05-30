@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using tMS.Helper;
 using tMS.Models;
@@ -27,6 +28,9 @@ namespace tMS.ViewModels
         private UserConfig? userConfig = new UserConfig();
         [ObservableProperty]
         private bool isUserConfigSaving = false;
+
+        [ObservableProperty]
+        private ObservableCollection<Category> categories = new ObservableCollection<Category>();
 
         public SupabaseViewModel(Supabase.Client _client)
         {
@@ -115,6 +119,27 @@ namespace tMS.ViewModels
                 
             }
             IsUserConfigSaving = false;
+        }
+
+        [RelayCommand]
+        async Task LoadCategories()
+        {
+            try
+            {
+                var result = await client.From<Category>().Get();
+                if (result?.Models != null)
+                {
+                    categories.Clear();
+                    foreach (var item in result!.Models)
+                    {
+                        categories.Add(item);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
         }
     }
 }

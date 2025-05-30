@@ -1,8 +1,6 @@
-﻿using PropertyChanged;
-
+﻿
 namespace tMS.Models
 {
-    [AddINotifyPropertyChangedInterface]
     public class MyTask
     {
         public string TaskName { get; set; }
