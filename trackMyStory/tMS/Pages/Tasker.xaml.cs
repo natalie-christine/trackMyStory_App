@@ -14,6 +14,7 @@ public partial class Tasker : ContentPage
         BindingContext = supabaseViewModel;
 
         supabaseViewModel.LoadCategoriesCommand.Execute(this);
+        supabaseViewModel.LoadTasksCommand.Execute(this);
     }
 
 	

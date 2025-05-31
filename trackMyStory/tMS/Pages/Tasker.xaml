@@ -26,43 +26,51 @@
             </FlexLayout>
            
 
-            <FlexLayout Margin="20,20,20,20">
-            <HorizontalStackLayout>
+            <Grid ColumnDefinitions="300,*" ColumnSpacing="20">
                 <CollectionView ItemsSource="{Binding Categories}">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout ItemSpacing="5" Orientation="Vertical" />
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <HorizontalStackLayout>
-                               <Button Text="{Binding Name}" FontAttributes="Bold"
-                                    BackgroundColor="{Binding Color, Converter={converter:ColorConverter}}"
-                                    TextColor="{Binding Color, Converter={converter:ToTextColorConverter}}"/>
-                                <Button>
-                                    <Button.ImageSource>
-                                        <FontImageSource Glyph="{StaticResource GlyphAdd}" FontFamily="{StaticResource GlyphAddFF}" Color="{DynamicResource DynamicPrimaryText}" />
-                                    </Button.ImageSource>
-                                </Button>
-                            </HorizontalStackLayout>
-                            
+                            <Grid>
+                                <FlexLayout>
+                                    <Button FlexLayout.Grow="1" FlexLayout.Shrink="1" Text="{Binding Name}"
+                                        BackgroundColor="{Binding Color, Converter={converter:ColorConverter}}"
+                                        TextColor="{Binding Color, Converter={converter:ToTextColorConverter}}"/>
+                                    <Button CornerRadius="100" BackgroundColor="{Binding Color, Converter={converter:ColorConverter}}">
+                                        <Button.ImageSource>
+                                            <FontImageSource Size="14" Glyph="{StaticResource GlyphAdd}" FontFamily="{StaticResource GlyphAddFF}" Color="{Binding Color, Converter={converter:ToTextColorConverter}}" />
+                                        </Button.ImageSource>
+                                    </Button>
+                                </FlexLayout>
+                            </Grid>
+
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-                
-            </HorizontalStackLayout>
-            <HorizontalStackLayout Spacing="5" Margin="50,0,0,0">
-                <VerticalStackLayout>
-                 <Label Text="Task"></Label>
-                <Label Text="Task"></Label>
-                <Label Text="Task"></Label>
-                <Label Text="Task"></Label>
-                <Label Text="Task"></Label>
-                <Label Text="Task"></Label> 
-                </VerticalStackLayout>
 
-                
-            </HorizontalStackLayout>
-            </FlexLayout>
+                <CollectionView ItemsSource="{Binding Tasks}" Grid.Column="1">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="5" Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <FlexLayout AlignItems="Center" HeightRequest="40">
+                                    <CheckBox />
+                                    <VerticalStackLayout FlexLayout.Basis="Auto" FlexLayout.Grow="1" FlexLayout.Shrink="1">
+                                        <Label Text="{Binding Name}" FontAttributes="Bold" BackgroundColor="Transparent" />
+                                        <Label Text="{Binding CategoryId}" BackgroundColor="Transparent" />
+                                    </VerticalStackLayout>
+                                    <Button Text="Löschen" BackgroundColor="Transparent" TextColor="{DynamicResource DynamicPrimary}"></Button>
+                                </FlexLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </Grid>
 
         </VerticalStackLayout>
     </ScrollView>

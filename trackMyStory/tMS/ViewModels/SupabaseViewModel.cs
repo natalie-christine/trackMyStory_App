@@ -25,12 +25,15 @@ namespace tMS.ViewModels
         private Supabase.Gotrue.User? user = null;
 
         [ObservableProperty]
-        private UserConfig? userConfig = new UserConfig();
+        private DbUserConfig? userConfig = new DbUserConfig();
         [ObservableProperty]
         private bool isUserConfigSaving = false;
 
         [ObservableProperty]
-        private ObservableCollection<Category> categories = new ObservableCollection<Category>();
+        private ObservableCollection<DbCategory> categories = new ObservableCollection<DbCategory>();
+
+        [ObservableProperty]
+        private ObservableCollection<DbTask> tasks = new ObservableCollection<DbTask>();
 
         public SupabaseViewModel(Supabase.Client _client)
         {
@@ -59,7 +62,7 @@ namespace tMS.ViewModels
             {
                 IsLoggedIn = false;
                 User = null;
-                UserConfig = new UserConfig();
+                UserConfig = new DbUserConfig();
             }
         }
 
@@ -92,8 +95,8 @@ namespace tMS.ViewModels
         [RelayCommand]
         async Task LoadUserConfig()
         {
-            UserConfig = new UserConfig();
-            var results = await client.From<UserConfig>().Get();
+            UserConfig = new DbUserConfig();
+            var results = await client.From<DbUserConfig>().Get();
             // await client.From<Todo>().Where(x => x.UserId == session!.User!.Id).Get();
             if (results.Model != null) {
                 UserConfig = results.Model;
@@ -109,7 +112,7 @@ namespace tMS.ViewModels
                 UserConfig.UserId = session.User.Id;
                 try
                 {
-                    await client.From<UserConfig>().Upsert(UserConfig);
+                    await client.From<DbUserConfig>().Upsert(UserConfig);
                     await ToastHelper.ShowToast("Einstellungen gespeichert!");
                 }
                 catch (Exception e)
@@ -126,13 +129,34 @@ namespace tMS.ViewModels
         {
             try
             {
-                var result = await client.From<Category>().Get();
+                var result = await client.From<DbCategory>().Get();
                 if (result?.Models != null)
                 {
-                    categories.Clear();
+                    Categories.Clear();
                     foreach (var item in result!.Models)
                     {
-                        categories.Add(item);
+                        Categories.Add(item);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+        }
+
+        [RelayCommand]
+        async Task LoadTasks()
+        {
+            try
+            {
+                var result = await client.From<DbTask>().Get();
+                if (result?.Models != null)
+                {
+                    Tasks.Clear();
+                    foreach (var item in result!.Models)
+                    {
+                        Tasks.Add(item);
                     }
                 }
             }
