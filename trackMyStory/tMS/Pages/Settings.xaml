@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:layouts="clr-namespace:tMS.Layouts"
-             x:Class="tMS.Pages.Settings"
-             Title="Einstellungen">
+<ContentPage
+    x:Class="tMS.Pages.Settings"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:tMS.Components"
+    xmlns:layouts="clr-namespace:tMS.Layouts"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Title="Einstellungen">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -15,63 +17,102 @@
     <ScrollView>
         <layouts:ResponsiveLayout Margin="20">
             <VerticalStackLayout Spacing="20">
-                <Border Padding="10,0,10,10" x:Name="SliderContainer"  StrokeShape="RoundRectangle 10,10,10,10"  >
-                    <VerticalStackLayout VerticalOptions="Center" Padding="10,0,20,0">
-                        <Label StyleClass="Primary" FontAttributes="Bold" FontSize="Large" HorizontalTextAlignment="Center" Text="Farbauswahl 1" />
-                        <Label StyleClass="Primary" Text="Rot:" />
-                        <Slider x:Name="sldRed" ValueChanged="Slider_ValueChanged" />
-                        <Label StyleClass="Primary" Text="Grün:" />
-                        <Slider x:Name="sldGreen" ValueChanged="Slider_ValueChanged" />
-                        <Label StyleClass="Primary" Text="Blau:" />
-                        <Slider x:Name="sldBlue" ValueChanged="Slider_ValueChanged" />
-                    </VerticalStackLayout>
-                </Border >
+                <Border
+                    x:Name="SliderContainer"
+                    Padding="10,0,10,10"
+                    StrokeShape="RoundRectangle 10,10,10,10">
+                    <components:ColorPicker x:Name="ColorPickerSettings1" ColorChanged="Slider_ValueChanged" />
+                </Border>
                 <layouts:ResponsiveLayout HorizontalThreshold="600">
-                    <Button Text="Random" Clicked="btnRandom_Clicked" FontSize="Medium" TextColor="{DynamicResource DynamicPrimaryText}"  Grid.Column="0"  >
-                        <Button.ImageSource >
-                            <FontImageSource Glyph="{StaticResource GlyphColor}" FontFamily="{StaticResource GlyphColorFF}" Color="{DynamicResource DynamicPrimaryText}" />
+                    <Button
+                        Grid.Column="0"
+                        Clicked="btnRandom_Clicked"
+                        FontSize="Medium"
+                        Text="Random"
+                        TextColor="{DynamicResource DynamicPrimaryText}">
+                        <Button.ImageSource>
+                            <FontImageSource
+                                FontFamily="{StaticResource GlyphColorFF}"
+                                Glyph="{StaticResource GlyphColor}"
+                                Color="{DynamicResource DynamicPrimaryText}" />
                         </Button.ImageSource>
                     </Button>
-                    <Button IsEnabled="{Binding IsUserConfigSaving, Converter={StaticResource InvertedBoolConverter}}" Text="Speichern" Clicked="btnSaveColor1Clicked" FontSize="Medium" BackgroundColor="{DynamicResource DynamicPrimaryDark}">
-                        <Button.ImageSource >
-                            <FontImageSource Glyph="{StaticResource GlyphSave}" FontFamily="{StaticResource GlyphSaveFF}" Color="{DynamicResource DynamicPrimaryText}" />
+                    <Button
+                        BackgroundColor="{DynamicResource DynamicPrimaryDark}"
+                        Clicked="btnSaveColor1Clicked"
+                        FontSize="Medium"
+                        IsEnabled="{Binding IsUserConfigSaving, Converter={StaticResource InvertedBoolConverter}}"
+                        Text="Speichern">
+                        <Button.ImageSource>
+                            <FontImageSource
+                                FontFamily="{StaticResource GlyphSaveFF}"
+                                Glyph="{StaticResource GlyphSave}"
+                                Color="{DynamicResource DynamicPrimaryText}" />
                         </Button.ImageSource>
                     </Button>
-                    <Button Text="Zurück" Clicked="btnBackColor1Clicked" FontSize="Medium" BackgroundColor="{DynamicResource DynamicTertiary}">
-                        <Button.ImageSource >
-                            <FontImageSource Glyph="{StaticResource GlyphReset}" FontFamily="{StaticResource GlyphResetFF}" Color="{DynamicResource DynamicPrimaryText}" />
+                    <Button
+                        BackgroundColor="{DynamicResource DynamicTertiary}"
+                        Clicked="btnBackColor1Clicked"
+                        FontSize="Medium"
+                        Text="Zurück">
+                        <Button.ImageSource>
+                            <FontImageSource
+                                FontFamily="{StaticResource GlyphResetFF}"
+                                Glyph="{StaticResource GlyphReset}"
+                                Color="{DynamicResource DynamicPrimaryText}" />
                         </Button.ImageSource>
                     </Button>
                 </layouts:ResponsiveLayout>
             </VerticalStackLayout>
 
             <VerticalStackLayout Spacing="20">
-                <Border Padding="10,0,10,10" class="Secondary" x:Name="SliderContainer2"  StrokeShape="RoundRectangle 10,10,10,10">
-                    <VerticalStackLayout  VerticalOptions="Center" Padding="10,0,20,0">
-                        <Label StyleClass="Secondary" FontAttributes="Bold" FontSize="Large"  HorizontalTextAlignment="Center" Text="Farbauswahl 2" />
-                        <Label StyleClass="Secondary" Text="Rot:" />
-                        <Slider class="Secondary" x:Name="sldRed2" ValueChanged="Slider_ValueChanged" />
-                        <Label StyleClass="Secondary" Text="Grün:" />
-                        <Slider class="Secondary" x:Name="sldGreen2" ValueChanged="Slider_ValueChanged" />
-                        <Label StyleClass="Secondary" Text="Blau:" />
-                        <Slider  class="Secondary" x:Name="sldBlue2" ValueChanged="Slider_ValueChanged" />
-                    </VerticalStackLayout>
+                <Border
+                    x:Name="SliderContainer2"
+                    Padding="10,0,10,10"
+                    StrokeShape="RoundRectangle 10,10,10,10"
+                    class="Secondary">
+                    <components:ColorPicker x:Name="ColorPickerSettings2" ColorChanged="Slider_ValueChanged" />
+
                 </Border>
                 <layouts:ResponsiveLayout HorizontalThreshold="500">
-                    <Button class="Secondary" Text="Random" Clicked="btnRandom2_Clicked" FontSize="Medium">
-                        <Button.ImageSource >
-                            <FontImageSource Glyph="{StaticResource GlyphColor}" FontFamily="{StaticResource GlyphColorFF}" Color="{DynamicResource DynamicSecondaryText}" />
+                    <Button
+                        Clicked="btnRandom2_Clicked"
+                        FontSize="Medium"
+                        Text="Random"
+                        class="Secondary">
+                        <Button.ImageSource>
+                            <FontImageSource
+                                FontFamily="{StaticResource GlyphColorFF}"
+                                Glyph="{StaticResource GlyphColor}"
+                                Color="{DynamicResource DynamicSecondaryText}" />
                         </Button.ImageSource>
                     </Button>
 
-                    <Button IsEnabled="{Binding IsUserConfigSaving, Converter={StaticResource InvertedBoolConverter}}" class="Secondary" Text="Speichern" Clicked="btnSaveColor2Clicked" FontSize="Medium" BackgroundColor="{DynamicResource DynamicSecondaryDark}">
-                        <Button.ImageSource >
-                            <FontImageSource Glyph="{StaticResource GlyphSave}" FontFamily="{StaticResource GlyphSaveFF}" Color="{DynamicResource DynamicSecondaryText}" />
+                    <Button
+                        BackgroundColor="{DynamicResource DynamicSecondaryDark}"
+                        Clicked="btnSaveColor2Clicked"
+                        FontSize="Medium"
+                        IsEnabled="{Binding IsUserConfigSaving, Converter={StaticResource InvertedBoolConverter}}"
+                        Text="Speichern"
+                        class="Secondary">
+                        <Button.ImageSource>
+                            <FontImageSource
+                                FontFamily="{StaticResource GlyphSaveFF}"
+                                Glyph="{StaticResource GlyphSave}"
+                                Color="{DynamicResource DynamicSecondaryText}" />
                         </Button.ImageSource>
                     </Button>
-                    <Button Text="Zurück" Clicked="btnBackColor2Clicked" FontSize="Medium" TextColor="{DynamicResource DynamicSecondaryText}" BackgroundColor="{DynamicResource DynamicQuartary}">
-                        <Button.ImageSource >
-                            <FontImageSource Glyph="{StaticResource GlyphReset}" FontFamily="{StaticResource GlyphResetFF}" Color="{DynamicResource DynamicSecondaryText}" />
+                    <Button
+                        BackgroundColor="{DynamicResource DynamicQuartary}"
+                        Clicked="btnBackColor2Clicked"
+                        FontSize="Medium"
+                        Text="Zurück"
+                        TextColor="{DynamicResource DynamicSecondaryText}">
+                        <Button.ImageSource>
+                            <FontImageSource
+                                FontFamily="{StaticResource GlyphResetFF}"
+                                Glyph="{StaticResource GlyphReset}"
+                                Color="{DynamicResource DynamicSecondaryText}" />
                         </Button.ImageSource>
                     </Button>
                 </layouts:ResponsiveLayout>

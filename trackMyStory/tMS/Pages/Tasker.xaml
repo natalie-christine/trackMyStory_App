@@ -110,14 +110,16 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:DbTask">
                             <ContentView Padding="2">
-                                <Border BackgroundColor="{Binding Path=Category.Color, Converter={converter:ColorConverter}}">
-                                    <FlexLayout AlignItems="Center" HeightRequest="40">
+                                <Border BackgroundColor="{Binding Path=Category.Color, Converter={converter:ColorConverter}}" >
+                                    <FlexLayout AlignItems="Center"  MinimumHeightRequest="60" >
                                         <CheckBox />
                                         <VerticalStackLayout
+                                            
                                             FlexLayout.Basis="Auto"
                                             FlexLayout.Grow="1"
                                             FlexLayout.Shrink="1">
                                             <Label
+                                               
                                                 BackgroundColor="Transparent"
                                                 FontAttributes="Bold"
                                                 Text="{Binding Name}"

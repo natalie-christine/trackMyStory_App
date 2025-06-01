@@ -24,24 +24,24 @@ public partial class Settings : ContentPage
 
     private void setSld1Color(Color color)
     {
-        sldRed.Value = color.Red;
-        sldGreen.Value = color.Green;
-        sldBlue.Value = color.Blue;
+        ColorPickerSettings1.Red = color.Red;
+        ColorPickerSettings1.Green = color.Green;
+        ColorPickerSettings1.Blue = color.Blue;
     }
 
     private void setSld2Color(Color color)
     {
-        sldRed2.Value = color.Red;
-        sldGreen2.Value = color.Green;
-        sldBlue2.Value = color.Blue;
+        ColorPickerSettings2.Red = color.Red;
+        ColorPickerSettings2.Green = color.Green;
+        ColorPickerSettings2.Blue = color.Blue;
     }
 
-    private void Slider_ValueChanged(object sender, ValueChangedEventArgs e)
+    private void Slider_ValueChanged(object sender, EventArgs e)
     {
         if (!isRandom)
         {
-            Color color = Color.FromRgb(sldRed.Value, sldGreen.Value, sldBlue.Value);
-            Color color2 = Color.FromRgb(sldRed2.Value, sldGreen2.Value, sldBlue2.Value);
+            Color color = Color.FromRgb(ColorPickerSettings1.Red, ColorPickerSettings1.Green, ColorPickerSettings1.Blue);
+            Color color2 = Color.FromRgb(ColorPickerSettings2.Red, ColorPickerSettings2.Green, ColorPickerSettings2.Blue);
             ColorHelper.SetColor(color, color2);
         }
     }
