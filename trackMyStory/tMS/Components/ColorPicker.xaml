@@ -14,11 +14,11 @@
             StyleClass="Primary"
             Text="Farbauswahl 1" />
         <Label StyleClass="Primary" Text="Rot:" />
-        <Slider Value="{Binding Red}" />
+        <Slider ValueChanged="Slider_ValueChanged" Value="{Binding Red}" />
         <Label StyleClass="Primary" Text="Grün:" />
-        <Slider Value="{Binding Green}" />
+        <Slider ValueChanged="Slider_ValueChanged" Value="{Binding Green}" />
         <Label StyleClass="Primary" Text="Blau:" />
-        <Slider Value="{Binding Blue}" />
+        <Slider ValueChanged="Slider_ValueChanged" Value="{Binding Blue}" />
     </VerticalStackLayout>
 
 

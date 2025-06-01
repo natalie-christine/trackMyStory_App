@@ -16,54 +16,30 @@ public partial class ColorPicker : ContentView
         BindingContext = this;
     }
 
-    private void OnColorComponentChanged()
-    {
-        // Hier können Sie beliebige Logik für ValueChanged einbauen,
-        // z.B. ein Event auslösen oder weitere Aktionen durchführen.
-        ColorChanged?.Invoke(this, EventArgs.Empty);
-    }
-
     public event EventHandler? ColorChanged;
 
     public double Red
     {
         get { return (double)GetValue(RedProperty); }
-        set
-        {
-            if (Red != value)
-            {
-                SetValue(RedProperty, value);
-                OnColorComponentChanged();
-            }
-        }
+        set { SetValue(RedProperty, value); }
     }
 
     public double Green
     {
         get { return (double)GetValue(GreenProperty); }
-        set
-        {
-            if (Green != value)
-            {
-                SetValue(GreenProperty, value);
-                OnColorComponentChanged();
-            }
-        }
+        set { SetValue(GreenProperty, value); }
     }
 
     public double Blue
     {
         get { return (double)GetValue(BlueProperty); }
-        set
-        {
-            if (Blue != value)
-            {
-                SetValue(BlueProperty, value);
-                OnColorComponentChanged();
-            }
-        }
+        set { SetValue(BlueProperty, value); }
     }
-  
+
+    private void Slider_ValueChanged(object sender, ValueChangedEventArgs e)
+    {
+        ColorChanged?.Invoke(this, EventArgs.Empty);
+    }
 }
 
 
