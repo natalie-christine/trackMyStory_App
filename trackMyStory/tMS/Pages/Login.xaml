@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:Class="tMS.Pages.Login">
+<ContentPage
+    x:Class="tMS.Pages.Login"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:tMS.Behaviors"
+    xmlns:converter="clr-namespace:tMS.Converter"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodels="clr-namespace:tMS.ViewModels"
+    x:DataType="viewmodels:SupabaseViewModel">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -10,24 +15,114 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <VerticalStackLayout>
-        <Label 
-            Text="trackMyStory.com"
-            FontSize="40"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"
-            Padding="30"
-            TextColor="{AppThemeBinding Dark=white, Light=black}"/>
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Offset="0.0" Color="{DynamicResource DynamicPrimaryDark}" />
+            <GradientStop Offset="0.4" Color="{DynamicResource DynamicSecondary}" />
+            <GradientStop Offset="0.6" Color="{DynamicResource DynamicSecondary}" />
+            <GradientStop Offset="1.0" Color="{DynamicResource DynamicPrimaryDark}" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
 
-        <Border StrokeShape="RoundRectangle 10,10,10,10" WidthRequest="400" Padding="20">
+    <VerticalStackLayout VerticalOptions="Center">
+        <Grid>
+            <Button
+                BackgroundColor="Transparent"
+                Clicked="Logo_Clicked"
+                FontAttributes="Bold"
+                Opacity="1"
+                Text="trackMyStory.com"
+                TextColor="{DynamicResource DynamicPrimaryDark}">
+                <Button.Behaviors>
+                    <behaviors:ScreenSizeBehavior Threshold="450">
+                        <behaviors:ScreenSizeBehavior.SmallStyle>
+                            <Style TargetType="Button">
+                                <Setter Property="FontSize" Value="20" />
+                            </Style>
+                        </behaviors:ScreenSizeBehavior.SmallStyle>
+                        <behaviors:ScreenSizeBehavior.LargeStyle>
+                            <Style TargetType="Button">
+                                <Setter Property="FontSize" Value="40" />
+                            </Style>
+                        </behaviors:ScreenSizeBehavior.LargeStyle>
+                    </behaviors:ScreenSizeBehavior>
+                </Button.Behaviors>
+            </Button>
+            <Button
+                Margin="0,0,5,5"
+                BackgroundColor="Transparent"
+                Clicked="Logo_Clicked"
+                FontAttributes="Bold"
+                Opacity="1"
+                Text="trackMyStory.com"
+                TextColor="{DynamicResource DynamicPrimaryLight}">
+                <Button.Behaviors>
+                    <behaviors:ScreenSizeBehavior Threshold="450">
+                        <behaviors:ScreenSizeBehavior.SmallStyle>
+                            <Style TargetType="Button">
+                                <Setter Property="FontSize" Value="20" />
+                            </Style>
+                        </behaviors:ScreenSizeBehavior.SmallStyle>
+                        <behaviors:ScreenSizeBehavior.LargeStyle>
+                            <Style TargetType="Button">
+                                <Setter Property="FontSize" Value="40" />
+                            </Style>
+                        </behaviors:ScreenSizeBehavior.LargeStyle>
+                    </behaviors:ScreenSizeBehavior>
+                </Button.Behaviors>
+            </Button>
+        </Grid>
+
+        <Border
+            Margin="0,0,0,100"
+            Padding="20"
+            StrokeShape="RoundRectangle 10,10,10,10">
             <VerticalStackLayout Spacing="18">
-                <Label Text="Login" FontSize="Title" FontAttributes="Bold" Padding="0,0,0,10" />
-                <Entry  x:Name="entryUsername" Placeholder="Username" Text="{Binding LoginUsername}" ReturnCommand="{Binding LoginCommand}"  />
-                <Entry x:Name="entryPassword" Placeholder="Password" Text="{Binding LoginPassword}" ReturnCommand="{Binding LoginCommand}" IsPassword="True" />
-                <Button Text="Login" Command="{Binding LoginCommand}" />
-                <Label IsVisible="{Binding ErrorMessage, Converter={StaticResource IsNotNullConverter}}" Text="{Binding ErrorMessage}" FontSize="Small" TextColor="DarkRed" FontAttributes="Bold" Padding="0,10,0,0" />
+                <Label
+                    Padding="0,0,0,10"
+                    FontAttributes="Bold"
+                    FontSize="Title"
+                    StyleClass="Primary"
+                    Text="Login" />
+                <Entry
+                    x:Name="entryUsername"
+                    IsSpellCheckEnabled="False"
+                    IsTextPredictionEnabled="False"
+                    Keyboard="Email"
+                    Placeholder="E-Mail"
+                    ReturnCommand="{Binding LoginCommand}"
+                    Text="{Binding LoginUsername}" />
+                <Entry
+                    x:Name="entryPassword"
+                    IsPassword="True"
+                    IsSpellCheckEnabled="False"
+                    IsTextPredictionEnabled="False"
+                    Placeholder="Password"
+                    ReturnCommand="{Binding LoginCommand}"
+                    Text="{Binding LoginPassword}" />
+                <Button
+                    Command="{Binding LoginCommand}"
+                    FontSize="Small"
+                    StyleClass="Primary"
+                    Text="Login" />
+                <Label
+                    Padding="0,10,0,0"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    IsVisible="{Binding ErrorMessage, Converter={StaticResource IsNotNullConverter}}"
+                    Text="{Binding ErrorMessage, Converter={converter:ErrorMessageConverter}}"
+                    TextColor="DarkRed" />
             </VerticalStackLayout>
+            <Border.Behaviors>
+                <behaviors:ScreenSizeBehavior Threshold="450">
+
+                    <behaviors:ScreenSizeBehavior.LargeStyle>
+                        <Style TargetType="Border">
+                            <Setter Property="WidthRequest" Value="400" />
+                        </Style>
+                    </behaviors:ScreenSizeBehavior.LargeStyle>
+                </behaviors:ScreenSizeBehavior>
+            </Border.Behaviors>
         </Border>
     </VerticalStackLayout>
 </ContentPage>
-    

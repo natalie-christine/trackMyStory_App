@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <?xaml-comp compile="true" ?>
-<ResourceDictionary 
+<ResourceDictionary
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:components="clr-namespace:tMS.Components">
 
-    <!-- Button -->
+    <!--  Button  -->
     <Style Class="Primary" TargetType="Button">
         <Setter Property="TextColor" Value="{DynamicResource DynamicPrimaryText}" />
         <Setter Property="BackgroundColor" Value="{DynamicResource DynamicPrimary}" />
@@ -26,7 +26,7 @@
         <Setter Property="BackgroundColor" Value="{DynamicResource DynamicQuartary}" />
     </Style>
 
-    <!-- Label -->
+    <!--  Label  -->
     <Style Class="Primary" TargetType="Label">
         <Setter Property="TextColor" Value="{DynamicResource DynamicPrimaryText}" />
     </Style>
@@ -43,4 +43,20 @@
         <Setter Property="TextColor" Value="{DynamicResource DynamicQuartaryText}" />
     </Style>
 
+    <!--  Border  -->
+    <Style Class="Primary" TargetType="Border">
+        <Setter Property="BackgroundColor" Value="{DynamicResource DynamicPrimaryLight}" />
+    </Style>
+
+    <Style Class="Secondary" TargetType="Border">
+        <Setter Property="BackgroundColor" Value="{DynamicResource DynamicSecondaryLight}" />
+    </Style>
+
+    <Style Class="Tertiary" TargetType="Border">
+        <Setter Property="BackgroundColor" Value="{DynamicResource DynamicTertiaryLight}" />
+    </Style>
+
+    <Style Class="Quartary" TargetType="Border">
+        <Setter Property="BackgroundColor" Value="{DynamicResource DynamicQuartaryLight}" />
+    </Style>
 </ResourceDictionary>

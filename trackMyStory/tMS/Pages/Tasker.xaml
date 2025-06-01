@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:converter="clr-namespace:tMS.Converter"
-             xmlns:viewmodels="clr-namespace:tMS.ViewModels"
-             x:Class="tMS.Pages.Tasker"
-             Title="So many Tasks . . . .">
+<ContentPage
+    x:Class="tMS.Pages.Tasker"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:tMS.Converter"
+    xmlns:models="clr-namespace:tMS.Models"
+    xmlns:viewmodels="clr-namespace:tMS.ViewModels"
+    Title="So many Tasks . . . ."
+    x:DataType="viewmodels:SupabaseViewModel">
 
     <ContentPage.Resources>
         <converter:ColorConverter x:Key="ColorConverter" />
     </ContentPage.Resources>
 
     <ScrollView>
-        <VerticalStackLayout Margin="20,0,0,20">
-            <Label Text="Produktivität" FontSize="Header"></Label>
+        <VerticalStackLayout Margin="20,0,20,20">
+            <Label FontSize="Header" Text="Produktivität" />
             <HorizontalStackLayout x:Name="ProductivityGrid">
-                <Border  HeightRequest="300" MinimumWidthRequest="600" HorizontalOptions="Center"></Border>
+                <Border
+                    HeightRequest="300"
+                    HorizontalOptions="Center"
+                    MinimumWidthRequest="600" />
             </HorizontalStackLayout>
-            <FlexLayout  Margin="0,50,0,0" >
-                <Label Text="Kategorien" FontSize="Header"></Label>
-            <Button  WidthRequest="80" BackgroundColor="Transparent">
-                <Button.ImageSource >
-                    <FontImageSource Glyph="{StaticResource GlyphAdd}" FontFamily="{StaticResource GlyphAddFF}" Color="{AppThemeBinding Dark=white, Light=black}" />
-                </Button.ImageSource>
-            </Button> 
+            <FlexLayout Margin="0,50,0,0">
+                <Label FontSize="Header" Text="Kategorien" />
+                <Button BackgroundColor="Transparent" WidthRequest="80">
+                    <Button.ImageSource>
+                        <FontImageSource
+                            FontFamily="{StaticResource GlyphAddFF}"
+                            Glyph="{StaticResource GlyphAdd}"
+                            Color="{AppThemeBinding Dark=white,
+                                                    Light=black}" />
+                    </Button.ImageSource>
+                </Button>
             </FlexLayout>
-           
+
 
             <Grid ColumnDefinitions="300,*" ColumnSpacing="20">
                 <CollectionView ItemsSource="{Binding Categories}">
@@ -32,15 +42,25 @@
                         <LinearItemsLayout ItemSpacing="5" Orientation="Vertical" />
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
-                        <DataTemplate>
+                        <DataTemplate x:DataType="models:DbCategory">
                             <Grid>
                                 <FlexLayout>
-                                    <Button FlexLayout.Grow="1" FlexLayout.Shrink="1" Text="{Binding Name}"
+                                    <Button
                                         BackgroundColor="{Binding Color, Converter={converter:ColorConverter}}"
-                                        TextColor="{Binding Color, Converter={converter:ToTextColorConverter}}"/>
-                                    <Button CornerRadius="100" BackgroundColor="{Binding Color, Converter={converter:ColorConverter}}">
+                                        Command="{Binding SelectCategoryCommand, Source={RelativeSource AncestorType={x:Type viewmodels:SupabaseViewModel}}}"
+                                        CommandParameter="{Binding Id}"
+                                        FlexLayout.Grow="1"
+                                        FlexLayout.Shrink="1"
+                                        Text="{Binding Name}"
+                                        TextColor="{Binding Color, Converter={converter:ToTextColorConverter}}" />
+                                    <Button StyleClass="IconOnlyButton">
                                         <Button.ImageSource>
-                                            <FontImageSource Size="14" Glyph="{StaticResource GlyphAdd}" FontFamily="{StaticResource GlyphAddFF}" Color="{Binding Color, Converter={converter:ToTextColorConverter}}" />
+                                            <FontImageSource
+                                                FontFamily="{StaticResource GlyphAddFF}"
+                                                Glyph="{StaticResource GlyphAdd}"
+                                                Size="14"
+                                                Color="{AppThemeBinding Dark={DynamicResource DynamicPrimaryLight},
+                                                                        Light={DynamicResource DynamicPrimaryDark}}" />
                                         </Button.ImageSource>
                                     </Button>
                                 </FlexLayout>
@@ -50,22 +70,56 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
 
-                <CollectionView ItemsSource="{Binding Tasks}" Grid.Column="1">
+                <CollectionView Grid.Column="1" ItemsSource="{Binding Tasks}">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout ItemSpacing="5" Orientation="Vertical" />
                     </CollectionView.ItemsLayout>
+                    <CollectionView.EmptyView>
+                        <VerticalStackLayout>
+                            <Border
+                                Padding="10"
+                                BackgroundColor="Transparent"
+                                Stroke="{DynamicResource DynamicPrimaryBrush}"
+                                StrokeThickness="1">
+                                <Label
+                                    BackgroundColor="Transparent"
+                                    Text="Keine Aufgaben in dieser Kategorie!"
+                                    TextColor="{AppThemeBinding Dark=White,
+                                                                Light=Black}" />
+                            </Border>
+                        </VerticalStackLayout>
+                    </CollectionView.EmptyView>
                     <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
+                        <DataTemplate x:DataType="models:DbTask">
+                            <Border BackgroundColor="{Binding Path=Category.Color, Converter={converter:ColorConverter}}">
                                 <FlexLayout AlignItems="Center" HeightRequest="40">
                                     <CheckBox />
-                                    <VerticalStackLayout FlexLayout.Basis="Auto" FlexLayout.Grow="1" FlexLayout.Shrink="1">
-                                        <Label Text="{Binding Name}" FontAttributes="Bold" BackgroundColor="Transparent" />
-                                        <Label Text="{Binding CategoryId}" BackgroundColor="Transparent" />
+                                    <VerticalStackLayout
+                                        FlexLayout.Basis="Auto"
+                                        FlexLayout.Grow="1"
+                                        FlexLayout.Shrink="1">
+                                        <Label
+                                            BackgroundColor="Transparent"
+                                            FontAttributes="Bold"
+                                            Text="{Binding Name}"
+                                            TextColor="{Binding Path=Category.Color, Converter={converter:ToTextColorConverter}}" />
+                                        <Label
+                                            BackgroundColor="Transparent"
+                                            Text="{Binding CategoryId}"
+                                            TextColor="{Binding Path=Category.Color, Converter={converter:ToTextColorConverter}}" />
                                     </VerticalStackLayout>
-                                    <Button Text="Löschen" BackgroundColor="Transparent" TextColor="{DynamicResource DynamicPrimary}"></Button>
+                                    <Button StyleClass="IconOnlyButton">
+                                        <Button.ImageSource>
+                                            <FontImageSource
+                                                FontFamily="{StaticResource GlyphDeleteFF}"
+                                                Glyph="{StaticResource GlyphDelete}"
+                                                Size="14"
+                                                Color="{AppThemeBinding Dark={DynamicResource DynamicPrimaryLight},
+                                                                        Light={DynamicResource DynamicPrimaryDark}}" />
+                                        </Button.ImageSource>
+                                    </Button>
                                 </FlexLayout>
-                            </Grid>
+                            </Border>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>

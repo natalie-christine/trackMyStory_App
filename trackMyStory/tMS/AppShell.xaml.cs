@@ -38,10 +38,14 @@ namespace tMS
             {
                 if (supabaseViewModel.UserConfig != null)
                 {
-                    ColorHelper.SetColor(
-                        Color.FromArgb(supabaseViewModel.UserConfig.ColorPrimary ?? ColorHelper.CreateRandomColor().ToArgbHex()),
-                        Color.FromArgb(supabaseViewModel.UserConfig.ColorSecondary ?? ColorHelper.CreateRandomColor().ToArgbHex())
-                    );
+                    if (supabaseViewModel.UserConfig.ColorPrimary != null)
+                    {
+                        ColorHelper.SetColor(Color.FromArgb(supabaseViewModel.UserConfig.ColorPrimary), null);
+                    }
+                    if (supabaseViewModel.UserConfig.ColorSecondary != null)
+                    {
+                        ColorHelper.SetColor(null, Color.FromArgb(supabaseViewModel.UserConfig.ColorSecondary));
+                    }
                 }
             }
         }

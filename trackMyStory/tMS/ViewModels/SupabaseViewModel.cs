@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Supabase.Postgrest.Responses;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using tMS.Helper;
@@ -34,6 +35,9 @@ namespace tMS.ViewModels
 
         [ObservableProperty]
         private ObservableCollection<DbTask> tasks = new ObservableCollection<DbTask>();
+
+        [ObservableProperty]
+        private DbCategory? selectedCategory = null;
 
         public SupabaseViewModel(Supabase.Client _client)
         {
@@ -97,8 +101,8 @@ namespace tMS.ViewModels
         {
             UserConfig = new DbUserConfig();
             var results = await client.From<DbUserConfig>().Get();
-            // await client.From<Todo>().Where(x => x.UserId == session!.User!.Id).Get();
-            if (results.Model != null) {
+            if (results.Model != null)
+            {
                 UserConfig = results.Model;
             }
         }
@@ -119,7 +123,7 @@ namespace tMS.ViewModels
                 {
                     Debug.WriteLine(e);
                 }
-                
+
             }
             IsUserConfigSaving = false;
         }
@@ -133,10 +137,7 @@ namespace tMS.ViewModels
                 if (result?.Models != null)
                 {
                     Categories.Clear();
-                    foreach (var item in result!.Models)
-                    {
-                        Categories.Add(item);
-                    }
+                    result!.Models.ForEach(x => Categories.Add(x));
                 }
             }
             catch (Exception e)
@@ -148,16 +149,48 @@ namespace tMS.ViewModels
         [RelayCommand]
         async Task LoadTasks()
         {
+            // all filtered tasks
+            await DoLoadTasks(null);
+        }
+
+        [RelayCommand]
+        async Task SelectCategory(string? categoryId)
+        {
+            if (categoryId == null)
+            {
+                SelectedCategory = null;
+            }
+            else
+            {
+                SelectedCategory = (from c in Categories where c.Id == categoryId select c).First();
+            }
+
+            // load filtered tasks
+            await DoLoadTasks(SelectedCategory?.Id);
+        }
+
+        private async Task DoLoadTasks(string? categoryId)
+        {
             try
             {
-                var result = await client.From<DbTask>().Get();
+                ModeledResponse<DbTask> result;
+                if (categoryId == null)
+                {
+                    result = await client.From<DbTask>().Get();
+                }
+                else
+                {
+                    result = await client.From<DbTask>().Where(x => x.CategoryId == categoryId).Get();
+                }
+
                 if (result?.Models != null)
                 {
                     Tasks.Clear();
-                    foreach (var item in result!.Models)
+                    result!.Models.ForEach(x =>
                     {
-                        Tasks.Add(item);
-                    }
+                        x.Category = (from c in Categories where c.Id == x.CategoryId select c).First();
+                        Tasks.Add(x);
+                    });
                 }
             }
             catch (Exception e)
