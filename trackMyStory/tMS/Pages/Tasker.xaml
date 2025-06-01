@@ -22,13 +22,33 @@
                     HorizontalOptions="Center"
                     MinimumWidthRequest="600" />
             </HorizontalStackLayout>
-            <FlexLayout Margin="0,50,0,0">
-                <Label FontSize="Header" Text="Kategorien" />
-                <Button BackgroundColor="Transparent" WidthRequest="80">
+            <FlexLayout
+                Margin="0,50,0,0"
+                Padding="0,10,0,20"
+                AlignItems="Center">
+                <Label
+                    Margin="0,0,10,0"
+                    FontSize="Header"
+                    Text="Kategorien" />
+                <Button
+                    BackgroundColor="Transparent"
+                    Command="{Binding SelectCategoryCommand}"
+                    StyleClass="IconOnlyButton">
+                    <Button.ImageSource>
+                        <FontImageSource
+                            FontFamily="{StaticResource GlyphClearFF}"
+                            Glyph="{StaticResource GlyphClear}"
+                            Size="20"
+                            Color="{AppThemeBinding Dark=white,
+                                                    Light=black}" />
+                    </Button.ImageSource>
+                </Button>
+                <Button BackgroundColor="Transparent" StyleClass="IconOnlyButton">
                     <Button.ImageSource>
                         <FontImageSource
                             FontFamily="{StaticResource GlyphAddFF}"
                             Glyph="{StaticResource GlyphAdd}"
+                            Size="20"
                             Color="{AppThemeBinding Dark=white,
                                                     Light=black}" />
                     </Button.ImageSource>
@@ -37,7 +57,10 @@
 
 
             <Grid ColumnDefinitions="300,*" ColumnSpacing="20">
-                <CollectionView ItemsSource="{Binding Categories}">
+                <CollectionView
+                    ItemsSource="{Binding Categories}"
+                    SelectedItem="{Binding SelectedCategory}"
+                    SelectionMode="Single">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout ItemSpacing="5" Orientation="Vertical" />
                     </CollectionView.ItemsLayout>

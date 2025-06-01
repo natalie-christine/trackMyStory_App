@@ -73,11 +73,7 @@
             </Button>
         </Grid>
 
-        <Border
-            Margin="0,0,0,100"
-            Padding="20"
-            Shadow="2 2 2 #000 0.6"
-            StrokeShape="RoundRectangle 10,10,10,10">
+        <Border Margin="0,0,0,100" Padding="20">
             <VerticalStackLayout Spacing="18">
                 <Label
                     Padding="0,0,0,10"
