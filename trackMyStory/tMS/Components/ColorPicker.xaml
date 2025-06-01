@@ -2,9 +2,9 @@
 <ContentView
     x:Class="tMS.Components.ColorPicker"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-
-
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:tMS.Components"
+    x:DataType="components:ColorPicker">
 
     <VerticalStackLayout Padding="10,0,20,0" VerticalOptions="Center">
         <Label
