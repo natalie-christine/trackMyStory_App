@@ -44,12 +44,8 @@ namespace tMS
                 })
                  .Services
                     .AddSingleton(provider => new Supabase.Client(supabaseUrl, supabaseKey, supabaseOptions))
-                    .AddSingleton(provider =>
-                    {
-                        SupabaseViewModel vm = new(provider.GetService<Supabase.Client>()!);
-                        vm.Init();
-                        return vm;
-                    })
+                    .AddSingleton<SbLoginViewModel>()
+                    .AddSingleton<SbTaskViewModel>()
                     ;
             ;
 

@@ -6,14 +6,17 @@ namespace tMS
 {
     public partial class AppShell : Shell
     {
-        private SupabaseViewModel supabaseViewModel;
+        private SbLoginViewModel sbLoginViewModel;
 
         public AppShell()
         {
             InitializeComponent();
-            supabaseViewModel = ServiceHelper.GetService<SupabaseViewModel>();
-            BindingContext = supabaseViewModel;
-            supabaseViewModel.PropertyChanged += SupabaseViewModel_PropertyChanged;
+
+            sbLoginViewModel = ServiceHelper.GetService<SbLoginViewModel>();
+            sbLoginViewModel.Init();
+
+            BindingContext = sbLoginViewModel;
+            sbLoginViewModel.PropertyChanged += SupabaseViewModel_PropertyChanged;
 
             ColorHelper.SetColor(ColorHelper.CreateRandomColor(), ColorHelper.CreateRandomColor());
 
@@ -24,8 +27,8 @@ namespace tMS
         {
             if (e.PropertyName == "IsLoggedIn")
             {
-                Debug.WriteLine(supabaseViewModel.IsLoggedIn);
-                if (supabaseViewModel.IsLoggedIn)
+                Debug.WriteLine(sbLoginViewModel.IsLoggedIn);
+                if (sbLoginViewModel.IsLoggedIn)
                 {
                     await OnLoggedIn();
                 }
@@ -36,15 +39,15 @@ namespace tMS
             }
             if (e.PropertyName == "UserConfig")
             {
-                if (supabaseViewModel.UserConfig != null)
+                if (sbLoginViewModel.UserConfig != null)
                 {
-                    if (supabaseViewModel.UserConfig.ColorPrimary != null)
+                    if (sbLoginViewModel.UserConfig.ColorPrimary != null)
                     {
-                        ColorHelper.SetColor(Color.FromArgb(supabaseViewModel.UserConfig.ColorPrimary), null);
+                        ColorHelper.SetColor(Color.FromArgb(sbLoginViewModel.UserConfig.ColorPrimary), null);
                     }
-                    if (supabaseViewModel.UserConfig.ColorSecondary != null)
+                    if (sbLoginViewModel.UserConfig.ColorSecondary != null)
                     {
-                        ColorHelper.SetColor(null, Color.FromArgb(supabaseViewModel.UserConfig.ColorSecondary));
+                        ColorHelper.SetColor(null, Color.FromArgb(sbLoginViewModel.UserConfig.ColorSecondary));
                     }
                 }
             }
@@ -52,7 +55,7 @@ namespace tMS
 
         private async Task OnLoggedIn()
         {
-            supabaseViewModel.LoadUserConfigCommand.Execute(null);
+            sbLoginViewModel.LoadUserConfigCommand.Execute(null);
             FlyoutBehavior = FlyoutBehavior.Flyout;
             await GoToAsync("//MainPage");
         }

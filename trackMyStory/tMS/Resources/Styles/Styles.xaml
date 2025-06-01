@@ -2,6 +2,9 @@
 <?xaml-comp compile="true" ?>
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
+    <x:String x:Key="ShadowDark">2 2 2 #000 0.6</x:String>
+    <x:String x:Key="ShadowLight">2 2 2 #FFF 0.6</x:String>
+
     <Style TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
     </Style>
@@ -17,6 +20,7 @@
         <Setter Property="StrokeThickness" Value="0" />
         <Setter Property="BackgroundColor" Value="{DynamicResource DynamicPrimaryLight}" />
         <Setter Property="Padding" Value="5" />
+        <Setter Property="Shadow" Value="{AppThemeBinding Light={StaticResource ShadowDark}, Dark={StaticResource ShadowLight}}" />
     </Style>
 
     <Style TargetType="BoxView">

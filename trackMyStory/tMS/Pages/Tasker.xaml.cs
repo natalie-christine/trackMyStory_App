@@ -4,17 +4,17 @@ namespace tMS.Pages;
 
 public partial class Tasker : ContentPage
 {
-    private SupabaseViewModel supabaseViewModel;
+    private SbTaskViewModel sbTaskViewModel;
 
-    public Tasker(SupabaseViewModel _supabaseViewModel)
+    public Tasker(SbTaskViewModel _sbTaskViewModel)
 	{
 		InitializeComponent();
 
-        supabaseViewModel = _supabaseViewModel;
-        BindingContext = supabaseViewModel;
+        sbTaskViewModel = _sbTaskViewModel;
+        BindingContext = sbTaskViewModel;
 
-        supabaseViewModel.LoadCategoriesCommand.Execute(this);
-        supabaseViewModel.LoadTasksCommand.Execute(this);
+        sbTaskViewModel.LoadCategoriesCommand.Execute(this);
+        sbTaskViewModel.LoadTasksCommand.Execute(this);
     }
 
 	

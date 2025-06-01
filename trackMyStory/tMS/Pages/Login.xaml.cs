@@ -5,13 +5,13 @@ namespace tMS.Pages;
 
 public partial class Login : ContentPage
 {
-    public readonly SupabaseViewModel supabaseViewModel;
+    public readonly SbLoginViewModel sbLoginViewModel;
 
-    public Login(SupabaseViewModel _supabaseViewModel)
+    public Login(SbLoginViewModel _sbLoginViewModel)
 	{
         InitializeComponent();
-        supabaseViewModel = _supabaseViewModel;
-        BindingContext = supabaseViewModel;
+        sbLoginViewModel = _sbLoginViewModel;
+        BindingContext = sbLoginViewModel;
     }
 
     private void Logo_Clicked(object sender, EventArgs e)

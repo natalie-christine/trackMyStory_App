@@ -5,15 +5,15 @@ namespace tMS.Pages;
 
 public partial class Settings : ContentPage
 {
-    private SupabaseViewModel supabaseViewModel;
+    private SbLoginViewModel sbLoginViewModel;
 
     bool isRandom = false;
-    public Settings(SupabaseViewModel _supabaseViewModel)
+    public Settings(SbLoginViewModel _sbLoginViewModel)
 	{
 		InitializeComponent();
 
-        supabaseViewModel = _supabaseViewModel;
-        BindingContext = supabaseViewModel;
+        sbLoginViewModel = _sbLoginViewModel;
+        BindingContext = sbLoginViewModel;
 
         Color color = ColorHelper.GetColor1();
         Color color2 = ColorHelper.GetColor2();
@@ -70,21 +70,21 @@ public partial class Settings : ContentPage
 
     private void btnSaveColor1Clicked(object sender, EventArgs e)
     {
-        supabaseViewModel.UserConfig!.ColorPrimary = ColorHelper.GetColor1().ToArgbHex();
-        supabaseViewModel.SaveUserConfigCommand.Execute(null);
+        sbLoginViewModel.UserConfig!.ColorPrimary = ColorHelper.GetColor1().ToArgbHex();
+        sbLoginViewModel.SaveUserConfigCommand.Execute(null);
     }
 
     private void btnSaveColor2Clicked(object sender, EventArgs e)
     {
-        supabaseViewModel.UserConfig!.ColorSecondary = ColorHelper.GetColor2().ToArgbHex();
-        supabaseViewModel.SaveUserConfigCommand.Execute(null);
+        sbLoginViewModel.UserConfig!.ColorSecondary = ColorHelper.GetColor2().ToArgbHex();
+        sbLoginViewModel.SaveUserConfigCommand.Execute(null);
     }
 
     private void btnBackColor1Clicked(object sender, EventArgs e)
     {
-        if (supabaseViewModel.UserConfig!.ColorPrimary != null)
+        if (sbLoginViewModel.UserConfig!.ColorPrimary != null)
         {
-            Color color = Color.FromArgb(supabaseViewModel.UserConfig.ColorPrimary);
+            Color color = Color.FromArgb(sbLoginViewModel.UserConfig.ColorPrimary);
             ColorHelper.SetColor(color, null);
             setSld1Color(color);
         }
@@ -92,9 +92,9 @@ public partial class Settings : ContentPage
 
     private void btnBackColor2Clicked(object sender, EventArgs e)
     {
-        if (supabaseViewModel.UserConfig!.ColorSecondary != null)
+        if (sbLoginViewModel.UserConfig!.ColorSecondary != null)
         {
-            Color color = Color.FromArgb(supabaseViewModel.UserConfig.ColorSecondary);
+            Color color = Color.FromArgb(sbLoginViewModel.UserConfig.ColorSecondary);
             ColorHelper.SetColor(null, color);
             setSld2Color(color);
         }
