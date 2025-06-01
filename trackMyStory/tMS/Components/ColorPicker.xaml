@@ -7,12 +7,6 @@
     x:DataType="components:ColorPicker">
 
     <VerticalStackLayout Padding="10,0,20,0" VerticalOptions="Center">
-        <Label
-            FontAttributes="Bold"
-            FontSize="Large"
-            HorizontalTextAlignment="Center"
-            StyleClass="Primary"
-            Text="Farbauswahl 1" />
         <Label StyleClass="Primary" Text="Rot:" />
         <Slider ValueChanged="Slider_ValueChanged" Value="{Binding Red}" />
         <Label StyleClass="Primary" Text="Grün:" />

@@ -21,7 +21,16 @@
                     x:Name="SliderContainer"
                     Padding="10,0,10,10"
                     StrokeShape="RoundRectangle 10,10,10,10">
-                    <components:ColorPicker x:Name="ColorPickerSettings1" ColorChanged="Slider_ValueChanged" />
+                    <VerticalStackLayout>
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="Large"
+                            HorizontalTextAlignment="Center"
+                            StyleClass="Primary"
+                            Text="Farbauswahl 1" />
+                        <components:ColorPicker x:Name="ColorPickerSettings1" ColorChanged="Slider_ValueChanged" />
+                    </VerticalStackLayout>
+
                 </Border>
                 <layouts:ResponsiveLayout HorizontalThreshold="600">
                     <Button
@@ -71,7 +80,15 @@
                     Padding="10,0,10,10"
                     StrokeShape="RoundRectangle 10,10,10,10"
                     class="Secondary">
-                    <components:ColorPicker x:Name="ColorPickerSettings2" ColorChanged="Slider_ValueChanged" />
+                    <VerticalStackLayout>
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="Large"
+                            HorizontalTextAlignment="Center"
+                            StyleClass="Primary"
+                            Text="Farbauswahl 2" />
+                        <components:ColorPicker x:Name="ColorPickerSettings2" ColorChanged="Slider_ValueChanged" />
+                    </VerticalStackLayout>
 
                 </Border>
                 <layouts:ResponsiveLayout HorizontalThreshold="500">
