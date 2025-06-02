@@ -43,15 +43,17 @@
                                                     Light=black}" />
                     </Button.ImageSource>
                 </Button>
-                <Button BackgroundColor="Transparent" StyleClass="IconOnlyButton">
+                <Button BackgroundColor="Transparent" StyleClass="IconOnlyButton" Clicked="AddCategory">
                     <Button.ImageSource>
                         <FontImageSource
                             FontFamily="{StaticResource GlyphAddFF}"
                             Glyph="{StaticResource GlyphAdd}"
                             Size="20"
                             Color="{AppThemeBinding Dark=white,
-                                                    Light=black}" />
+                                                    Light=black}" 
+                            />
                     </Button.ImageSource>
+                    
                 </Button>
             </FlexLayout>
 

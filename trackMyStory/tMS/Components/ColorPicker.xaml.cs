@@ -36,6 +36,8 @@ public partial class ColorPicker : ContentView
         set { SetValue(BlueProperty, value); }
     }
 
+    public Color SelectedColor { get; internal set; }
+
     private void Slider_ValueChanged(object sender, ValueChangedEventArgs e)
     {
         ColorChanged?.Invoke(this, EventArgs.Empty);

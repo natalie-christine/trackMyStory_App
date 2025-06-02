@@ -95,5 +95,10 @@ namespace tMS.ViewModels
                 Debug.WriteLine(e);
             }
         }
+
+        internal void AddCategory(string categoryName, Color selectedColor)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
