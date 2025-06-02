@@ -9,28 +9,38 @@
 
     <toolkit:Popup.Resources>
         <Style TargetType="{x:Type Popups:AddCategoryPage}">
+            <Setter Property="Size" Value="400,330" />
+            <Setter Property="Color" Value="Transparent" />
             <Setter Property="HorizontalOptions" Value="Center" />
-            <Setter Property="VerticalOptions" Value="Start" />
+            <Setter Property="VerticalOptions" Value="Center" />
             <Setter Property="CanBeDismissedByTappingOutsideOfPopup" Value="False" />
         </Style>
     </toolkit:Popup.Resources>
 
-    <Border class="Secondary">
-        <VerticalStackLayout>
-            <Label
-                FontSize="Medium"
-                Text="Neue Kategorie hinzufügen" />
+    <Grid Padding="20" BackgroundColor="Transparent">
+        <Border class="Secondary">
+            <VerticalStackLayout>
+                <Label FontSize="Medium" Text="Neue Kategorie hinzufügen" />
 
-            <Entry Placeholder="Name" />
-            <components:ColorPicker x:Name="ColorPickerCategorie" ColorChanged="ColorPickerCategorie_ColorChanged" />
-            <FlexLayout>
-                <Button Clicked="Button_Clicked"  Text="OK" FlexLayout.Grow="1" />
-                <Button Clicked="Button_Clicked_1"  Text="Abbrechen" FlexLayout.Grow="1" />
-  
-            </FlexLayout>
-           
-        </VerticalStackLayout>
-    </Border>
+                <Entry Placeholder="Name" />
+                <components:ColorPicker x:Name="ColorPickerCategorie" ColorChanged="ColorPickerCategorie_ColorChanged" />
+                <FlexLayout>
+                    <Button
+                        Margin="0,0,5,0"
+                        Clicked="Button_Clicked"
+                        FlexLayout.Grow="1"
+                        Text="OK" />
+                    <Button
+                        Margin="5,0,0,0"
+                        Clicked="Button_Clicked_1"
+                        FlexLayout.Grow="1"
+                        Text="Abbrechen" />
+
+                </FlexLayout>
+
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
 
 </toolkit:Popup>
 
