@@ -12,6 +12,9 @@ namespace tMS.ViewModels
         private Supabase.Gotrue.Session? session;
 
         [ObservableProperty]
+        private bool isInitializing = true;
+
+        [ObservableProperty]
         private string loginUsername = "";
         [ObservableProperty]
         private string loginPassword = "";
@@ -30,6 +33,7 @@ namespace tMS.ViewModels
 
         public async Task Init()
         {
+            // await Task.Delay(1000);
             client.Auth.LoadSession();
             session = await client.Auth.RetrieveSessionAsync();
             if (session != null)
@@ -37,6 +41,7 @@ namespace tMS.ViewModels
                 await LoadUserConfig();
             }
             UpdateStatus();
+            IsInitializing = false;
         }
 
         private void UpdateStatus()

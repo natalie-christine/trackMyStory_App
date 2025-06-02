@@ -36,13 +36,21 @@ public partial class Settings : ContentPage
         ColorPickerSettings2.Blue = color.Blue;
     }
 
-    private void Slider_ValueChanged(object sender, EventArgs e)
+    private void ColorPicker1_ValueChanged(object sender, EventArgs e)
     {
         if (!isRandom)
         {
             Color color = Color.FromRgb(ColorPickerSettings1.Red, ColorPickerSettings1.Green, ColorPickerSettings1.Blue);
+            ColorHelper.SetColor(color, null);
+        }
+    }
+
+    private void ColorPicker2_ValueChanged(object sender, EventArgs e)
+    {
+        if (!isRandom)
+        {
             Color color2 = Color.FromRgb(ColorPickerSettings2.Red, ColorPickerSettings2.Green, ColorPickerSettings2.Blue);
-            ColorHelper.SetColor(color, color2);
+            ColorHelper.SetColor(null, color2);
         }
     }
 
@@ -84,9 +92,13 @@ public partial class Settings : ContentPage
     {
         if (sbLoginViewModel.UserConfig!.ColorPrimary != null)
         {
+            isRandom = true;
+
             Color color = Color.FromArgb(sbLoginViewModel.UserConfig.ColorPrimary);
             ColorHelper.SetColor(color, null);
             setSld1Color(color);
+
+            isRandom = false;
         }
     }
 
@@ -94,9 +106,13 @@ public partial class Settings : ContentPage
     {
         if (sbLoginViewModel.UserConfig!.ColorSecondary != null)
         {
+            isRandom = true;
+
             Color color = Color.FromArgb(sbLoginViewModel.UserConfig.ColorSecondary);
             ColorHelper.SetColor(null, color);
             setSld2Color(color);
+
+            isRandom = false;
         }
     }
 }
