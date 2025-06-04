@@ -25,7 +25,7 @@
         Glyph="{StaticResource GlyphSave}"
         Color="{DynamicResource DynamicQuartaryText}" />
 
-    <x:String x:Key="GlyphRandom">&#xf074;</x:String>
+    <x:String x:Key="GlyphRandom">&#xf6cf;</x:String>
     <x:String x:Key="GlyphRandomFF">FASolid</x:String>
     <FontImageSource
         x:Key="GlyphRandomISPrimary"
@@ -254,4 +254,5 @@
         FontFamily="{StaticResource GlyphClearFF}"
         Glyph="{StaticResource GlyphClear}"
         Color="{DynamicResource DynamicQuartaryText}" />
+
 </ResourceDictionary>

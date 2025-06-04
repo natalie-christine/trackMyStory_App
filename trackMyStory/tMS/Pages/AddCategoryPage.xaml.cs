@@ -9,11 +9,7 @@ public partial class AddCategoryPage : Popup
 	public AddCategoryPage()
 	{
 		InitializeComponent();
-        Color color = ColorHelper.CreateRandomColor();
-        ColorPickerCategorie.Red = color.Red;
-        ColorPickerCategorie.Green = color.Green;
-        ColorPickerCategorie.Blue = color.Blue;
-        ColorPickerCategorie_ColorChanged(null, null);
+        btnRandomColor(null, null);
     }
 
     private void ColorPickerCategorie_ColorChanged(object sender, EventArgs e)

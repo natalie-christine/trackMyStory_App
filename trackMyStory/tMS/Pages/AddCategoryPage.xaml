@@ -19,20 +19,29 @@
 
     <Grid Padding="20" BackgroundColor="Transparent">
         <Border StyleClass="AppTheme">
-            <toolkit:DockLayout>
+            <toolkit:DockLayout ShouldExpandLastChild="False">
                 <VerticalStackLayout Spacing="10">
-                    <Label FontSize="Medium" Text="Neue Kategorie hinzufügen"  />
+                    <Label FontSize="Medium" Text="Neue Kategorie hinzufügen" />
                     <Entry x:Name="entry" Placeholder="Name" />
-                    <components:ColorPicker  Margin="0,0,0,20" x:Name="ColorPickerCategorie" ColorChanged="ColorPickerCategorie_ColorChanged" />
+                    <components:ColorPicker
+                        x:Name="ColorPickerCategorie"
+                        Margin="0,0,0,20"
+                        ColorChanged="ColorPickerCategorie_ColorChanged" />
 
                 </VerticalStackLayout>
 
-                <FlexLayout Margin="10" toolkit:DockLayout.DockPosition="Bottom" MinimumHeightRequest="50">
-                    <Button 
+                <FlexLayout
+                    Margin="10"
+                    toolkit:DockLayout.DockPosition="Bottom"
+                    HeightRequest="50">
+                    <Button
                         Clicked="Button_Clicked"
                         FlexLayout.Grow="1"
                         Text="OK" />
-                    <components:ResponsiveIconButton ButtonStyleClass="Primary" ImageSource="{StaticResource GlyphLoveISPrimary}"  Clicked="btnRandomColor" />
+                    <Button
+                        Margin="6,0,6,0"
+                        Clicked="btnRandomColor"
+                        ImageSource="{StaticResource GlyphRandomISPrimary}" />
                     <Button
                         Clicked="Button_Clicked_1"
                         FlexLayout.Grow="1"
