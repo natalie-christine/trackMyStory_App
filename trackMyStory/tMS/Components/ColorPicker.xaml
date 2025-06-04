@@ -7,12 +7,21 @@
     x:DataType="components:ColorPicker">
 
     <VerticalStackLayout Padding="10,0,20,0" VerticalOptions="Center">
-        <Label StyleClass="Primary" Text="Rot:" />
-        <Slider ValueChanged="Slider_ValueChanged" Value="{Binding Red}" />
-        <Label StyleClass="Primary" Text="Grün:" />
-        <Slider ValueChanged="Slider_ValueChanged" Value="{Binding Green}" />
-        <Label StyleClass="Primary" Text="Blau:" />
-        <Slider ValueChanged="Slider_ValueChanged" Value="{Binding Blue}" />
+        <Label x:Name="labelRed" Text="Rot:" />
+        <Slider
+            x:Name="sliderRed"
+            ValueChanged="Slider_ValueChanged"
+            Value="{Binding Red}" />
+        <Label x:Name="labelGreen" Text="Grün:" />
+        <Slider
+            x:Name="sliderGreen"
+            ValueChanged="Slider_ValueChanged"
+            Value="{Binding Green}" />
+        <Label x:Name="labelBlue" Text="Blau:" />
+        <Slider
+            x:Name="sliderBlue"
+            ValueChanged="Slider_ValueChanged"
+            Value="{Binding Blue}" />
     </VerticalStackLayout>
 
 

@@ -10,6 +10,9 @@ public partial class ColorPicker : ContentView
        BindableProperty.Create(nameof(Green), typeof(Double), typeof(ColorPicker), 0.0);
     public static readonly BindableProperty BlueProperty =
        BindableProperty.Create(nameof(Blue), typeof(Double), typeof(ColorPicker), 0.0);
+    public static readonly BindableProperty LabelClassProperty =
+         BindableProperty.Create(nameof(LabelClass), typeof(string), typeof(ColorPicker), "", propertyChanged: OnLabelClassChanged);
+
     public ColorPicker()
     {
         InitializeComponent();
@@ -17,6 +20,16 @@ public partial class ColorPicker : ContentView
     }
 
     public event EventHandler? ColorChanged;
+
+    public string LabelClass
+    {
+        get { return (string)GetValue(LabelClassProperty); }
+        set
+        {
+            SetValue(LabelClassProperty, value);
+
+        }
+    }
 
     public double Red
     {
@@ -42,6 +55,42 @@ public partial class ColorPicker : ContentView
     {
         ColorChanged?.Invoke(this, EventArgs.Empty);
     }
+
+    private static void OnLabelClassChanged(BindableObject bindable, object oldValue, object newValue)
+    {
+        var control = (ColorPicker)bindable;
+        // Beispiel: Zugriff auf das Label und Aktualisierung der StyleClass
+        if (control.labelRed != null && newValue is string styleClass)
+        {
+            control.labelRed.StyleClass = new List<string> { styleClass };
+
+        }
+        if (control.labelGreen != null && newValue is string styleClassGreen)
+        {
+            control.labelGreen.StyleClass = new List<string> { styleClassGreen };
+        }
+
+        if (control.labelBlue != null && newValue is string styleClassBlue)
+        {
+            control.labelBlue.StyleClass = new List<string> { styleClassBlue };
+        }
+
+        if (control.sliderRed != null && newValue is string styleRed)
+        {
+            control.sliderRed.StyleClass = new List<string> { styleRed };
+        }
+
+        if (control.sliderGreen != null && newValue is string styleGreen)
+        {
+            control.sliderGreen.StyleClass = new List<string> { styleGreen };
+        }
+
+        if (control.sliderBlue != null && newValue is string styleBlue)
+        {
+            control.sliderBlue.StyleClass = new List<string> { styleBlue };
+        }
+    }
 }
+       
 
 

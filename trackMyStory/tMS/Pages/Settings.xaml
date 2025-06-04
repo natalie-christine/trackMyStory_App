@@ -28,7 +28,10 @@
                             HorizontalTextAlignment="Center"
                             StyleClass="Primary"
                             Text="Farbauswahl 1" />
-                        <components:ColorPicker x:Name="ColorPickerSettings1" ColorChanged="ColorPicker1_ValueChanged" />
+                        <components:ColorPicker
+                            x:Name="ColorPickerSettings1"
+                            ColorChanged="ColorPicker1_ValueChanged"
+                            LabelClass="Primary" />
                     </VerticalStackLayout>
 
                 </Border>
@@ -87,7 +90,10 @@
                             HorizontalTextAlignment="Center"
                             StyleClass="Secondary"
                             Text="Farbauswahl 2" />
-                        <components:ColorPicker x:Name="ColorPickerSettings2" ColorChanged="ColorPicker2_ValueChanged" />
+                        <components:ColorPicker
+                            x:Name="ColorPickerSettings2"
+                            ColorChanged="ColorPicker2_ValueChanged"
+                            LabelClass="Secondary" />
                     </VerticalStackLayout>
 
                 </Border>

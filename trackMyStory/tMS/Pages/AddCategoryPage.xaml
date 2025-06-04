@@ -21,7 +21,6 @@
         <Border class="Secondary">
             <VerticalStackLayout>
                 <Label FontSize="Medium" Text="Neue Kategorie hinzufügen" />
-
                 <Entry Placeholder="Name" />
                 <components:ColorPicker x:Name="ColorPickerCategorie" ColorChanged="ColorPickerCategorie_ColorChanged" />
                 <FlexLayout>
@@ -35,9 +34,7 @@
                         Clicked="Button_Clicked_1"
                         FlexLayout.Grow="1"
                         Text="Abbrechen" />
-
                 </FlexLayout>
-
             </VerticalStackLayout>
         </Border>
     </Grid>
