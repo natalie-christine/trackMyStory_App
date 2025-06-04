@@ -59,4 +59,8 @@
     <Style Class="Quartary" TargetType="Border">
         <Setter Property="BackgroundColor" Value="{DynamicResource DynamicQuartaryLight}" />
     </Style>
+
+    <Style Class="AppTheme" TargetType="Border">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource OffBlack}}" />
+    </Style>
 </ResourceDictionary>

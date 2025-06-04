@@ -18,10 +18,10 @@
     </toolkit:Popup.Resources>
 
     <Grid Padding="20" BackgroundColor="Transparent">
-        <Border class="Secondary">
+        <Border StyleClass="AppTheme">
             <VerticalStackLayout>
                 <Label FontSize="Medium" Text="Neue Kategorie hinzufügen" />
-                <Entry Placeholder="Name" />
+                <Entry x:Name="entry" Placeholder="Name" />
                 <components:ColorPicker x:Name="ColorPickerCategorie" ColorChanged="ColorPickerCategorie_ColorChanged" />
                 <FlexLayout>
                     <Button
