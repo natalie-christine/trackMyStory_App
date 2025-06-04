@@ -9,7 +9,7 @@
 
     <toolkit:Popup.Resources>
         <Style TargetType="{x:Type Popups:AddCategoryPage}">
-            <Setter Property="Size" Value="400,330" />
+            <Setter Property="Size" Value="500,420" />
             <Setter Property="Color" Value="Transparent" />
             <Setter Property="HorizontalOptions" Value="Center" />
             <Setter Property="VerticalOptions" Value="Center" />
@@ -19,23 +19,26 @@
 
     <Grid Padding="20" BackgroundColor="Transparent">
         <Border StyleClass="AppTheme">
-            <VerticalStackLayout>
-                <Label FontSize="Medium" Text="Neue Kategorie hinzufügen" />
-                <Entry x:Name="entry" Placeholder="Name" />
-                <components:ColorPicker x:Name="ColorPickerCategorie" ColorChanged="ColorPickerCategorie_ColorChanged" />
-                <FlexLayout>
-                    <Button
-                        Margin="0,0,5,0"
+            <toolkit:DockLayout>
+                <VerticalStackLayout Spacing="10">
+                    <Label FontSize="Medium" Text="Neue Kategorie hinzufügen"  />
+                    <Entry x:Name="entry" Placeholder="Name" />
+                    <components:ColorPicker  Margin="0,0,0,20" x:Name="ColorPickerCategorie" ColorChanged="ColorPickerCategorie_ColorChanged" />
+
+                </VerticalStackLayout>
+
+                <FlexLayout Margin="10" toolkit:DockLayout.DockPosition="Bottom" MinimumHeightRequest="50">
+                    <Button 
                         Clicked="Button_Clicked"
                         FlexLayout.Grow="1"
                         Text="OK" />
+                    <components:ResponsiveIconButton ButtonStyleClass="Primary" ImageSource="{StaticResource GlyphLoveISPrimary}"  Clicked="btnRandomColor" />
                     <Button
-                        Margin="5,0,0,0"
                         Clicked="Button_Clicked_1"
                         FlexLayout.Grow="1"
                         Text="Abbrechen" />
                 </FlexLayout>
-            </VerticalStackLayout>
+            </toolkit:DockLayout>
         </Border>
     </Grid>
 

@@ -44,4 +44,13 @@ public partial class AddCategoryPage : Popup
     {
         await CloseAsync();
     }
+
+   private void btnRandomColor(object sender, EventArgs e)
+    {
+        Color color = ColorHelper.CreateRandomColor();
+        ColorPickerCategorie.Red = color.Red;
+        ColorPickerCategorie.Green = color.Green;
+        ColorPickerCategorie.Blue = color.Blue;
+        ColorPickerCategorie_ColorChanged(null, null);
+    }
 }
