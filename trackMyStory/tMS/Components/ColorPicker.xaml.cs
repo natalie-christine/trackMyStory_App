@@ -12,6 +12,8 @@ public partial class ColorPicker : ContentView
        BindableProperty.Create(nameof(Blue), typeof(Double), typeof(ColorPicker), 0.0);
     public static readonly BindableProperty LabelClassProperty =
          BindableProperty.Create(nameof(LabelClass), typeof(string), typeof(ColorPicker), "", propertyChanged: OnLabelClassChanged);
+    public static readonly BindableProperty HexColorProperty =
+        BindableProperty.Create(nameof(HexColor), typeof(string), typeof(ColorPicker), "#000000", BindingMode.OneWayToSource);
 
     public ColorPicker()
     {
@@ -49,11 +51,17 @@ public partial class ColorPicker : ContentView
         set { SetValue(BlueProperty, value); }
     }
 
-    public Color SelectedColor { get; internal set; }
+    public string HexColor
+    {
+        get { return (string)GetValue(HexColorProperty); }
+        set { SetValue(HexColorProperty, value); }
+    }
 
     private void Slider_ValueChanged(object sender, ValueChangedEventArgs e)
     {
         ColorChanged?.Invoke(this, EventArgs.Empty);
+        // Update the HexColor property when the sliders change
+        HexColor = $"#{((int)(Red * 255)):X2}{((int)(Green * 255)):X2}{((int)(Blue * 255)):X2}";
     }
 
     private static void OnLabelClassChanged(BindableObject bindable, object oldValue, object newValue)

@@ -10,7 +10,6 @@ public partial class AddCategoryPage : Popup
 	{
 		InitializeComponent();
         BindingContext = addCategoryViewModel;
-
         btnRandomColor(null, null);
     }
 
@@ -21,21 +20,26 @@ public partial class AddCategoryPage : Popup
         entry.TextColor = ColorHelper.CreateTextColor(color);
     }
 
-    private void Button_Clicked(object sender, EventArgs e)
+    private void btnOK_Clicked(object sender, EventArgs e)
     {
-        //    if (result != null)
-        //    {
-        //        categoryName = nameEntry.Text;
-        //        selectedColor = colorPicker.SelectedColor;
 
-        //        if (!string.IsNullOrWhiteSpace(categoryName))
-        //        {
-        //            if (BindingContext is ViewModels.SbTaskViewModel vm)
-        //            {
-        //                vm.AddCategory(categoryName, selectedColor);
-        //            }
-        //        }
+
+
+
+
+        //if (result != null)
+        //{
+        //    categoryName = nameEntry.Text;
+        //    selectedColor = colorPicker.SelectedColor;
+
+        //    if (!string.IsNullOrWhiteSpace(categoryName))
+        //    {
+        //if (BindingContext is ViewModels.AddCategoryViewModel vm)
+        //{
+        //    vm.AddCategory(categoryName, selectedColor);
+        //}
         //    }
+        //}
     }
 
     private async void Button_Clicked_1(object sender, EventArgs e)

@@ -22,12 +22,16 @@
             <toolkit:DockLayout ShouldExpandLastChild="False">
                 <VerticalStackLayout toolkit:DockLayout.DockPosition="Top" Spacing="10">
                     <Label FontSize="Medium" Text="Neue Kategorie hinzufügen" />
-                    <Entry x:Name="entry" Placeholder="Name" />
+                    <Entry
+                        x:Name="entry"
+                        Placeholder="Name"
+                        Text="{Binding Name}" />
                     <Grid>
                         <components:ColorPicker
                             x:Name="ColorPickerCategorie"
                             Margin="0,0,0,20"
-                            ColorChanged="ColorPickerCategorie_ColorChanged" />
+                            ColorChanged="ColorPickerCategorie_ColorChanged"
+                            HexColor="{Binding ColorHex}" />
                     </Grid>
                 </VerticalStackLayout>
 
@@ -36,7 +40,7 @@
                     toolkit:DockLayout.DockPosition="Bottom"
                     HeightRequest="50">
                     <Button
-                        Clicked="Button_Clicked"
+                        Command="{Binding SaveCommand}"
                         FlexLayout.Grow="1"
                         Text="OK" />
                     <Button
