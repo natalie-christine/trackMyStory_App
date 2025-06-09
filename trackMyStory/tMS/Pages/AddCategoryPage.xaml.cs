@@ -20,28 +20,6 @@ public partial class AddCategoryPage : Popup
         entry.TextColor = ColorHelper.CreateTextColor(color);
     }
 
-    private void btnOK_Clicked(object sender, EventArgs e)
-    {
-
-
-
-
-
-        //if (result != null)
-        //{
-        //    categoryName = nameEntry.Text;
-        //    selectedColor = colorPicker.SelectedColor;
-
-        //    if (!string.IsNullOrWhiteSpace(categoryName))
-        //    {
-        //if (BindingContext is ViewModels.AddCategoryViewModel vm)
-        //{
-        //    vm.AddCategory(categoryName, selectedColor);
-        //}
-        //    }
-        //}
-    }
-
     private async void Button_Clicked_1(object sender, EventArgs e)
     {
         await CloseAsync();

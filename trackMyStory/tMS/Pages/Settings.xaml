@@ -97,7 +97,7 @@
                     </VerticalStackLayout>
 
                 </Border>
-                <layouts:ResponsiveLayout HorizontalThreshold="500">
+                <layouts:ResponsiveLayout HorizontalThreshold="600">
                     <Button
                         Clicked="btnRandom2_Clicked"
                         FontSize="Medium"

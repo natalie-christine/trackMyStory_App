@@ -25,6 +25,10 @@ public partial class Tasker : ContentPage
 
     private async void AddCategory(object sender, EventArgs e)
     {
-        popupService.ShowPopup<AddCategoryViewModel>();
+       // popupService.ShowPopup<AddCategoryViewModel>();
+       await popupService.ShowPopupAsync<AddCategoryViewModel>();
+
+        sbTaskViewModel.LoadCategoriesCommand.Execute(this);
+
     }
 }
