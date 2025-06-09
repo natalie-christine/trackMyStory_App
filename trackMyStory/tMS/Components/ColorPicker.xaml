@@ -6,7 +6,10 @@
     xmlns:components="clr-namespace:tMS.Components"
     x:DataType="components:ColorPicker">
 
-    <VerticalStackLayout Padding="10,0,20,0" VerticalOptions="Center">
+    <VerticalStackLayout
+        x:Name="container"
+        Padding="10,0,20,0"
+        VerticalOptions="Center">
         <Label x:Name="labelRed" Text="Rot:" />
         <Slider
             x:Name="sliderRed"
