@@ -1,14 +1,16 @@
 using CommunityToolkit.Maui.Views;
-using System.Threading.Tasks;
 using tMS.Helper;
+using tMS.ViewModels;
 
 namespace tMS.Pages;
 
 public partial class AddCategoryPage : Popup
 {
-	public AddCategoryPage()
+	public AddCategoryPage(AddCategoryViewModel addCategoryViewModel)
 	{
 		InitializeComponent();
+        BindingContext = addCategoryViewModel;
+
         btnRandomColor(null, null);
     }
 

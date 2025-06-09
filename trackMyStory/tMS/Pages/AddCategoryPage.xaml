@@ -20,14 +20,15 @@
     <Grid Padding="20" BackgroundColor="Transparent">
         <Border StyleClass="AppTheme">
             <toolkit:DockLayout ShouldExpandLastChild="False">
-                <VerticalStackLayout Spacing="10">
+                <VerticalStackLayout toolkit:DockLayout.DockPosition="Top" Spacing="10">
                     <Label FontSize="Medium" Text="Neue Kategorie hinzufügen" />
                     <Entry x:Name="entry" Placeholder="Name" />
-                    <components:ColorPicker
-                        x:Name="ColorPickerCategorie"
-                        Margin="0,0,0,20"
-                        ColorChanged="ColorPickerCategorie_ColorChanged" />
-
+                    <Grid>
+                        <components:ColorPicker
+                            x:Name="ColorPickerCategorie"
+                            Margin="0,0,0,20"
+                            ColorChanged="ColorPickerCategorie_ColorChanged" />
+                    </Grid>
                 </VerticalStackLayout>
 
                 <FlexLayout

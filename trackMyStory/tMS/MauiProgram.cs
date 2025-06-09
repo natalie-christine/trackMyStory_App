@@ -5,6 +5,7 @@ using SkiaSharp.Views.Maui.Controls.Hosting;
 using Supabase;
 using System.Transactions;
 using tMS.Helper;
+using tMS.Pages;
 using tMS.ViewModels;
 
 
@@ -46,6 +47,8 @@ namespace tMS
                     .AddSingleton(provider => new Supabase.Client(supabaseUrl, supabaseKey, supabaseOptions))
                     .AddSingleton<SbLoginViewModel>()
                     .AddSingleton<SbTaskViewModel>()
+                    .AddSingleton<AddCategoryViewModel>()
+                    .AddTransientPopup<AddCategoryPage, AddCategoryViewModel>()
                     ;
             ;
 
