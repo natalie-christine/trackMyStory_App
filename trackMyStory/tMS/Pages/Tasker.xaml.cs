@@ -37,4 +37,9 @@ public partial class Tasker : ContentPage
     {
         Debug.WriteLine(sender);
     }
+
+    private void TaskComponent_SaveClicked(object sender, EventArgs e)
+    {
+        sbTaskViewModel.SaveTaskForCategoryCommand.Execute(null);
+    }
 }

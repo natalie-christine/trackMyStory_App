@@ -11,6 +11,6 @@ namespace tMS.Models
         [Column("category_id")] public string CategoryId { get; set; }
         [Column("name")] public string Name { get; set; }
 
-        public DbCategory? Category { get; set; }
+        [Column(ignoreOnInsert:true)] public DbCategory? Category { get; set; }
     }
 }

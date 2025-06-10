@@ -86,7 +86,9 @@ namespace tMS.ViewModels
         {
             if (NewTask != null)
             {
+                NewTask.Category = null;
                 var result = await client.From<DbTask>().Insert(NewTask);
+                NewTask = null;
                 await DoLoadTasks(SelectedCategory?.Id);
             }
         }

@@ -6,24 +6,24 @@
     xmlns:converter="clr-namespace:tMS.Converter">
 
 
-    <Border BackgroundColor="{Binding Path=Category.Color, Converter={converter:ColorConverter}}">
+    <Border x:Name="container" BackgroundColor="{Binding HexColor, Converter={converter:ColorConverter}}">
         <FlexLayout AlignItems="Center" MinimumHeightRequest="60">
             <CheckBox />
             <VerticalStackLayout
                 FlexLayout.Basis="Auto"
                 FlexLayout.Grow="1"
                 FlexLayout.Shrink="1">
-                <Label
+                <Entry
                     BackgroundColor="Transparent"
                     FontAttributes="Bold"
                     Text="{Binding Name}"
-                    TextColor="{Binding Path=Category.Color, Converter={converter:ToTextColorConverter}}" />
+                    TextColor="{Binding HexColor, Converter={converter:ToTextColorConverter}}" />
                 <Label
                     BackgroundColor="Transparent"
-                    Text="{Binding CategoryId}"
-                    TextColor="{Binding Path=Category.Color, Converter={converter:ToTextColorConverter}}" />
+                    Text="Juhu"
+                    TextColor="{Binding HexColor, Converter={converter:ToTextColorConverter}}" />
             </VerticalStackLayout>
-            <Button StyleClass="IconOnlyButton">
+            <Button Clicked="ButtonSave_Clicked" StyleClass="IconOnlyButton">
                 <Button.ImageSource>
                     <FontImageSource
                         FontFamily="{StaticResource GlyphDeleteFF}"
