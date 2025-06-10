@@ -1,6 +1,7 @@
 using CommunityToolkit.Maui;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Views;
+using System.Diagnostics;
 using tMS.ViewModels;
 
 namespace tMS.Pages;
@@ -30,5 +31,10 @@ public partial class Tasker : ContentPage
 
         sbTaskViewModel.LoadCategoriesCommand.Execute(this);
 
+    }
+
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+        Debug.WriteLine(sender);
     }
 }

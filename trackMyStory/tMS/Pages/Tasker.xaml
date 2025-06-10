@@ -5,12 +5,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:converter="clr-namespace:tMS.Converter"
     xmlns:models="clr-namespace:tMS.Models"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:viewmodels="clr-namespace:tMS.ViewModels"
     Title="So many Tasks . . . ."
     x:DataType="viewmodels:SbTaskViewModel">
 
     <ContentPage.Resources>
         <converter:ColorConverter x:Key="ColorConverter" />
+        <ResourceDictionary>
+            <toolkit:IsNotNullConverter x:Key="IsNotNullConverter" />
+        </ResourceDictionary>
     </ContentPage.Resources>
 
     <ScrollView>
@@ -43,17 +47,19 @@
                                                     Light=black}" />
                     </Button.ImageSource>
                 </Button>
-                <Button BackgroundColor="Transparent" StyleClass="IconOnlyButton" Clicked="AddCategory">
+                <Button
+                    BackgroundColor="Transparent"
+                    Clicked="AddCategory"
+                    StyleClass="IconOnlyButton">
                     <Button.ImageSource>
                         <FontImageSource
                             FontFamily="{StaticResource GlyphAddFF}"
                             Glyph="{StaticResource GlyphAdd}"
                             Size="20"
                             Color="{AppThemeBinding Dark=white,
-                                                    Light=black}" 
-                            />
+                                                    Light=black}" />
                     </Button.ImageSource>
-                    
+
                 </Button>
             </FlexLayout>
 
@@ -78,7 +84,10 @@
                                         FlexLayout.Shrink="1"
                                         Text="{Binding Name}"
                                         TextColor="{Binding Color, Converter={converter:ToTextColorConverter}}" />
-                                    <Button StyleClass="IconOnlyButton">
+                                    <Button
+                                        Command="{Binding CreateTaskForCategoryCommand, Source={RelativeSource AncestorType={x:Type viewmodels:SbTaskViewModel}}}"
+                                        CommandParameter="{Binding Id}"
+                                        StyleClass="IconOnlyButton">
                                         <Button.ImageSource>
                                             <FontImageSource
                                                 FontFamily="{StaticResource GlyphAddFF}"
@@ -95,58 +104,62 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
 
-                <CollectionView Grid.Column="1" ItemsSource="{Binding Tasks}">
-                    <CollectionView.ItemsLayout>
-                        <LinearItemsLayout ItemSpacing="2" Orientation="Vertical" />
-                    </CollectionView.ItemsLayout>
-                    <CollectionView.EmptyView>
-                        <VerticalStackLayout Padding="2">
-                            <Border Padding="10" StyleClass="Secondary">
-                                <Label
-                                    BackgroundColor="Transparent"
-                                    Text="Keine Aufgaben in dieser Kategorie!"
-                                    TextColor="{DynamicResource DynamicSecondaryText}" />
-                            </Border>
-                        </VerticalStackLayout>
-                    </CollectionView.EmptyView>
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="models:DbTask">
-                            <ContentView Padding="2">
-                                <Border BackgroundColor="{Binding Path=Category.Color, Converter={converter:ColorConverter}}" >
-                                    <FlexLayout AlignItems="Center"  MinimumHeightRequest="60" >
-                                        <CheckBox />
-                                        <VerticalStackLayout
-                                            
-                                            FlexLayout.Basis="Auto"
-                                            FlexLayout.Grow="1"
-                                            FlexLayout.Shrink="1">
-                                            <Label
-                                               
-                                                BackgroundColor="Transparent"
-                                                FontAttributes="Bold"
-                                                Text="{Binding Name}"
-                                                TextColor="{Binding Path=Category.Color, Converter={converter:ToTextColorConverter}}" />
-                                            <Label
-                                                BackgroundColor="Transparent"
-                                                Text="{Binding CategoryId}"
-                                                TextColor="{Binding Path=Category.Color, Converter={converter:ToTextColorConverter}}" />
-                                        </VerticalStackLayout>
-                                        <Button StyleClass="IconOnlyButton">
-                                            <Button.ImageSource>
-                                                <FontImageSource
-                                                    FontFamily="{StaticResource GlyphDeleteFF}"
-                                                    Glyph="{StaticResource GlyphDelete}"
-                                                    Size="14"
-                                                    Color="{AppThemeBinding Dark={DynamicResource DynamicPrimaryLight},
-                                                                            Light={DynamicResource DynamicPrimaryDark}}" />
-                                            </Button.ImageSource>
-                                        </Button>
-                                    </FlexLayout>
+                <VerticalStackLayout Grid.Column="1">
+                    <VerticalStackLayout IsVisible="{Binding NewTask, Converter={StaticResource IsNotNullConverter}}">
+                        <Label Text="{Binding NewTask.Name}" />
+                        <Label Text="{Binding NewTask.CategoryId}" />
+                    </VerticalStackLayout>
+                    <CollectionView ItemsSource="{Binding Tasks}">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="2" Orientation="Vertical" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.EmptyView>
+                            <VerticalStackLayout Padding="2">
+                                <Border Padding="10" StyleClass="Secondary">
+                                    <Label
+                                        BackgroundColor="Transparent"
+                                        Text="Keine Aufgaben in dieser Kategorie!"
+                                        TextColor="{DynamicResource DynamicSecondaryText}" />
                                 </Border>
-                            </ContentView>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+                            </VerticalStackLayout>
+                        </CollectionView.EmptyView>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="models:DbTask">
+                                <ContentView Padding="2">
+                                    <Border BackgroundColor="{Binding Path=Category.Color, Converter={converter:ColorConverter}}">
+                                        <FlexLayout AlignItems="Center" MinimumHeightRequest="60">
+                                            <CheckBox />
+                                            <VerticalStackLayout
+                                                FlexLayout.Basis="Auto"
+                                                FlexLayout.Grow="1"
+                                                FlexLayout.Shrink="1">
+                                                <Label
+                                                    BackgroundColor="Transparent"
+                                                    FontAttributes="Bold"
+                                                    Text="{Binding Name}"
+                                                    TextColor="{Binding Path=Category.Color, Converter={converter:ToTextColorConverter}}" />
+                                                <Label
+                                                    BackgroundColor="Transparent"
+                                                    Text="{Binding CategoryId}"
+                                                    TextColor="{Binding Path=Category.Color, Converter={converter:ToTextColorConverter}}" />
+                                            </VerticalStackLayout>
+                                            <Button StyleClass="IconOnlyButton">
+                                                <Button.ImageSource>
+                                                    <FontImageSource
+                                                        FontFamily="{StaticResource GlyphDeleteFF}"
+                                                        Glyph="{StaticResource GlyphDelete}"
+                                                        Size="14"
+                                                        Color="{AppThemeBinding Dark={DynamicResource DynamicPrimaryLight},
+                                                                                Light={DynamicResource DynamicPrimaryDark}}" />
+                                                </Button.ImageSource>
+                                            </Button>
+                                        </FlexLayout>
+                                    </Border>
+                                </ContentView>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
 
             </Grid>
 

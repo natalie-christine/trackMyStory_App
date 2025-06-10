@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using Supabase.Postgrest.Responses;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Xml.Linq;
 using tMS.Models;
 
 namespace tMS.ViewModels
@@ -19,6 +20,9 @@ namespace tMS.ViewModels
 
         [ObservableProperty]
         private DbCategory? selectedCategory = null;
+
+        [ObservableProperty]
+        private DbTask? newTask = null;
 
         public SbTaskViewModel(Supabase.Client _client)
         {
@@ -66,6 +70,33 @@ namespace tMS.ViewModels
             await DoLoadTasks(SelectedCategory?.Id);
         }
 
+        [RelayCommand]
+        void CreateTaskForCategory(string? categoryId)
+        {
+            NewTask = new DbTask {
+                CategoryId = categoryId,
+                UserId = client.Auth.CurrentUser.Id,
+                Name = "My New Task",
+                Category = (from c in Categories where c.Id == categoryId select c).First()
+            };
+        }
+
+        [RelayCommand]
+        async Task SaveTaskForCategory()
+        {
+            if (NewTask != null)
+            {
+                var result = await client.From<DbTask>().Insert(NewTask);
+                await DoLoadTasks(SelectedCategory?.Id);
+            }
+        }
+
+        [RelayCommand]
+        void CancelTaskForCategory()
+        {
+            NewTask = null;
+        }
+
         private async Task DoLoadTasks(string? categoryId)
         {
             try
@@ -94,11 +125,6 @@ namespace tMS.ViewModels
             {
                 Debug.WriteLine(e);
             }
-        }
-
-        internal void AddCategory(string categoryName, Color selectedColor)
-        {
-            throw new NotImplementedException();
         }
     }
 }

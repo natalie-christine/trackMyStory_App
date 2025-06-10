@@ -23,10 +23,6 @@ public partial class AddCategoryViewModel : ObservableObject
         this.client = client;
     }
 
-    void OnCancel()
-    {
-    }
-
     [RelayCommand]
     async Task OnSave()
     {
