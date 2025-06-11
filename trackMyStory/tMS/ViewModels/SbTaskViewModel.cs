@@ -57,7 +57,7 @@ namespace tMS.ViewModels
         [RelayCommand]
         async Task SelectCategory(string? categoryId)
         {
-            if (categoryId == null)
+            if (categoryId == null || (SelectedCategory != null && SelectedCategory.Id == categoryId))
             {
                 SelectedCategory = null;
             }

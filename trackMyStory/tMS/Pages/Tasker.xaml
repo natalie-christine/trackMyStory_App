@@ -15,6 +15,7 @@
         <converter:ColorConverter x:Key="ColorConverter" />
         <ResourceDictionary>
             <toolkit:IsNotNullConverter x:Key="IsNotNullConverter" />
+            <toolkit:IsEqualConverter x:Key="IsEqualConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -75,31 +76,52 @@
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:DbCategory">
-                            <Grid>
-                                <FlexLayout>
-                                    <Button
-                                        BackgroundColor="{Binding Color, Converter={converter:ColorConverter}}"
-                                        Command="{Binding SelectCategoryCommand, Source={RelativeSource AncestorType={x:Type viewmodels:SbTaskViewModel}}}"
-                                        CommandParameter="{Binding Id}"
-                                        FlexLayout.Grow="1"
-                                        FlexLayout.Shrink="1"
-                                        Text="{Binding Name}"
-                                        TextColor="{Binding Color, Converter={converter:ToTextColorConverter}}" />
-                                    <Button
-                                        Command="{Binding CreateTaskForCategoryCommand, Source={RelativeSource AncestorType={x:Type viewmodels:SbTaskViewModel}}}"
-                                        CommandParameter="{Binding Id}"
-                                        StyleClass="IconOnlyButton">
-                                        <Button.ImageSource>
-                                            <FontImageSource
-                                                FontFamily="{StaticResource GlyphAddFF}"
-                                                Glyph="{StaticResource GlyphAdd}"
-                                                Size="14"
-                                                Color="{AppThemeBinding Dark={DynamicResource DynamicPrimaryLight},
-                                                                        Light={DynamicResource DynamicPrimaryDark}}" />
-                                        </Button.ImageSource>
-                                    </Button>
-                                </FlexLayout>
-                            </Grid>
+                            <Border
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                Shadow="Transparent 0 0">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="VisualStateManager.VisualStateGroups">
+                                            <VisualStateGroupList>
+                                                <VisualStateGroup x:Name="CommonStates">
+                                                    <VisualState x:Name="Normal" />
+                                                    <VisualState x:Name="Selected">
+                                                        <VisualState.Setters>
+                                                            <Setter Property="BackgroundColor" Value="{Binding Color, Converter={converter:ColorConverter}}" />
+                                                        </VisualState.Setters>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                            </VisualStateGroupList>
+                                        </Setter>
+                                    </Style>
+                                </Border.Style>
+                                <Grid>
+                                    <FlexLayout>
+                                        <Button
+                                            BackgroundColor="{Binding Color, Converter={converter:ColorConverter}}"
+                                            Command="{Binding SelectCategoryCommand, Source={RelativeSource AncestorType={x:Type viewmodels:SbTaskViewModel}}}"
+                                            CommandParameter="{Binding Id}"
+                                            FlexLayout.Grow="1"
+                                            FlexLayout.Shrink="1"
+                                            Text="{Binding Name}"
+                                            TextColor="{Binding Color, Converter={converter:ToTextColorConverter}}" />
+                                        <Button
+                                            Command="{Binding CreateTaskForCategoryCommand, Source={RelativeSource AncestorType={x:Type viewmodels:SbTaskViewModel}}}"
+                                            CommandParameter="{Binding Id}"
+                                            StyleClass="IconOnlyButton">
+                                            <Button.ImageSource>
+                                                <FontImageSource
+                                                    FontFamily="{StaticResource GlyphAddFF}"
+                                                    Glyph="{StaticResource GlyphAdd}"
+                                                    Size="14"
+                                                    Color="{AppThemeBinding Dark={DynamicResource DynamicPrimaryLight},
+                                                                            Light={DynamicResource DynamicPrimaryDark}}" />
+                                            </Button.ImageSource>
+                                        </Button>
+                                    </FlexLayout>
+                                </Grid>
+                            </Border>
 
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
