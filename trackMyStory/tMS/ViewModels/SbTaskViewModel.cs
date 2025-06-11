@@ -76,7 +76,6 @@ namespace tMS.ViewModels
             NewTask = new DbTask {
                 CategoryId = categoryId,
                 UserId = client.Auth.CurrentUser.Id,
-                Name = "My New Task",
                 Category = (from c in Categories where c.Id == categoryId select c).First()
             };
         }

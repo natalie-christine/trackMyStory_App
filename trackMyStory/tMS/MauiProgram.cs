@@ -49,7 +49,8 @@ namespace tMS
                     .AddSingleton<SbTaskViewModel>()
                     .AddSingleton<AddCategoryViewModel>()
                     .AddTransientPopup<AddCategoryPage, AddCategoryViewModel>()
-                    ;
+                    .AddTransientPopup<TasksSettingsPage, TasksSettingsViewModel>();
+                    
             ;
 
 #if DEBUG

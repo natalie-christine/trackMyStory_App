@@ -42,4 +42,11 @@ public partial class TaskComponent : ContentView
     {
         SaveClicked?.Invoke(this, EventArgs.Empty);
     }
+
+    private void ButtonCancel_Clicked(object sender, EventArgs e)
+    {
+        CancelClicked?.Invoke(this, EventArgs.Empty);
+
+
+    }
 }
