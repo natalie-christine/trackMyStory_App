@@ -43,10 +43,14 @@
                         Command="{Binding SaveCommand}"
                         FlexLayout.Grow="1"
                         Text="OK" />
-                    <Button
-                        Margin="6,0,6,0"
-                        Clicked="btnRandomColor"
-                        ImageSource="{StaticResource GlyphRandomISPrimary}" />
+                    <Button Margin="6,0,6,0" Clicked="btnRandomColor">
+                        <Button.ImageSource>
+                            <FontImageSource
+                                FontFamily="{StaticResource GlyphRandomFF}"
+                                Glyph="{StaticResource GlyphRandom}"
+                                Color="{DynamicResource DynamicPrimaryText}" />
+                        </Button.ImageSource>
+                    </Button>
                     <Button
                         Clicked="Button_Clicked_1"
                         FlexLayout.Grow="1"

@@ -1,82 +1,153 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:behaviors="clr-namespace:tMS.Behaviors"
-             xmlns:components="clr-namespace:tMS.Components"
-             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
-             x:Class="tMS.Pages.PatPatDashboard"
-             Title="PatPatDashboard">
+<ContentPage
+    x:Class="tMS.Pages.PatPatDashboard"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:tMS.Behaviors"
+    xmlns:components="clr-namespace:tMS.Components"
+    xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+    Title="PatPatDashboard">
 
     <Grid>
-        <ScrollView >
+        <ScrollView>
             <VerticalStackLayout>
                 <VerticalStackLayout.Behaviors>
                     <behaviors:ScreenSizeBehavior>
                         <behaviors:ScreenSizeBehavior.SmallStyle>
-                            <Style  TargetType="VerticalStackLayout">
-                                <Setter Property="Margin" Value="0,0,20,0"></Setter>
+                            <Style TargetType="VerticalStackLayout">
+                                <Setter Property="Margin" Value="0,0,20,0" />
                             </Style>
                         </behaviors:ScreenSizeBehavior.SmallStyle>
                         <behaviors:ScreenSizeBehavior.LargeStyle>
-                            <Style  TargetType="VerticalStackLayout">
-                                <Setter Property="Margin" Value="0,0,250,0"></Setter>
+                            <Style TargetType="VerticalStackLayout">
+                                <Setter Property="Margin" Value="0,0,250,0" />
                             </Style>
                         </behaviors:ScreenSizeBehavior.LargeStyle>
                     </behaviors:ScreenSizeBehavior>
                 </VerticalStackLayout.Behaviors>
-                <lvc:CartesianChart Grid.Row="0" 
-            XAxes="{Binding XAxes}"
-            Series="{Binding Series}"
-            HeightRequest="500">
-                </lvc:CartesianChart>
-                
-                    <VerticalStackLayout x:Name="stuffFeed" Spacing="10" BackgroundColor="Transparent" Margin="0,0,0,30">
-                    <Label FontSize="Header" Margin="20,0,0,0">Feed</Label>
-                        
-                        
-                        <VerticalStackLayout >
-                          <Border  BackgroundColor="{DynamicResource DynamicTertiaryLight}" Margin="20,0,100,0">  
-                            <Grid ColumnDefinitions="100, auto" RowDefinitions="*,*">
-                                <Image WidthRequest="50" Grid.Column="0" Grid.Row="0" >
-                                    <Image.Source  >
-                                        <FontImageSource Glyph="" FontFamily="FASolid" Size="1000" ></FontImageSource>
-                                    </Image.Source>
-                                </Image>
-                                <Label Grid.Column="1" Grid.Row="0" Text="User"></Label>
-                                <Label  Grid.Column="1" Grid.Row="1" Text="Beschreibung"></Label>
-                            </Grid>
-                           </Border>   
-                        </VerticalStackLayout>
+                <lvc:CartesianChart
+                    Grid.Row="0"
+                    HeightRequest="500"
+                    Series="{Binding Series}"
+                    XAxes="{Binding XAxes}" />
 
-                        <VerticalStackLayout>
-                        <Border  Margin="20,0,100,0" BackgroundColor="{DynamicResource DynamicQuartaryLight}" >
+                <VerticalStackLayout
+                    x:Name="stuffFeed"
+                    Margin="0,0,0,30"
+                    BackgroundColor="Transparent"
+                    Spacing="10">
+                    <Label Margin="20,0,0,0" FontSize="Header">Feed</Label>
+
+
+                    <VerticalStackLayout>
+                        <Border Margin="20,0,100,0" BackgroundColor="{DynamicResource DynamicTertiaryLight}">
                             <Grid ColumnDefinitions="100, auto" RowDefinitions="*,*">
-                                <Image WidthRequest="50" Grid.Column="0" Grid.Row="0" >
-                                    <Image.Source  >
-                                        <FontImageSource Glyph="" FontFamily="FASolid" Size="1000" ></FontImageSource>
+                                <Image
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    WidthRequest="50">
+                                    <Image.Source>
+                                        <FontImageSource
+                                            FontFamily="FASolid"
+                                            Glyph=""
+                                            Size="1000" />
                                     </Image.Source>
                                 </Image>
-                                <Label Grid.Column="1" Grid.Row="0" Text="User"></Label>
-                                <Label  Grid.Column="1" Grid.Row="1" Text="Beschreibung"></Label>
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Text="User" />
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="Beschreibung" />
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout>
+                        <Border Margin="20,0,100,0" BackgroundColor="{DynamicResource DynamicQuartaryLight}">
+                            <Grid ColumnDefinitions="100, auto" RowDefinitions="*,*">
+                                <Image
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    WidthRequest="50">
+                                    <Image.Source>
+                                        <FontImageSource
+                                            FontFamily="FASolid"
+                                            Glyph=""
+                                            Size="1000" />
+                                    </Image.Source>
+                                </Image>
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Text="User" />
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="Beschreibung" />
                             </Grid>
                         </Border>
                     </VerticalStackLayout>
 
 
-                    </VerticalStackLayout>     
-                
+                </VerticalStackLayout>
+
             </VerticalStackLayout>
         </ScrollView>
 
-        <VerticalStackLayout Margin="30" Spacing="20" Grid.Row="1" HorizontalOptions="End">
-            <components:ResponsiveIconButton ButtonStyleClass="Primary" ImageSource="{StaticResource GlyphLoveISPrimary}" Text="PatPat" Clicked="PatPatClicked" />
-            <components:ResponsiveIconButton ButtonStyleClass="Primary" ImageSource="{StaticResource GlyphStarISPrimary}" Text="Gute Nudel" Clicked="StarClicked" />
-            <components:ResponsiveIconButton ButtonStyleClass="Primary" ImageSource="{StaticResource GlyphTaskISPrimary}" Text="Tasks" Clicked="DoneClicked" />
-            <components:ResponsiveIconButton ButtonStyleClass="Primary" ImageSource="{StaticResource GlyphTimelineISPrimary}" Text="Step by Step" Clicked="StepsClicked" />
+        <VerticalStackLayout
+            Grid.Row="1"
+            Margin="30"
+            HorizontalOptions="End"
+            Spacing="20">
+            <components:ResponsiveIconButton
+                ButtonStyleClass="Primary"
+                Clicked="PatPatClicked"
+                ImageSource="{FontImageSource Glyph={StaticResource GlyphLove},
+                                              FontFamily={StaticResource GlyphLoveFF}}"
+                Text="PatPat" />
+            <components:ResponsiveIconButton
+                ButtonStyleClass="Primary"
+                Clicked="StarClicked"
+                ImageSource="{FontImageSource Glyph={StaticResource GlyphStar},
+                                              FontFamily={StaticResource GlyphStarFF}}"
+                Text="Gute Nudel" />
+            <components:ResponsiveIconButton
+                ButtonStyleClass="Primary"
+                Clicked="DoneClicked"
+                ImageSource="{FontImageSource Glyph={StaticResource GlyphTask},
+                                              FontFamily={StaticResource GlyphTaskFF}}"
+                Text="Tasks" />
+            <components:ResponsiveIconButton
+                ButtonStyleClass="Primary"
+                Clicked="StepsClicked"
+                ImageSource="{FontImageSource Glyph={StaticResource GlyphTimeline},
+                                              FontFamily={StaticResource GlyphTimelineFF}}"
+                Text="Step by Step" />
         </VerticalStackLayout>
-        <VerticalStackLayout Margin="30" Spacing="20" Grid.Row="1" Grid.Column="1" HorizontalOptions="End" VerticalOptions="End">
-            <components:ResponsiveIconButton ButtonStyleClass="Secondary" ImageSource="{StaticResource GlyphTimelineISSecondary}" Text="Einstellungen" Clicked="EinstellungenClicked" />
-            <components:ResponsiveIconButton ButtonStyleClass="Secondary" ImageSource="{StaticResource GlyphTimelineISSecondary}" Text="NullPlan" Clicked="NullPlanClicked" />
+        <VerticalStackLayout
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="30"
+            HorizontalOptions="End"
+            Spacing="20"
+            VerticalOptions="End">
+            <components:ResponsiveIconButton
+                ButtonStyleClass="Secondary"
+                Clicked="EinstellungenClicked"
+                ImageSource="{FontImageSource Glyph={StaticResource GlyphTimeline},
+                                              FontFamily={StaticResource GlyphTimelineFF},
+                                              Color={DynamicResource DynamicSecondaryText}}"
+                Text="Einstellungen" />
+            <components:ResponsiveIconButton
+                ButtonStyleClass="Secondary"
+                Clicked="NullPlanClicked"
+                ImageSource="{FontImageSource Glyph={StaticResource GlyphTimeline},
+                                              FontFamily={StaticResource GlyphTimelineFF},
+                                              Color={DynamicResource DynamicSecondaryText}}"
+                Text="NullPlan" />
         </VerticalStackLayout>
     </Grid>
 

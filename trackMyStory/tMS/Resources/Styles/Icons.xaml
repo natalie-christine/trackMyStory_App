@@ -4,255 +4,40 @@
 
     <x:String x:Key="GlyphSave">&#xf0c7;</x:String>
     <x:String x:Key="GlyphSaveFF">FARegular</x:String>
-    <FontImageSource
-        x:Key="GryphSaveISPrimary"
-        FontFamily="{StaticResource GlyphSaveFF}"
-        Glyph="{StaticResource GlyphSave}"
-        Color="{DynamicResource DynamicPrimaryText}" />
-    <FontImageSource
-        x:Key="GryphSaveISSecondary"
-        FontFamily="{StaticResource GlyphSaveFF}"
-        Glyph="{StaticResource GlyphSave}"
-        Color="{DynamicResource DynamicSecondaryText}" />
-    <FontImageSource
-        x:Key="GryphSaveISTertiary"
-        FontFamily="{StaticResource GlyphSaveFF}"
-        Glyph="{StaticResource GlyphSave}"
-        Color="{DynamicResource DynamicTertiaryText}" />
-    <FontImageSource
-        x:Key="GryphSaveISQuartary"
-        FontFamily="{StaticResource GlyphSaveFF}"
-        Glyph="{StaticResource GlyphSave}"
-        Color="{DynamicResource DynamicQuartaryText}" />
 
     <x:String x:Key="GlyphRandom">&#xf6cf;</x:String>
     <x:String x:Key="GlyphRandomFF">FASolid</x:String>
-    <FontImageSource
-        x:Key="GlyphRandomISPrimary"
-        FontFamily="{StaticResource GlyphRandomFF}"
-        Glyph="{StaticResource GlyphRandom}"
-        Color="{DynamicResource DynamicPrimaryText}" />
-    <FontImageSource
-        x:Key="GlyphRandomISSecondary"
-        FontFamily="{StaticResource GlyphRandomFF}"
-        Glyph="{StaticResource GlyphRandom}"
-        Color="{DynamicResource DynamicSecondaryText}" />
-    <FontImageSource
-        x:Key="GlyphRandomISTertiary"
-        FontFamily="{StaticResource GlyphRandomFF}"
-        Glyph="{StaticResource GlyphRandom}"
-        Color="{DynamicResource DynamicTertiaryText}" />
-    <FontImageSource
-        x:Key="GlyphRandomISQuartary"
-        FontFamily="{StaticResource GlyphRandomFF}"
-        Glyph="{StaticResource GlyphRandom}"
-        Color="{DynamicResource DynamicQuartaryText}" />
 
     <x:String x:Key="GlyphReset">&#xf2ea;</x:String>
     <x:String x:Key="GlyphResetFF">FASolid</x:String>
-    <FontImageSource
-        x:Key="GlyphResetISPrimary"
-        FontFamily="{StaticResource GlyphResetFF}"
-        Glyph="{StaticResource GlyphReset}"
-        Color="{DynamicResource DynamicPrimaryText}" />
-    <FontImageSource
-        x:Key="GlyphResetISSecondary"
-        FontFamily="{StaticResource GlyphResetFF}"
-        Glyph="{StaticResource GlyphReset}"
-        Color="{DynamicResource DynamicSecondaryText}" />
-    <FontImageSource
-        x:Key="GlyphResetISTertiary"
-        FontFamily="{StaticResource GlyphResetFF}"
-        Glyph="{StaticResource GlyphReset}"
-        Color="{DynamicResource DynamicTertiaryText}" />
-    <FontImageSource
-        x:Key="GlyphResetISQuartary"
-        FontFamily="{StaticResource GlyphResetFF}"
-        Glyph="{StaticResource GlyphReset}"
-        Color="{DynamicResource DynamicQuartaryText}" />
 
     <x:String x:Key="GlyphColor">&#xf53f;</x:String>
     <x:String x:Key="GlyphColorFF">FASolid</x:String>
-    <FontImageSource
-        x:Key="GlyphColorISPrimary"
-        FontFamily="{StaticResource GlyphColorFF}"
-        Glyph="{StaticResource GlyphColor}"
-        Color="{DynamicResource DynamicPrimaryText}" />
-    <FontImageSource
-        x:Key="GlyphColorISSecondary"
-        FontFamily="{StaticResource GlyphColorFF}"
-        Glyph="{StaticResource GlyphColor}"
-        Color="{DynamicResource DynamicSecondaryText}" />
-    <FontImageSource
-        x:Key="GlyphColorISTertiary"
-        FontFamily="{StaticResource GlyphColorFF}"
-        Glyph="{StaticResource GlyphColor}"
-        Color="{DynamicResource DynamicTertiaryText}" />
-    <FontImageSource
-        x:Key="GlyphColorISQuartary"
-        FontFamily="{StaticResource GlyphColorFF}"
-        Glyph="{StaticResource GlyphColor}"
-        Color="{DynamicResource DynamicQuartaryText}" />
 
     <x:String x:Key="GlyphLove">&#xf004;</x:String>
     <x:String x:Key="GlyphLoveFF">FASolid</x:String>
-    <FontImageSource
-        x:Key="GlyphLoveISPrimary"
-        FontFamily="{StaticResource GlyphLoveFF}"
-        Glyph="{StaticResource GlyphLove}"
-        Color="{DynamicResource DynamicPrimaryText}" />
-    <FontImageSource
-        x:Key="GlyphLoveISSecondary"
-        FontFamily="{StaticResource GlyphLoveFF}"
-        Glyph="{StaticResource GlyphLove}"
-        Color="{DynamicResource DynamicSecondaryText}" />
-    <FontImageSource
-        x:Key="GlyphLoveISTertiary"
-        FontFamily="{StaticResource GlyphLoveFF}"
-        Glyph="{StaticResource GlyphLove}"
-        Color="{DynamicResource DynamicTertiaryText}" />
-    <FontImageSource
-        x:Key="GlyphLoveISQuartary"
-        FontFamily="{StaticResource GlyphLoveFF}"
-        Glyph="{StaticResource GlyphLove}"
-        Color="{DynamicResource DynamicQuartaryText}" />
 
     <x:String x:Key="GlyphStar">&#xf005;</x:String>
     <x:String x:Key="GlyphStarFF">FASolid</x:String>
-    <FontImageSource
-        x:Key="GlyphStarISPrimary"
-        FontFamily="{StaticResource GlyphStarFF}"
-        Glyph="{StaticResource GlyphStar}"
-        Color="{DynamicResource DynamicPrimaryText}" />
-    <FontImageSource
-        x:Key="GlyphStarISSecondary"
-        FontFamily="{StaticResource GlyphStarFF}"
-        Glyph="{StaticResource GlyphStar}"
-        Color="{DynamicResource DynamicSecondaryText}" />
-    <FontImageSource
-        x:Key="GlyphStarISTertiary"
-        FontFamily="{StaticResource GlyphStarFF}"
-        Glyph="{StaticResource GlyphStar}"
-        Color="{DynamicResource DynamicTertiaryText}" />
-    <FontImageSource
-        x:Key="GlyphStarISQuartary"
-        FontFamily="{StaticResource GlyphStarFF}"
-        Glyph="{StaticResource GlyphStar}"
-        Color="{DynamicResource DynamicQuartaryText}" />
 
     <x:String x:Key="GlyphTask">&#xf044;</x:String>
     <x:String x:Key="GlyphTaskFF">FASolid</x:String>
-    <FontImageSource
-        x:Key="GlyphTaskISPrimary"
-        FontFamily="{StaticResource GlyphTaskFF}"
-        Glyph="{StaticResource GlyphTask}"
-        Color="{DynamicResource DynamicPrimaryText}" />
-    <FontImageSource
-        x:Key="GlyphTaskISSecondary"
-        FontFamily="{StaticResource GlyphTaskFF}"
-        Glyph="{StaticResource GlyphTask}"
-        Color="{DynamicResource DynamicSecondaryText}" />
-    <FontImageSource
-        x:Key="GlyphTaskISTertiary"
-        FontFamily="{StaticResource GlyphTaskFF}"
-        Glyph="{StaticResource GlyphTask}"
-        Color="{DynamicResource DynamicTertiaryText}" />
-    <FontImageSource
-        x:Key="GlyphTaskISQuartary"
-        FontFamily="{StaticResource GlyphTaskFF}"
-        Glyph="{StaticResource GlyphTask}"
-        Color="{DynamicResource DynamicQuartaryText}" />
 
     <x:String x:Key="GlyphTimeline">&#xe29c;</x:String>
     <x:String x:Key="GlyphTimelineFF">FASolid</x:String>
-    <FontImageSource
-        x:Key="GlyphTimelineISPrimary"
-        FontFamily="{StaticResource GlyphTimelineFF}"
-        Glyph="{StaticResource GlyphTimeline}"
-        Color="{DynamicResource DynamicPrimaryText}" />
-    <FontImageSource
-        x:Key="GlyphTimelineISSecondary"
-        FontFamily="{StaticResource GlyphTimelineFF}"
-        Glyph="{StaticResource GlyphTimeline}"
-        Color="{DynamicResource DynamicSecondaryText}" />
-    <FontImageSource
-        x:Key="GlyphTimelineISTertiary"
-        FontFamily="{StaticResource GlyphTimelineFF}"
-        Glyph="{StaticResource GlyphTimeline}"
-        Color="{DynamicResource DynamicTertiaryText}" />
-    <FontImageSource
-        x:Key="GlyphTimelineISQuartary"
-        FontFamily="{StaticResource GlyphTimelineFF}"
-        Glyph="{StaticResource GlyphTimeline}"
-        Color="{DynamicResource DynamicQuartaryText}" />
 
     <x:String x:Key="GlyphAdd">&#x2b;</x:String>
     <x:String x:Key="GlyphAddFF">FASolid</x:String>
-    <FontImageSource
-        x:Key="GlyphAddISPrimary"
-        FontFamily="{StaticResource GlyphAddFF}"
-        Glyph="{StaticResource GlyphAdd}"
-        Color="{DynamicResource DynamicPrimaryText}" />
-    <FontImageSource
-        x:Key="GlyphAddISSecondary"
-        FontFamily="{StaticResource GlyphAddFF}"
-        Glyph="{StaticResource GlyphAdd}"
-        Color="{DynamicResource DynamicSecondaryText}" />
-    <FontImageSource
-        x:Key="GlyphAddISTertiary"
-        FontFamily="{StaticResource GlyphAddFF}"
-        Glyph="{StaticResource GlyphAdd}"
-        Color="{DynamicResource DynamicTertiaryText}" />
-    <FontImageSource
-        x:Key="GlyphAddISQuartary"
-        FontFamily="{StaticResource GlyphAddFF}"
-        Glyph="{StaticResource GlyphAdd}"
-        Color="{DynamicResource DynamicQuartaryText}" />
 
     <x:String x:Key="GlyphDelete">&#xf1f8;</x:String>
     <x:String x:Key="GlyphDeleteFF">FASolid</x:String>
-    <FontImageSource
-        x:Key="GlyphDeleteISPrimary"
-        FontFamily="{StaticResource GlyphDeleteFF}"
-        Glyph="{StaticResource GlyphDelete}"
-        Color="{DynamicResource DynamicPrimaryText}" />
-    <FontImageSource
-        x:Key="GlyphDeleteISSecondary"
-        FontFamily="{StaticResource GlyphDeleteFF}"
-        Glyph="{StaticResource GlyphDelete}"
-        Color="{DynamicResource DynamicSecondaryText}" />
-    <FontImageSource
-        x:Key="GlyphDeleteISTertiary"
-        FontFamily="{StaticResource GlyphDeleteFF}"
-        Glyph="{StaticResource GlyphDelete}"
-        Color="{DynamicResource DynamicTertiaryText}" />
-    <FontImageSource
-        x:Key="GlyphDeleteISQuartary"
-        FontFamily="{StaticResource GlyphDeleteFF}"
-        Glyph="{StaticResource GlyphDelete}"
-        Color="{DynamicResource DynamicQuartaryText}" />
 
     <x:String x:Key="GlyphClear">&#xf51a;</x:String>
     <x:String x:Key="GlyphClearFF">FASolid</x:String>
-    <FontImageSource
-        x:Key="GlyphClearISPrimary"
-        FontFamily="{StaticResource GlyphClearFF}"
-        Glyph="{StaticResource GlyphClear}"
-        Color="{DynamicResource DynamicPrimaryText}" />
-    <FontImageSource
-        x:Key="GlyphClearISSecondary"
-        FontFamily="{StaticResource GlyphClearFF}"
-        Glyph="{StaticResource GlyphClear}"
-        Color="{DynamicResource DynamicSecondaryText}" />
-    <FontImageSource
-        x:Key="GlyphClearISTertiary"
-        FontFamily="{StaticResource GlyphClearFF}"
-        Glyph="{StaticResource GlyphClear}"
-        Color="{DynamicResource DynamicTertiaryText}" />
-    <FontImageSource
-        x:Key="GlyphClearISQuartary"
-        FontFamily="{StaticResource GlyphClearFF}"
-        Glyph="{StaticResource GlyphClear}"
-        Color="{DynamicResource DynamicQuartaryText}" />
 
+    <x:String x:Key="GlyphEdit">&#xf303;</x:String>
+    <x:String x:Key="GlyphEditFF">FASolid</x:String>
+
+    <x:String x:Key="GlyphCancel">&#xf00d;</x:String>
+    <x:String x:Key="GlyphCancelFF">FASolid</x:String>
 </ResourceDictionary>
