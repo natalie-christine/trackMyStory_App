@@ -25,6 +25,13 @@ public class ColorHelper
                         color.WithLuminosity(1f);
     }
 
+    public static Color CreatePlaceholderTextColor(Color color)
+    {
+        return color.GetLuminosity() > 0.5 ?
+                        color.WithLuminosity(0.3f) :
+                        color.WithLuminosity(0.7f);
+    }
+
     public static void SetColor(Color? color, Color? color2)
     {
         static void SetColors(string p, Color c)

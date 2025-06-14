@@ -18,6 +18,7 @@ public partial class AddCategoryPage : Popup
         Color color = Color.FromRgb(ColorPickerCategorie.Red, ColorPickerCategorie.Green, ColorPickerCategorie.Blue);
         entry.BackgroundColor = color;
         entry.TextColor = ColorHelper.CreateTextColor(color);
+        entry.PlaceholderColor = ColorHelper.CreatePlaceholderTextColor(color);
     }
 
     private async void Button_Clicked_1(object sender, EventArgs e)
