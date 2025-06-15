@@ -43,4 +43,7 @@
 
     <x:String x:Key="GlyphSettings">&#xf1de;</x:String>
     <x:String x:Key="GlyphSettingsFF">FASolid</x:String>
+
+    <x:String x:Key="GlyphHome">&#xf015;</x:String>
+    <x:String x:Key="GlyphHomeFF">FASolid</x:String>
 </ResourceDictionary>

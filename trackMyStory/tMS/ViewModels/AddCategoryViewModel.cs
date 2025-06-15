@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Maui.Core;
+﻿using CommunityToolkit.Maui;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Diagnostics;
@@ -24,7 +24,7 @@ public partial class AddCategoryViewModel : ObservableObject
     }
 
     [RelayCommand]
-    async Task OnSave()
+    async Task Save()
     {
         Debug.WriteLine($"Saving category: {Name} with color: {ColorHex}");
 
@@ -36,12 +36,18 @@ public partial class AddCategoryViewModel : ObservableObject
                 Name = name,
                 Color = ColorHex
             });
-            popupService.ClosePopup();
+            await popupService.ClosePopupAsync(AppShell.Current);
         }
         catch
         {
             new Exception("Fehler beim Speichern der Kategorie. Bitte versuche es erneut.");
         }
 
+    }
+
+    [RelayCommand]
+    async Task Cancel()
+    {
+        await popupService.ClosePopupAsync(AppShell.Current);
     }
 }

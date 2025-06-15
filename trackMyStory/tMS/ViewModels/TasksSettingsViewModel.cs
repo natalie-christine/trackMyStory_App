@@ -1,8 +1,6 @@
-﻿using CommunityToolkit.Maui.Core;
+﻿using CommunityToolkit.Maui;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System.Diagnostics;
-using tMS.Models;
 
 namespace tMS.ViewModels;
 
@@ -28,5 +26,11 @@ public partial class TasksSettingsViewModel : ObservableObject
     {
         //TODD: Implement save logic
 
+    }
+
+    [RelayCommand]
+    async Task Close()
+    {
+        await popupService.ClosePopupAsync(Shell.Current);
     }
 }

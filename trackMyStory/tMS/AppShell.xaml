@@ -5,9 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:tMS"
     xmlns:pages="clr-namespace:tMS.Pages"
+    Title="tMS"
     Shell.FlyoutBehavior="Flyout"
-    Shell.FlyoutItemIsVisible="False"
-    Title="tMS">
+    Shell.FlyoutItemIsVisible="False">
 
     <Shell.Resources>
         <Style TargetType="Label">
@@ -16,34 +16,45 @@
     </Shell.Resources>
 
     <FlyoutItem FlyoutItemIsVisible="False">
-        <ShellContent
-            ContentTemplate="{DataTemplate pages:Login}"
-            Route="Login" 
-        />
+        <ShellContent ContentTemplate="{DataTemplate pages:Login}" Route="Login" />
     </FlyoutItem>
 
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" 
-        />
+        FlyoutIcon="{FontImageSource Glyph={StaticResource GlyphHome},
+                                     FontFamily={StaticResource GlyphHomeFF},
+                                     Color={AppThemeBinding Dark=White,
+                                                            Light=Black}}"
+        Route="MainPage" />
     <ShellContent
         Title="PatPat - Dashboard"
         ContentTemplate="{DataTemplate pages:PatPatDashboard}"
-        Route="PatPatDashboard" 
-        />
-    
+        FlyoutIcon="{FontImageSource Glyph={StaticResource GlyphLove},
+                                     FontFamily={StaticResource GlyphLoveFF},
+                                     Color={AppThemeBinding Dark=White,
+                                                            Light=Black}}"
+        Route="PatPatDashboard" />
     <ShellContent
-    Title="Tasks - Dashboard"
-    ContentTemplate="{DataTemplate pages:Tasker}"
-    Route="Tasker" 
-/>
+        Title="Tasks - Dashboard"
+        ContentTemplate="{DataTemplate pages:Tasker}"
+        FlyoutIcon="{FontImageSource Glyph={StaticResource GlyphTask},
+                                     FontFamily={StaticResource GlyphTaskFF},
+                                     Color={AppThemeBinding Dark=White,
+                                                            Light=Black}}"
+        Route="Tasker" />
     <ShellContent
         Title="Einstellungen"
         ContentTemplate="{DataTemplate pages:Settings}"
-        Route="Settings" 
-    />
-    <Shell.FlyoutFooter >
-                  <Button Text="Logout" Command="{Binding LogoutCommand}" Margin="10" />  
+        FlyoutIcon="{FontImageSource Glyph={StaticResource GlyphSettings},
+                                     FontFamily={StaticResource GlyphSettingsFF},
+                                     Color={AppThemeBinding Dark=White,
+                                                            Light=Black}}"
+        Route="Settings" />
+    <Shell.FlyoutFooter>
+        <Button
+            Margin="10"
+            Command="{Binding LogoutCommand}"
+            Text="Logout" />
     </Shell.FlyoutFooter>
 </Shell>

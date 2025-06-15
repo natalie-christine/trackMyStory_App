@@ -60,18 +60,23 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Maui" Version="11.2.0" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="12.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
 		<PackageReference Include="LiveChartsCore.SkiaSharpView.Maui" Version="2.0.0-rc5.4" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.70" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.5" />
-		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.80" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.6" />
 		<PackageReference Include="Supabase" Version="1.1.1" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Compile Update="Pages\Login.xaml.cs">
 	    <DependentUpon>Login.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Popups\AddCategory.xaml.cs">
+	    <DependentUpon>AddCategory.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Popups\TasksSettings.xaml.cs">
+	    <DependentUpon>TasksSettings.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Properties\Resources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -91,13 +96,16 @@
 	  <MauiXaml Update="Components\ColorPicker.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Components\DashboardTile.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Components\ResponsiveIconButton.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Components\TaskComponent.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\AddCategoryPage.xaml">
+	  <MauiXaml Update="Pages\Popups\AddCategory.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Login.xaml">
@@ -112,7 +120,7 @@
 	  <MauiXaml Update="Pages\Tasker.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\TasksSettingsPage.xaml">
+	  <MauiXaml Update="Pages\Popups\TasksSettings.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\Colors.xaml">

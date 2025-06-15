@@ -3,9 +3,8 @@ using LiveChartsCore.SkiaSharpView.Maui;
 using Microsoft.Extensions.Logging;
 using SkiaSharp.Views.Maui.Controls.Hosting;
 using Supabase;
-using System.Transactions;
 using tMS.Helper;
-using tMS.Pages;
+using tMS.Pages.Popups;
 using tMS.ViewModels;
 
 
@@ -48,8 +47,8 @@ namespace tMS
                     .AddSingleton<SbLoginViewModel>()
                     .AddSingleton<SbTaskViewModel>()
                     .AddSingleton<AddCategoryViewModel>()
-                    .AddTransientPopup<AddCategoryPage, AddCategoryViewModel>()
-                    .AddTransientPopup<TasksSettingsPage, TasksSettingsViewModel>();
+                    .AddTransientPopup<AddCategory, AddCategoryViewModel>()
+                    .AddTransientPopup<TasksSettings, TasksSettingsViewModel>();
                     
             ;
 

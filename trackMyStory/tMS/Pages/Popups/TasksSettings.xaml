@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="tMS.Pages.Popups.TasksSettings"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Popups="clr-namespace:tMS.Pages.Popups"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    BackgroundColor="{AppThemeBinding Light={StaticResource White},
+                                      Dark={StaticResource OffBlack}}"
+    HorizontalOptions="Center"
+    VerticalOptions="Center"
+    WidthRequest="340">
+
+    <toolkit:DockLayout ShouldExpandLastChild="False">
+        <VerticalStackLayout toolkit:DockLayout.DockPosition="Top" Spacing="10">
+            <Label
+                FontSize="Medium"
+                HorizontalOptions="Center"
+                Text="Einstellungen"
+                TextColor="{AppThemeBinding Light=Black,
+                                            Dark=White}"
+                VerticalOptions="Center" />
+            <Label Text="Hier sollen Einstellungsdinge passieren" TextColor="{AppThemeBinding Light=Black, Dark=White}" />
+            <Button Text="Kategorie Name ändern" />
+            <Button Text="Kategorie - Farbe ändern" />
+            <Button Text="Kategorie - löschen" />
+
+        </VerticalStackLayout>
+
+        <FlexLayout
+            Margin="0,30,0,0"
+            toolkit:DockLayout.DockPosition="Bottom"
+            AlignContent="SpaceBetween"
+            HeightRequest="50">
+            <Button
+                Command="{Binding SaveCommand}"
+                FlexLayout.Grow="1"
+                Text="OK" />
+            <Button
+                Command="{Binding CloseCommand}"
+                FlexLayout.Grow="1"
+                Text="Abbrechen" />
+        </FlexLayout>
+    </toolkit:DockLayout>
+
+</ContentView>

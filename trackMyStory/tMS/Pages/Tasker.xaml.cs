@@ -10,7 +10,6 @@ namespace tMS.Pages;
 public partial class Tasker : ContentPage
 {
     private SbTaskViewModel sbTaskViewModel;
-    private TasksSettingsViewModel tasksSettingsViewModel;
     private IPopupService popupService;
 
     public Tasker(SbTaskViewModel _sbTaskViewModel, IPopupService _popupService)
@@ -29,7 +28,7 @@ public partial class Tasker : ContentPage
 
     private async void AddCategory(object sender, EventArgs e)
     {
-       await popupService.ShowPopupAsync<AddCategoryViewModel>();
+       await popupService.ShowPopupAsync<AddCategoryViewModel>(this);
        sbTaskViewModel.LoadCategoriesCommand.Execute(this);
 
     }
@@ -39,19 +38,9 @@ public partial class Tasker : ContentPage
         Debug.WriteLine(sender);
     }
 
-    private void TaskComponent_SaveClicked(object sender, EventArgs e)
-    {
-        sbTaskViewModel.SaveTaskForCategoryCommand.Execute(null);
-    }
-
-    private void TaskComponent_CancelClicked(object sender, EventArgs e)
-    {
-        sbTaskViewModel.CancelTaskForCategoryCommand.Execute(null);
-    }
-
     private async void btnTasksSetting_Clicked(object sender, EventArgs e)
     {
-       await popupService.ShowPopupAsync<TasksSettingsViewModel>();
+       await popupService.ShowPopupAsync<TasksSettingsViewModel>(this);
 
      //   tasksSettingsViewModel.SaveCommand.Execute(this);
 

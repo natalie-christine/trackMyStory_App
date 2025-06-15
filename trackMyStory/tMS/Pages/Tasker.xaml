@@ -8,7 +8,8 @@
     xmlns:models="clr-namespace:tMS.Models"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:viewmodels="clr-namespace:tMS.ViewModels"
-    Title="So many Tasks . . . .">
+    Title="So many Tasks . . . ."
+    x:DataType="viewmodels:SbTaskViewModel">
 
     <ContentPage.Resources>
         <converter:ColorConverter x:Key="ColorConverter" />
@@ -139,10 +140,10 @@
                 <VerticalStackLayout Grid.Column="1">
                     <components:TaskComponent
                         Name="{Binding NewTask.Name, Mode=TwoWay}"
-                        CancelClicked="TaskComponent_CancelClicked"
+                        CancelCommand="{Binding CancelTaskForCategoryCommand}"
                         HexColor="{Binding NewTask.Category.Color}"
                         IsVisible="{Binding NewTask, Converter={StaticResource IsNotNullConverter}}"
-                        SaveClicked="TaskComponent_SaveClicked" />
+                        SaveCommand="{Binding SaveTaskForCategoryCommand}" />
                     <!--<VerticalStackLayout >
                         <Label Text="{Binding NewTask.Name}" />
                         <Label Text="{Binding NewTask.CategoryId}" />

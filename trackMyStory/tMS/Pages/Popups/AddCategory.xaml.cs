@@ -2,11 +2,11 @@ using CommunityToolkit.Maui.Views;
 using tMS.Helper;
 using tMS.ViewModels;
 
-namespace tMS.Pages;
+namespace tMS.Pages.Popups;
 
-public partial class AddCategoryPage : Popup
+public partial class AddCategory : ContentView
 {
-	public AddCategoryPage(AddCategoryViewModel addCategoryViewModel)
+	public AddCategory(AddCategoryViewModel addCategoryViewModel)
 	{
 		InitializeComponent();
         BindingContext = addCategoryViewModel;
@@ -19,11 +19,6 @@ public partial class AddCategoryPage : Popup
         entry.BackgroundColor = color;
         entry.TextColor = ColorHelper.CreateTextColor(color);
         entry.PlaceholderColor = ColorHelper.CreatePlaceholderTextColor(color);
-    }
-
-    private async void Button_Clicked_1(object sender, EventArgs e)
-    {
-        await CloseAsync();
     }
 
    private void btnRandomColor(object sender, EventArgs e)

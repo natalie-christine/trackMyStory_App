@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="tMS.Components.DashboardTile"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:tMS.Components"
+    Padding="10">
+    <Border
+        x:Name="container"
+        Padding="10"
+        x:DataType="components:DashboardTile"
+        MinimumWidthRequest="320"
+        StyleClass="Secondary">
+        <VerticalStackLayout>
+            <Image
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="0,10,0,10"
+                HeightRequest="60"
+                Source="{Binding Icon}"
+                WidthRequest="50" />
+
+            <Label
+                Margin="0,10,0,10"
+                FontSize="30"
+                HorizontalOptions="Center"
+                Text="{Binding Text}"
+                TextColor="{DynamicResource DynamicSecondaryText}" />
+
+            <Button
+                Clicked="Button_Clicked"
+                StyleClass="Primary"
+                Text="Öffnen" />
+        </VerticalStackLayout>
+    </Border>
+</ContentView>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="tMS.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:tMS.Components">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="OnCounterClicked" Text="Hell/Dunkel" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+            <Image
+                Aspect="AspectFit"
+                HeightRequest="185"
+                SemanticProperties.Description="dot net bot in a hovercraft number nine"
+                Source="dotnet_bot.png" />
+
+            <FlexLayout
+                AlignItems="Center"
+                JustifyContent="SpaceBetween"
+                Wrap="Wrap">
+                <components:DashboardTile
+                    Clicked="NavPatPatDashboard_Clicked"
+                    FlexLayout.Grow="1"
+                    Icon="{FontImageSource Glyph={StaticResource GlyphLove},
+                                           Size=50,
+                                           FontFamily={StaticResource GlyphLoveFF},
+                                           Color={DynamicResource DynamicSecondaryText}}"
+                    Text="PatPat - Dashboard" />
+                <components:DashboardTile
+                    Clicked="NavTasksDashboard_Clicked"
+                    FlexLayout.Grow="1"
+                    Icon="{FontImageSource Glyph={StaticResource GlyphTask},
+                                           Size=50,
+                                           FontFamily={StaticResource GlyphTaskFF},
+                                           Color={DynamicResource DynamicSecondaryText}}"
+                    Text="Tasks - Dashboard" />
+                <components:DashboardTile
+                    Clicked="NavEinstellungen_Clicked"
+                    FlexLayout.Grow="1"
+                    Icon="{FontImageSource Glyph={StaticResource GlyphSettings},
+                                           Size=50,
+                                           FontFamily={StaticResource GlyphSettingsFF},
+                                           Color={DynamicResource DynamicSecondaryText}}"
+                    Text="Einstellungen" />
+            </FlexLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
