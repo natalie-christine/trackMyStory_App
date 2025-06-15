@@ -27,6 +27,10 @@
     </Style>
 
     <!--  Label  -->
+    <Style Class="Default" TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark=white, Light=black}" />
+    </Style>
+
     <Style Class="Primary" TargetType="Label">
         <Setter Property="TextColor" Value="{DynamicResource DynamicPrimaryText}" />
     </Style>

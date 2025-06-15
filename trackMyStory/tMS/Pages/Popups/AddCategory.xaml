@@ -15,7 +15,7 @@
     <toolkit:DockLayout ShouldExpandLastChild="False">
         <VerticalStackLayout toolkit:DockLayout.DockPosition="Top" Spacing="10">
             <Label
-                FontSize="Medium"
+                FontSize="20"
                 Text="Neue Kategorie hinzufügen"
                 TextColor="{AppThemeBinding Light=Black,
                                             Dark=White}" />
@@ -28,7 +28,9 @@
                     x:Name="ColorPickerCategorie"
                     Margin="0,0,0,20"
                     ColorChanged="ColorPickerCategorie_ColorChanged"
-                    HexColor="{Binding ColorHex}" />
+                    HexColor="{Binding ColorHex}" 
+                    LabelClass="Default"
+                    />
             </Grid>
         </VerticalStackLayout>
 
