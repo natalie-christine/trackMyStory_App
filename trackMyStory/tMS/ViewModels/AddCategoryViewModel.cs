@@ -50,4 +50,6 @@ public partial class AddCategoryViewModel : ObservableObject
     {
         await popupService.ClosePopupAsync(AppShell.Current);
     }
+
+    // why? just why? doesn not shown in release build, but in debug build it does
 }
